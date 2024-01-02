@@ -20,6 +20,9 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
         _animator = GetComponent<Animator>();
         _weaponBullet = weaponBullet;
         _weaponBullet.SetAmmo(5);
+
+        CkeckCard.instance.GetCard();
+        CkeckCard.instance.rankingInfo = CkeckCard.instance.CheckedCard();
     }
 
     bool isMouseDown = false;
@@ -56,8 +59,9 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
 
                 foreach (var card in CkeckCard.instance.playerCards)
                 {
-                    print(card.cardShape.ToString() + " / " + card.cardNumber);
-                    print(CkeckCard.instance.GetInfo().ranking.ToString());
+                    _weaponBullet.CreateBullet(card);
+                    // print(card.cardShape.ToString() + " / " + card.cardNumber);
+                    // print(CkeckCard.instance.GetInfo().ranking.ToString());
                 }
                 
                 // TEST 총알

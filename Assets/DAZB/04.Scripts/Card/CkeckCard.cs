@@ -14,10 +14,6 @@ public class CkeckCard : MonoBehaviour
     public Card[] playerCards;
     public RankingInfo rankingInfo;
 
-    private void Start() {
-        playerCards = new Card[5];
-    }
-
     private void Update() {
         if (Input.GetKeyDown(KeyCode.K)) {
             GetCard();
@@ -30,14 +26,19 @@ public class CkeckCard : MonoBehaviour
     }
 
     public void GetCard() {
+        playerCards = new Card[5];
         for (int i = 0; i < 5; ++i) {
             Card newCard = GetRandomCard.instance.GetRandom();
             foreach (Card iter in playerCards) {
+                if (iter == null) continue;
                 if (newCard.cardNumber == iter.cardNumber && newCard.cardShape == iter.cardShape) {
                     GetCard();
                     return;
                 }
             }
+            print(playerCards);
+            print(playerCards.Length);
+            print(i);
             playerCards[i] = newCard;
         }
     }
