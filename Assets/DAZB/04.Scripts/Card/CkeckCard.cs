@@ -83,7 +83,7 @@ public class CkeckCard : MonoBehaviour
             print(HandRankings.instance.OnePairCheck(playerCards).Item2.cardNumber + " One pair");
             return new RankingInfo(Ranking.ONEPAIR, HandRankings.instance.OnePairCheck(playerCards).Item2);
         }
-        print(HandRankings.instance.BackStraightFlushCheck(playerCards).Item2 + " High Card");
-        return new RankingInfo(Ranking.HIGHCARD, HandRankings.instance.BackStraightFlushCheck(playerCards).Item2);
+        print(HandRankings.instance.HighCardCheck(playerCards).Item2.cardNumber + " High Card");
+        return new RankingInfo(Ranking.HIGHCARD, HandRankings.instance.HighCardCheck(playerCards).Item2);
     }
 }
