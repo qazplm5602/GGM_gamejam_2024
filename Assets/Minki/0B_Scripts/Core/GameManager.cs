@@ -6,8 +6,17 @@ public class GameManager : MonoBehaviour
 
     public Transform playerTrm;
 
+    [SerializeField] private GameObject statCanvas;
+
+    public PlayerExperience player;
+
     private void Awake() {
-        if(Instance == null) Instance = this;
+        if (Instance == null) Instance = this;
         else Destroy(gameObject);
+    }
+    
+    public void OnStatCanvas()
+    {
+        statCanvas.SetActive(true);
     }
 }
