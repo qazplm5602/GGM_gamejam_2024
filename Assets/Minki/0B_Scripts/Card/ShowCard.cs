@@ -19,8 +19,8 @@ public class ShowCard : MonoBehaviour
     }
 
     private IEnumerator ShowingCard() {
-        Card[] cards = CkeckCard.instance.playerCards;
-        RankingInfo rankingInfo = CkeckCard.instance.GetInfo();
+        Card[] cards = CheckCard.instance.playerCards;
+        RankingInfo rankingInfo = CheckCard.instance.GetInfo();
         Dictionary<GameObject, int> cardObj = new Dictionary<GameObject, int>();
 
         for(int i = 0; i < 5; ++i) {

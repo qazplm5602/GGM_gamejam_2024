@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class CkeckCard : MonoBehaviour
+public class CheckCard : MonoBehaviour
 {
-    public static CkeckCard instance;
+    public static CheckCard instance;
     private void Awake() {
         instance = this;
         playerCards = new Card[5];

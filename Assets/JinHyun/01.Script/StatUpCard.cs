@@ -8,7 +8,7 @@ public class StatUpCard : MonoBehaviour
     StatUpCanvas statUpParent;
     [SerializeField] private GameObject[] Friends;
     [SerializeField] private TextMeshProUGUI description;
-    [SerializeField] private char[] shapes = new char[] { '♠', '♥', '♦', '♣' };
+    [SerializeField] private char[] shapes = new char[] { '♠', '♦', '♥', '♣' };
 
     Image jokerImage;
     Vector2 originPos;
@@ -71,10 +71,12 @@ public class StatUpCard : MonoBehaviour
         statUpParent.DisableText();
         ShinyEffect();
         selected = true;
-        UnHover();
+        Exit();
 
         //Add Weight to Selected Card's Increase Stat Info
         //
+        print(randShape + " 0123 스다하클");
+        print(GetRandomCard.instance.shapeWeights[randShape]);
         GetRandomCard.instance.shapeWeights[randShape].shapeWeight += randPercent;
 
         //Selected Card's Position to Move Zero, Add Shiny Effect, Decrease Size to 0
@@ -91,7 +93,7 @@ public class StatUpCard : MonoBehaviour
         print("들어옴");
     }
 
-    public void UnHover()
+    public void Exit()
     {
         if(!selected) transform.localScale = originScale;
         print("나감");
