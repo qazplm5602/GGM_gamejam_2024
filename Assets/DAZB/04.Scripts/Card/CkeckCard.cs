@@ -16,6 +16,9 @@ public class CkeckCard : MonoBehaviour
 
     private void Start() {
         playerCards = new Card[5];
+        foreach (var iter in playerCards) {
+            iter.cardNumber = 1;
+        }
     }
 
     private void Update() {
