@@ -25,19 +25,12 @@ public enum Ranking
 public class RankingInfo {
     public RankingInfo(Ranking ranking, Card cardData) {
         this.ranking = ranking;
-        this.cardData[0] = cardData;
-    }
-
-    public RankingInfo(Ranking ranking, Card[] cardDatas) {
-        this.ranking = ranking;
-        for (int i = 0; i < cardDatas.Length; ++i) {
-            this.cardData[i] = cardDatas[i];
-        }
+        this.cardData = cardData;
     }
 
     public RankingInfo(Ranking ranking) {
         this.ranking = ranking;
     }
     public Ranking ranking;
-    public Card[] cardData;
+    public Card cardData;
 }
