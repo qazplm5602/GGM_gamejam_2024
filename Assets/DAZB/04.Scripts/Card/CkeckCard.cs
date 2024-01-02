@@ -12,13 +12,18 @@ public class CkeckCard : MonoBehaviour
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.K)) {
-            GetCard();
-            rankingInfo = CheckedCard();
+            DrawCard();
         }
     }
 
     public RankingInfo GetInfo() {
         return rankingInfo;
+    }
+
+    public void DrawCard() {
+        GetCard();
+        rankingInfo = CheckedCard();
+        ShuffleCards();
     }
 
     private void GetCard() {
@@ -31,6 +36,13 @@ public class CkeckCard : MonoBehaviour
                 }
             }
             playerCards[i] = newCard;
+        }
+    }
+
+    private void ShuffleCards() {
+        for (int i = 0; i < playerCards.Length; i++) {
+            int randIdx = Random.Range(i, playerCards.Length - 1);
+            (playerCards[i], playerCards[randIdx]) = (playerCards[randIdx], playerCards[i]);  
         }
     }
 

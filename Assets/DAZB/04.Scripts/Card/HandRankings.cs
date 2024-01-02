@@ -218,4 +218,19 @@ public class HandRankings : MonoBehaviour
         }
         return cards;
     }
+
+    public Card[] ShuffleArray(Card[] array)
+    {
+        int n = array.Length;
+        for (int i = n - 1; i > 0; i--)
+        {
+            int randIndex = UnityEngine.Random.Range(0, i + 1);
+
+            // 요소를 교환
+            Card temp = array[i];
+            array[i] = array[randIndex];
+            array[randIndex] = temp;
+        }
+        return array;
+    }
 }
