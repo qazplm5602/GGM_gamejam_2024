@@ -33,6 +33,7 @@ public class StatUpCanvas : MonoBehaviour
             item.SetActive(false);
         }
         text.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     public void DisableText()
