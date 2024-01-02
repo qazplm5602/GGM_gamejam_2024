@@ -14,6 +14,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         _bulletMain.eventListener[Ranking.STRAIGHT] = Straight;
         _bulletMain.eventListener[Ranking.TRIPLE] = Triple;
         _bulletMain.eventListener[Ranking.BACKSTRAIGHT] = Backstraight;
+        _bulletMain.eventListener[Ranking.MOUNTAIN] = Mountain;
     }
 
     private void OnDestroy() {
@@ -21,6 +22,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         _bulletMain.eventListener.Remove(Ranking.STRAIGHT);
         _bulletMain.eventListener.Remove(Ranking.TRIPLE);
         _bulletMain.eventListener.Remove(Ranking.BACKSTRAIGHT);
+        _bulletMain.eventListener.Remove(Ranking.MOUNTAIN);
     }
 
 
@@ -31,7 +33,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         for (int i = -2, k = 0; i < 3; i++, k ++)
         {
             bullets[k].transform.position = start;
-            bullets[k].transform.rotation = Quaternion.AngleAxis(angle + (15 * i), Vector3.forward);
+            bullets[k].transform.rotation = Quaternion.AngleAxis(angle + (5 * i), Vector3.forward);
         }
     }
 
@@ -95,6 +97,45 @@ public class WeaponSkillHandlers : MonoBehaviour
                 // bullet.transform.position += bullet.transform.right * i;
             }, i * .05f);
             i++;
+        }
+    }
+    void Mountain(Vector2 start, float angle) {
+        float?[,] spawnCoords = new float?[5, 5] {
+         {null, null, 0,null,null},
+            {-1, null,0,null,1},
+            {-1, null,0,null,1},
+            {-1, null,0,null,1},
+            {-1,  -0.5f, 0,  0.5f,  1},
+        };
+
+        Queue<GameObject> cards = new();
+        for (int i = 0; i < 3; i++)
+        {
+            foreach (var card in _bulletMain.CreateBullets())
+            {
+                card.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                card.SetActive(false);
+
+                cards.Enqueue(card);
+            }
+        }
+
+        print("------ cards");
+        print(cards.Count);
+        
+        for (int i = 0; i < spawnCoords.GetLength(0); i++)
+        {
+            for (int k = 0; k < spawnCoords.GetLength(1); k++) {
+                var x = spawnCoords[i, k];
+                if (x == null) continue;
+
+                var entity = cards.Dequeue();
+                Wait(() => {
+                    entity.SetActive(true);
+                    entity.transform.position = start;
+                    entity.transform.position += entity.transform.up * x.Value;
+                }, i * .01f);
+            }
         }
     }
 

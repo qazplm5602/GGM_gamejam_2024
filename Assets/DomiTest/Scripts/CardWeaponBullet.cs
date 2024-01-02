@@ -9,6 +9,6 @@ public class CardWeaponBullet : MonoBehaviour
     
     void Update()
     {
-        transform.position += transform.right * Time.deltaTime * 5;
+        transform.position += transform.right * Time.deltaTime * speed;
     }
 }
