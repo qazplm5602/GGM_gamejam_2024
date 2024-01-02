@@ -183,6 +183,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTrm: {fileID: 1984234845}
+  statCanvas: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2f366f21bca33a4ab6c3011cf26e451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spawnDelay: 0.4
 --- !u!4 &1153798940 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4585745271221866841, guid: e491ca2a0de6f4c43b82b440a241c0b3, type: 3}
@@ -567,7 +570,6 @@ MonoBehaviour:
   - {fileID: 534415805, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
   - {fileID: 460963881, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
   - {fileID: -1555615676, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
-  - {fileID: 1802235012, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
   - {fileID: -1077866215, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
   - {fileID: 1316491267, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
   - {fileID: -679623940, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
@@ -581,6 +583,7 @@ MonoBehaviour:
   - {fileID: -97265834, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
   - {fileID: -1352431511, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
   - {fileID: 1343063910, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
+  - {fileID: 1802235012, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
 --- !u!114 &1531690180
 MonoBehaviour:
   m_ObjectHideFlags: 0
