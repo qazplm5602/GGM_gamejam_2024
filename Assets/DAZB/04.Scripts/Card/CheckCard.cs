@@ -30,6 +30,7 @@ public class CheckCard : MonoBehaviour
         for (int i = 0; i < 5; ++i) {
             Card newCard = GetRandomCard.instance.GetRandom();
             foreach (Card iter in playerCards) {
+                if (iter == null) continue;
                 if (newCard.cardNumber == iter.cardNumber && newCard.cardShape == iter.cardShape) {
                     GetCard();
                     return;

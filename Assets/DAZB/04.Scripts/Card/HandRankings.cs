@@ -22,11 +22,25 @@ public class HandRankings : MonoBehaviour
     public (bool, Card) OnePairCheck(Card[] cards) {
         for (int i = 0; i < cards.Length; ++i) {
             int same = 1;
-            for (int j = 0; j < cards.Length; ++j) {
-                if (i != j && cards[i].cardNumber == cards[j].cardNumber) {
-                    ++same;
-                    if (same == 2) {
-                        return (true, cards[i]);
+            if (cards[i].cardNumber == 1 || cards[i].cardNumber == 14) {
+                for (int j = 0; j < cards.Length; ++j) {
+                    if (i != j && (cards[i].cardNumber == cards[j].cardNumber || 
+                                   (cards[i].cardNumber == 1 && cards[j].cardNumber == 14) || 
+                                   (cards[i].cardNumber == 14 && cards[j].cardNumber == 1))) {
+                        ++same;
+                        if (same == 2) {
+                            return (true, cards[i]);
+                        }
+                    }
+                }
+            }
+            else {
+                for (int j = 0; j < cards.Length; ++j) {
+                    if (i != j && cards[i].cardNumber == cards[j].cardNumber) {
+                        ++same;
+                        if (same == 2) {
+                            return (true, cards[i]);
+                        }
                     }
                 }
             }
@@ -34,15 +48,20 @@ public class HandRankings : MonoBehaviour
         return (false, null);
     }
 
+
     // Two Pair
     public (bool, Card[]) TwoPairCheck(Card[] cards) {
         Card[] pairCard = new Card[2];
         int pairCount = 0;
+        
         for (int i = 0; i < cards.Length; ++i) {
             for (int j = i + 1; j < cards.Length; ++j) {
-                if (cards[i].cardNumber == cards[j].cardNumber) {
+                if (cards[i].cardNumber == cards[j].cardNumber || 
+                   (cards[i].cardNumber == 1 && cards[j].cardNumber == 14) || 
+                   (cards[i].cardNumber == 14 && cards[j].cardNumber == 1)) {
                     pairCount++;
                     pairCard[pairCount - 1] = cards[i];
+                    
                     if (pairCount == 2) {
                         return (true, pairCard);
                     }

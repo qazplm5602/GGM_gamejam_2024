@@ -156,18 +156,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCards:
   - cardShape: 1
-    cardNumber: 3
+    cardNumber: 1
   - cardShape: 3
-    cardNumber: 3
+    cardNumber: 2
   - cardShape: 2
-    cardNumber: 4
+    cardNumber: 2
   - cardShape: 1
     cardNumber: 5
   - cardShape: 0
-    cardNumber: 6
+    cardNumber: 14
   rankingInfo:
     ranking: 0
-    cardData:
+    cardData1:
+      cardShape: 0
+      cardNumber: 0
+    cardData2:
       cardShape: 0
       cardNumber: 0
 --- !u!4 &1537869108
