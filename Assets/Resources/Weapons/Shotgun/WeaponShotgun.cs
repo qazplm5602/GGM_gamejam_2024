@@ -6,6 +6,9 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
 {
     [SerializeField] float betweenTime = .3f;
     [SerializeField] float reloadTime = 3;
+    [SerializeField] float deadDistance = 2;
+    [SerializeField] Transform firePos;
+    [SerializeField] GameObject bullet;
     Animator _animator;
     bool isReload = false;
     float fireTime = 0;
@@ -17,6 +20,8 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
         _animator = GetComponent<Animator>();
         _weaponBullet = weaponBullet;
         _weaponBullet.SetAmmo(5);
+
+        CkeckCard.instance.DrawCard();
     }
 
     bool isMouseDown = false;
@@ -42,6 +47,29 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
                 StartCoroutine(WeaponReload());
                 return;
             }
+             
+            // 마우스 좌표 ㄱㄱ
+            {
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector3 diff = mousePos - firePos.position;
+                var angle = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+                // 데드존
+                if (Vector2.Distance((Vector2)mousePos, (Vector2)transform.root.position) < deadDistance) return;
+
+                _weaponBullet.ShotFire(firePos.position, angle);
+                // var bullets = _weaponBullet.CreateBullets();
+
+                // // TEST 총알
+                // for (int i = -2, k = 0; i < 3; i++, k ++)
+                // {
+                //     bullets[k].transform.position = firePos.position;
+                //     bullets[k].transform.rotation = Quaternion.AngleAxis(angle + (15 * i), Vector3.forward);
+                //     // entity.transform.right = firePos.right;
+                //     // print(entity.transform.right);
+                //     // print(firePos.right);
+                // }
+            }
+
             fireTime = Time.time;
             _weaponBullet.SetAmmo(0);
             _animator.SetTrigger("Shot");
@@ -54,6 +82,7 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
     IEnumerator WeaponReload() {
         yield return new WaitForSeconds(reloadTime);
         print("weapon reloaded!");
+        CkeckCard.instance.DrawCard();
         _weaponBullet.SetAmmo(5);
         isReload = false;
     }

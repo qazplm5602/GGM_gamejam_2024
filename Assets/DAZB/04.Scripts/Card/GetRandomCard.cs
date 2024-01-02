@@ -18,11 +18,7 @@ public class GetRandomCard : MonoBehaviour {
     public static GetRandomCard instance;
     private void Awake() {
         instance = this;
-    }
-    public NumbeWeight[] numbeWeights;
-    public ShapeWeight[] shapeWeights;
 
-    private void Start() {
         numbeWeights = new NumbeWeight[14];
         shapeWeights = new ShapeWeight[4];
         for (int i = 1; i <= 14; ++i) {
@@ -36,6 +32,8 @@ public class GetRandomCard : MonoBehaviour {
             shapeWeights[i - 1].shapeWeight = 25;
         }
     }
+    public NumbeWeight[] numbeWeights;
+    public ShapeWeight[] shapeWeights;
 
     public Card GetRandom() {
         return new Card(GetShape(), GetNumber());
