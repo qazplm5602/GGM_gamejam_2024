@@ -54,6 +54,12 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
                 // 데드존
                 if (Vector2.Distance((Vector2)mousePos, (Vector2)transform.root.position) < deadDistance) return;
 
+                foreach (var card in CkeckCard.instance.playerCards)
+                {
+                    print(card.cardShape.ToString() + " / " + card.cardNumber);
+                    print(CkeckCard.instance.GetInfo().ranking.ToString());
+                }
+                
                 // TEST 총알
                 for (int i = -2; i < 3; i++)
                 {
@@ -78,6 +84,8 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
     IEnumerator WeaponReload() {
         yield return new WaitForSeconds(reloadTime);
         print("weapon reloaded!");
+        CkeckCard.instance.GetCard();
+        CkeckCard.instance.rankingInfo = CkeckCard.instance.CheckedCard();
         _weaponBullet.SetAmmo(5);
         isReload = false;
     }

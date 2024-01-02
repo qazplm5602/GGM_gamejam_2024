@@ -29,7 +29,7 @@ public class CkeckCard : MonoBehaviour
         return rankingInfo;
     }
 
-    private void GetCard() {
+    public void GetCard() {
         for (int i = 0; i < 5; ++i) {
             Card newCard = GetRandomCard.instance.GetRandom();
             foreach (Card iter in playerCards) {
@@ -42,7 +42,7 @@ public class CkeckCard : MonoBehaviour
         }
     }
 
-    private RankingInfo CheckedCard() {
+    public RankingInfo CheckedCard() {
         if (HandRankings.instance.RoyalStraightFlushCheck(playerCards).Item1) {
             print(HandRankings.instance.RoyalStraightFlushCheck(playerCards).Item2.cardShape + " Royal Straight Flush");        
             return new RankingInfo(Ranking.ROYALSTRAIGHTFLUSH, HandRankings.instance.RoyalStraightFlushCheck(playerCards).Item2);
