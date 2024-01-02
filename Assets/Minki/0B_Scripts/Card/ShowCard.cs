@@ -14,7 +14,7 @@ public class ShowCard : MonoBehaviour
 
     private void Update() {
         if(Input.GetKeyDown(KeyCode.P)) {
-            CkeckCard.instance.DrawCard();
+            CheckCard.instance.DrawCard();
             DisappearCard();
             StartCoroutine(ShowingCard());
         }
@@ -23,8 +23,8 @@ public class ShowCard : MonoBehaviour
     private IEnumerator ShowingCard() {
         yield return new WaitForSeconds(0.33f);
 
-        Card[] cards = CkeckCard.instance.playerCards;
-        RankingInfo rankingInfo = CkeckCard.instance.GetInfo();
+        Card[] cards = CheckCard.instance.playerCards;
+        RankingInfo rankingInfo = CheckCard.instance.GetInfo();
         Dictionary<GameObject, int> cardObj = new Dictionary<GameObject, int>();
 
         for(int i = 0; i < 5; ++i) {
@@ -43,11 +43,31 @@ public class ShowCard : MonoBehaviour
         foreach(GameObject obj in cardObj.Keys) {
             if(rankingInfo.ranking == Ranking.HIGHCARD || rankingInfo.ranking == Ranking.ONEPAIR || rankingInfo.ranking == Ranking.TWOPAIR || rankingInfo.ranking == Ranking.TRIPLE || rankingInfo.ranking == Ranking.FOURCARD) {
                 if(cardObj[obj] == rankingInfo.cardData1.cardNumber || (rankingInfo.cardData2 != null && cardObj[obj] == rankingInfo.cardData2.cardNumber)) 
-                obj.transform.GetChild(0).gameObject.SetActive(true);
+                    SetColor(obj.transform.GetChild(0).gameObject, rankingInfo.ranking);
                 else obj.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f);
             }
-            else obj.transform.GetChild(0).gameObject.SetActive(true);
+            else SetColor(obj.transform.GetChild(0).gameObject, rankingInfo.ranking);
         }
+    }
+
+    private void SetColor(GameObject obj, Ranking ranking) {
+        Color color = Color.white;
+
+        switch(ranking) {
+            case Ranking.HIGHCARD: color = Color.red; break;
+            case Ranking.ONEPAIR: color = Color.red; break;
+            case Ranking.TWOPAIR: color = Color.red; break;
+            case Ranking.TRIPLE: color = Color.red; break;
+            case Ranking.STRAIGHT: color = Color.red; break;
+            case Ranking.FLUSH: color = Color.red; break;
+            case Ranking.FULLHOUSE: color = Color.red; break;
+            case Ranking.FOURCARD: color = Color.red; break;
+            case Ranking.STRAIGHTFLUSH: color = Color.red; break;
+            case Ranking.ROYALSTRAIGHTFLUSH: color = new Color(0.12f, 0, 1); break;
+        }
+
+        obj.SetActive(true);
+        obj.GetComponent<SpriteRenderer>().material.SetColor("_Color", color * 7f);
     }
 
     public void DisappearCard() {
