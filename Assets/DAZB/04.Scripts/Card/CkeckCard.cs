@@ -7,6 +7,10 @@ using UnityEngine;
 
 public class CkeckCard : MonoBehaviour
 {
+    public static CkeckCard instance;
+    private void Awake() {
+        instance = this;
+    }
     public Card[] playerCards;
     public RankingInfo rankingInfo;
 
@@ -21,8 +25,8 @@ public class CkeckCard : MonoBehaviour
         }
     }
 
-    public void GetInfo() {
-
+    public RankingInfo GetInfo() {
+        return rankingInfo;
     }
 
     private void GetCard() {
