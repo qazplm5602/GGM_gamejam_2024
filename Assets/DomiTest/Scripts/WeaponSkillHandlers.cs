@@ -15,6 +15,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         _bulletMain.eventListener[Ranking.TRIPLE] = Triple;
         _bulletMain.eventListener[Ranking.BACKSTRAIGHT] = Backstraight;
         _bulletMain.eventListener[Ranking.MOUNTAIN] = Mountain;
+        _bulletMain.eventListener[Ranking.FOURCARD] = Fourcard;
     }
 
     private void OnDestroy() {
@@ -23,6 +24,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         _bulletMain.eventListener.Remove(Ranking.TRIPLE);
         _bulletMain.eventListener.Remove(Ranking.BACKSTRAIGHT);
         _bulletMain.eventListener.Remove(Ranking.MOUNTAIN);
+        _bulletMain.eventListener.Remove(Ranking.FOURCARD);
     }
 
 
@@ -136,6 +138,26 @@ public class WeaponSkillHandlers : MonoBehaviour
                     entity.transform.position += entity.transform.up * x.Value;
                 }, i * .01f);
             }
+        }
+    }
+
+    void Fourcard(Vector2 start, float angle) {
+        for (int domi = 0; domi < 4; domi++)
+        {
+            var bullets = _bulletMain.CreateBullets();
+
+            for (int i = -2, k = 0; i < 2; i++, k ++)
+            {
+                bullets[k].SetActive(false);
+                var idx = i;
+                var _k = k;
+                Wait(() => {
+                    bullets[_k].SetActive(true);
+                    bullets[_k].transform.position = start;
+                    bullets[_k].transform.rotation = Quaternion.AngleAxis(angle + (5 * idx), Vector3.forward);
+                }, domi * .05f);
+            }
+            Destroy(bullets[4]);
         }
     }
 
