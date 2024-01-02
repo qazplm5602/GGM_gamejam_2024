@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3e00ac2baf640dc4889382c701ad6007
+guid: a902e50a3b5634741b46aea289e7c857
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 8
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PokerCards_0
+      name: MBG Weapon Pack_0
       rect:
         serializedVersion: 2
-        x: 128
-        y: 384
-        width: 48
-        height: 80
+        x: 3
+        y: 117
+        width: 12
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: adc0cf5f57248eb4cbe01ff781a2aa92
-      internalID: -707464765
+      spriteID: 5af813b07c6898e48a175a5b61d792ca
+      internalID: -1708047720
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_1
+      name: MBG Weapon Pack_1
       rect:
         serializedVersion: 2
-        x: 192
-        y: 384
-        width: 48
-        height: 80
+        x: 16
+        y: 117
+        width: 9
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47a966f796ea7dc44a5a64390d13c9f9
-      internalID: -1254661639
+      spriteID: 34a43b3a7f2539f42aadf69a318d4bcc
+      internalID: -1474035239
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_2
+      name: MBG Weapon Pack_2
       rect:
         serializedVersion: 2
-        x: 256
-        y: 384
-        width: 48
-        height: 80
+        x: 26
+        y: 117
+        width: 11
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d9857c240a4aa948b584a7f17bb9edb
-      internalID: 909746131
+      spriteID: 89b3afa66afde30438459d78c88e544d
+      internalID: 1882291789
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_3
+      name: MBG Weapon Pack_3
       rect:
         serializedVersion: 2
-        x: 320
-        y: 384
-        width: 48
-        height: 80
+        x: 38
+        y: 117
+        width: 16
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0078c3ca0d7581b42b5e1172cc9e85b9
-      internalID: -2117838218
+      spriteID: 3aa3ee913dfbb5a488b1f99a5a50aec8
+      internalID: -2005872199
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_4
+      name: MBG Weapon Pack_4
       rect:
         serializedVersion: 2
-        x: 384
-        y: 384
-        width: 48
-        height: 80
+        x: 56
+        y: 117
+        width: 13
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ab93d9bae8147848ae786e64ed0e25b
-      internalID: -190887674
+      spriteID: 033b10ad8ab5cd247961f6614e0c1852
+      internalID: 680872647
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_5
+      name: MBG Weapon Pack_5
       rect:
         serializedVersion: 2
-        x: 448
-        y: 384
-        width: 48
-        height: 80
+        x: 74
+        y: 116
+        width: 12
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,20 +229,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 894dcab7f28921b44b99da7e3ccfa822
-      internalID: -800240048
+      spriteID: 05f367bdfdfd0c848b5527e5e5e3a702
+      internalID: -1291203679
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_6
+      name: MBG Weapon Pack_6
       rect:
         serializedVersion: 2
-        x: 512
-        y: 384
-        width: 48
-        height: 80
+        x: 88
+        y: 116
+        width: 27
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,20 +250,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f12dab873406f5b4391c1f119cb06f2c
-      internalID: -1392990738
+      spriteID: 3a1aeba0ac584a440bf722f22851e57d
+      internalID: 2089141703
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_7
+      name: MBG Weapon Pack_7
       rect:
         serializedVersion: 2
-        x: 576
-        y: 384
-        width: 48
-        height: 80
+        x: 119
+        y: 118
+        width: 8
+        height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,20 +271,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fd902f95828850449b3f348d5e40dc4
-      internalID: -1486593433
+      spriteID: 5f9c2128604352a4b9d5d537bad08042
+      internalID: 1322383611
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_8
+      name: MBG Weapon Pack_8
       rect:
         serializedVersion: 2
-        x: 128
-        y: 288
-        width: 48
-        height: 80
+        x: 129
+        y: 116
+        width: 12
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -292,20 +292,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f106dd8ba196f440a69cec44d36b4aa
-      internalID: -1808542275
+      spriteID: 409e1ebd47c00c449824c5ff5f34e293
+      internalID: -2120839104
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_9
+      name: MBG Weapon Pack_9
       rect:
         serializedVersion: 2
-        x: 192
-        y: 288
-        width: 48
-        height: 80
+        x: 2
+        y: 106
+        width: 18
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -313,20 +313,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e935a1f21836c7478dff723257e17fb
-      internalID: 3985731
+      spriteID: ddc7f5affc99a45489ee4ae3750937d5
+      internalID: -246305415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_10
+      name: MBG Weapon Pack_10
       rect:
         serializedVersion: 2
-        x: 256
-        y: 288
-        width: 48
-        height: 80
+        x: 22
+        y: 106
+        width: 18
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -334,20 +334,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85a3d0174e073874b89af6411599ccfb
-      internalID: -142006038
+      spriteID: 58274c43a1346cd4a921699f459888e6
+      internalID: 188841237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_11
+      name: MBG Weapon Pack_11
       rect:
         serializedVersion: 2
-        x: 320
-        y: 288
-        width: 48
-        height: 80
+        x: 42
+        y: 109
+        width: 26
+        height: 5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -355,20 +355,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: effbd948b1a3464428a4faf1aabad9c5
-      internalID: 1094784053
+      spriteID: 79f84f0dbd3c3f1489b7d718fc350ce9
+      internalID: 1479807559
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_12
+      name: MBG Weapon Pack_12
       rect:
         serializedVersion: 2
-        x: 384
-        y: 288
-        width: 48
-        height: 80
+        x: 74
+        y: 106
+        width: 32
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -376,20 +376,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8cc63e01713a86947884d42b1cfe820b
-      internalID: -1052958363
+      spriteID: 891de787fa44db945aeca634d73571e7
+      internalID: 1281769931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_13
+      name: MBG Weapon Pack_13
       rect:
         serializedVersion: 2
-        x: 448
-        y: 288
-        width: 48
-        height: 80
+        x: 110
+        y: 108
+        width: 32
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -397,20 +397,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa654e296c536684f8929649dc33b495
-      internalID: -581614757
+      spriteID: 839f3715e4b2a9544a0a5eaa0d9fb80f
+      internalID: 2010982434
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_14
+      name: MBG Weapon Pack_14
       rect:
         serializedVersion: 2
-        x: 512
-        y: 288
-        width: 48
-        height: 80
+        x: 1
+        y: 96
+        width: 29
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -418,20 +418,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 133cc0f9e9347e344a3aaa0328056842
-      internalID: 1141602245
+      spriteID: 7635cca9ed727a54aa6a4394288d5730
+      internalID: 1331944589
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_15
+      name: MBG Weapon Pack_15
       rect:
         serializedVersion: 2
-        x: 576
-        y: 288
-        width: 48
-        height: 80
+        x: 42
+        y: 103
+        width: 27
+        height: 5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -439,20 +439,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b599cb7fe3672194a9a371e2c3d7cf1b
-      internalID: -2027664905
+      spriteID: 475ce75f9718532498f0de01fa083daf
+      internalID: -1138875489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_16
+      name: MBG Weapon Pack_16
       rect:
         serializedVersion: 2
-        x: 128
-        y: 192
-        width: 48
-        height: 80
+        x: 109
+        y: 97
+        width: 32
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -460,20 +460,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23b15e99cf254ba46a7097db31ef9856
-      internalID: 497654123
+      spriteID: d40000f323c2ade46b1379869d265861
+      internalID: 1658396108
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_17
+      name: MBG Weapon Pack_17
       rect:
         serializedVersion: 2
-        x: 192
-        y: 192
-        width: 48
-        height: 80
+        x: 41
+        y: 92
+        width: 28
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -481,20 +481,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28d1a16ada0f7b34083dbe089a1e429f
-      internalID: 691877734
+      spriteID: a04d1563eb045aa4b9e5b5cca0bd265c
+      internalID: 1583462177
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_18
+      name: MBG Weapon Pack_18
       rect:
         serializedVersion: 2
-        x: 256
-        y: 192
-        width: 48
-        height: 80
+        x: 72
+        y: 97
+        width: 30
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -502,20 +502,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8754d6b4f20fd84bba62ca61f9aef92
-      internalID: -18559376
+      spriteID: e26e30fadbfafd941aef42202930909e
+      internalID: -873710364
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_19
+      name: MBG Weapon Pack_19
       rect:
         serializedVersion: 2
-        x: 320
-        y: 192
-        width: 48
-        height: 80
+        x: 1
+        y: 87
+        width: 32
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -523,20 +523,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8e2293c213361149a9fb9c6241f224d
-      internalID: 812431697
+      spriteID: d87d9c512484750489e71b9c455236e5
+      internalID: -1940468897
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_20
+      name: MBG Weapon Pack_20
       rect:
         serializedVersion: 2
-        x: 384
-        y: 192
-        width: 48
-        height: 80
+        x: 41
+        y: 81
+        width: 28
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -544,20 +544,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3dc46cb03757b34bbd7a9443dc1f48f
-      internalID: -1616065985
+      spriteID: 243a59b3920226d4f950563311ee98d2
+      internalID: 46371385
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_21
+      name: MBG Weapon Pack_21
       rect:
         serializedVersion: 2
-        x: 448
-        y: 192
-        width: 48
-        height: 80
+        x: 73
+        y: 81
+        width: 24
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -565,20 +565,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40a0cd1fb011d654f96c9d4bc21632f8
-      internalID: -321108720
+      spriteID: bdd7ae45a2262ad43958128cec3fd1ef
+      internalID: -475647884
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_22
+      name: MBG Weapon Pack_22
       rect:
         serializedVersion: 2
-        x: 512
-        y: 192
-        width: 48
-        height: 80
+        x: 109
+        y: 86
+        width: 32
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -586,20 +586,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f0418c9c70e03248925d9d670ad27b2
-      internalID: 1449394803
+      spriteID: d5f7ccf91a6a83e4189e5cd67036d1c0
+      internalID: 737106530
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_23
+      name: MBG Weapon Pack_23
       rect:
         serializedVersion: 2
-        x: 576
-        y: 192
-        width: 48
-        height: 80
+        x: 2
+        y: 76
+        width: 29
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -607,20 +607,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae8ffe1aa8f8ba84086c2ce0560dc6c9
-      internalID: 1216184909
+      spriteID: b94180a9d72b77d40a84b8e64cb98139
+      internalID: 1989783958
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_24
+      name: MBG Weapon Pack_24
       rect:
         serializedVersion: 2
-        x: 640
-        y: 192
-        width: 48
-        height: 80
+        x: 41
+        y: 70
+        width: 28
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -628,20 +628,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d061d6aa04495764e8ad08ead0184dff
-      internalID: -30061038
+      spriteID: d4e012762204859419caa21d0c3dcc6f
+      internalID: -1766611322
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_25
+      name: MBG Weapon Pack_25
       rect:
         serializedVersion: 2
-        x: 704
-        y: 192
-        width: 48
-        height: 80
+        x: 72
+        y: 69
+        width: 29
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -649,20 +649,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 305b2d900d30f7247a20f3c5f2568423
-      internalID: 224316691
+      spriteID: 6fc00b19d39f70f4098fb66154eb0ed3
+      internalID: -1177037362
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_26
+      name: MBG Weapon Pack_26
       rect:
         serializedVersion: 2
-        x: 768
-        y: 192
-        width: 48
-        height: 80
+        x: 107
+        y: 68
+        width: 34
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -670,20 +670,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ebf1a96c340333945a94787b3c310202
-      internalID: 630405751
+      spriteID: a9551d53ab98a6e4f8c02b6baf29d801
+      internalID: 1842575713
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_27
+      name: MBG Weapon Pack_27
       rect:
         serializedVersion: 2
-        x: 832
-        y: 192
-        width: 48
-        height: 80
+        x: 1
+        y: 66
+        width: 32
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -691,20 +691,503 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 285893a2e9954c24c80667129f1d0a53
-      internalID: -104527967
+      spriteID: 408877a45bbbcf549a6cac473d5812b6
+      internalID: -1561144185
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PokerCards_28
+      name: MBG Weapon Pack_28
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 60
+        width: 28
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4c6b1229eb74e24c94dd42b2432c266
+      internalID: 1235323221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MBG Weapon Pack_29
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 56
+        width: 30
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84503d6ab7ffe9b4186ccd845375819b
+      internalID: 1860788491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MBG Weapon Pack_30
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 50
+        width: 19
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fde5a650fb6fda4f8816cb52eb404c1
+      internalID: 797145275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MBG Weapon Pack_31
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 58
+        width: 24
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c16d5d75d953e004dafea158fbbe74a4
+      internalID: 2087339375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MBG Weapon Pack_32
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 49
+        width: 34
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24161bbc4029f8041b1c85016dd1a3f3
+      internalID: 634803805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MBG Weapon Pack_33
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 46
+        width: 20
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d12fed798cc0d1f4a8a8fee5a0460876
+      internalID: -209082495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MBG Weapon Pack_34
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 45
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 333fe10e593098c44a0d8b6a2479b1c4
+      internalID: 1814005092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MBG Weapon Pack_35
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 48
+        width: 23
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b591dce0e509f7649b9a8caca3f7b372
+      internalID: -493248034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MBG Weapon Pack_36
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 38
+        width: 21
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba10576b4af4cb7428804fa2d25ae92e
+      internalID: 909966596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MBG Weapon Pack_37
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 40
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5d901f019e31de4c89e8295e8b89d29
+      internalID: 1671990581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MBG Weapon Pack_38
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 38
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19b23749fab51e249beba0595620bfd0
+      internalID: 212399666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MBG Weapon Pack_39
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 36
+        width: 26
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8703c237b562ac47b6be3fc50bdafac
+      internalID: 2047070071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MBG Weapon Pack_40
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 29
+        width: 31
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69da8070d48de9445b902435f177e52c
+      internalID: -518476411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MBG Weapon Pack_41
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 31
+        width: 32
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a7ad0cd9c31419449a62638ac300dad
+      internalID: -1048141501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MBG Weapon Pack_42
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 29
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d181fd97f3842bb47b2927cdcd50c1a8
+      internalID: -991530439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MBG Weapon Pack_43
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 17
+        width: 21
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eaf818b3098daa468374e5c6c8d236a
+      internalID: 5494671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MBG Weapon Pack_44
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 16
+        width: 32
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74e4d7d2ad25fef439078002f6c1d4b3
+      internalID: 969048361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MBG Weapon Pack_45
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 14
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07a570ec51d06b84187d31992103f951
+      internalID: -1892324622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MBG Weapon Pack_46
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 24
+        width: 35
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ec2bb5ba8bca5b48ba8508e87b18901
+      internalID: -2066129513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MBG Weapon Pack_47
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 10
+        width: 27
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab65c3fce358c4d4aac89c779c333b10
+      internalID: -708657865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MBG Weapon Pack_48
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 3
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4ccb7997d1bac84ab97cf5fc2ce0370
+      internalID: 1369366279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MBG Weapon Pack_49
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 12
+        width: 34
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9067989a8f0ae24197ab6e27519d4ad
+      internalID: -445511017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MBG Weapon Pack_50
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 2
+        width: 19
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 512bd43cc8313704396645effebdc006
+      internalID: 404583565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MBG Weapon Pack_51
       rect:
         serializedVersion: 2
         x: 62
-        y: 94
-        width: 52
-        height: 84
+        y: 7
+        width: 19
+        height: 5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -712,554 +1195,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea9b768f4d4a60e44b9a9cc985a67fb7
-      internalID: -977772658
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PokerCards_29
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 96
-        width: 48
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6804ae4ec507d064d933c92fd452e337
-      internalID: 795871302
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PokerCards_30
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 96
-        width: 48
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b4d948a32fa48e24ea1e703fe28f3198
-      internalID: -876637979
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PokerCards_31
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 96
-        width: 48
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3cc896c3773b9b44f88a1327c0f708c8
-      internalID: -851125409
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PokerCards_32
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 96
-        width: 48
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 515e3529c5b0d474b99c9da122bd4c0d
-      internalID: 1567340008
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PokerCards_33
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 96
-        width: 48
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a41a821b4df1ae4418ec15944c879ebd
-      internalID: -145061289
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PokerCards_34
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 96
-        width: 48
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 02f32638e2594bd46b4761acb19d0b08
-      internalID: 1981421211
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PokerCards_35
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 96
-        width: 48
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 581e9da306a7e8540a49839a9e05d775
-      internalID: 516918848
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PokerCards_36
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 96
-        width: 48
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7d914d6a8a0eff248af4abd7d961ca77
-      internalID: -2138334562
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PokerCards_37
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 96
-        width: 48
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0f6649903896a644a8f4a00f7c32e637
-      internalID: -598378434
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PokerCards_38
-      rect:
-        serializedVersion: 2
-        x: 704
-        y: 96
-        width: 48
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 318195ac4928b5c4ab5bd0e830282e1e
-      internalID: -1754265318
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PokerCards_39
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 96
-        width: 48
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4e5fd3da7b06987479633fe299f427b1
-      internalID: -1014526199
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PokerCards_40
-      rect:
-        serializedVersion: 2
-        x: 832
-        y: 96
-        width: 48
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1068006535102ad45a05b1897bcbf73c
-      internalID: -1503667536
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PokerCards_41
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 48
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7a6b14b59a1b39142acf33efda47953f
-      internalID: -836639163
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PokerCards_42
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 48
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 500e84ae9a2a62846b75729bd2f652d0
-      internalID: 989828555
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PokerCards_43
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 48
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 00f0491f206c96844ba1771d744dd62a
-      internalID: -1713895535
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PokerCards_44
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 48
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 575d1a82e0ea84d41b76483f48e029b5
-      internalID: 823270366
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PokerCards_45
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 48
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1edf581091561794a9c2d58d3b43070b
-      internalID: 447890261
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PokerCards_46
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 48
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca3d1856f129d9b4cb2f776d92c1d3b5
-      internalID: 1295652758
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PokerCards_47
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 48
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7dec935d10a12e547bf093b9d2902352
-      internalID: -599838340
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PokerCards_48
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 0
-        width: 48
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4895569991eb76d46a30f4d0b588acad
-      internalID: 765011704
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PokerCards_49
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 48
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e9aae8e974dff5645addbd96296c8c6b
-      internalID: 547636954
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PokerCards_50
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 0
-        width: 48
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 15c51cf2dd4f5514ab0df542b6bdd0cc
-      internalID: -46594855
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PokerCards_51
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 0
-        width: 48
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 422a43e0f974a62489f5c072c150ef44
-      internalID: 1193366391
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PokerCards_52
-      rect:
-        serializedVersion: 2
-        x: 704
-        y: 0
-        width: 48
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0860d4cf3bd87654695a2801e301c93f
-      internalID: 2017449267
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PokerCards_53
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 0
-        width: 48
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 70fd2342a1f5cc6439f9e3696c2cdbd0
-      internalID: -1103222656
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PokerCards_54
-      rect:
-        serializedVersion: 2
-        x: 832
-        y: 0
-        width: 48
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 88f8146f41eb74647a8278e06b48a86d
-      internalID: -683533735
+      spriteID: 8cb178468aaf0de40af6db5ef086ebfb
+      internalID: 138090415
       vertices: []
       indices: 
       edges: []
@@ -1275,61 +1212,58 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PokerCards_0: -707464765
-      PokerCards_1: -1254661639
-      PokerCards_10: -142006038
-      PokerCards_11: 1094784053
-      PokerCards_12: -1052958363
-      PokerCards_13: -581614757
-      PokerCards_14: 1141602245
-      PokerCards_15: -2027664905
-      PokerCards_16: 497654123
-      PokerCards_17: 691877734
-      PokerCards_18: -18559376
-      PokerCards_19: 812431697
-      PokerCards_2: 909746131
-      PokerCards_20: -1616065985
-      PokerCards_21: -321108720
-      PokerCards_22: 1449394803
-      PokerCards_23: 1216184909
-      PokerCards_24: -30061038
-      PokerCards_25: 224316691
-      PokerCards_26: 630405751
-      PokerCards_27: -104527967
-      PokerCards_28: -977772658
-      PokerCards_29: 795871302
-      PokerCards_3: -2117838218
-      PokerCards_30: -876637979
-      PokerCards_31: -851125409
-      PokerCards_32: 1567340008
-      PokerCards_33: -145061289
-      PokerCards_34: 1981421211
-      PokerCards_35: 516918848
-      PokerCards_36: -2138334562
-      PokerCards_37: -598378434
-      PokerCards_38: -1754265318
-      PokerCards_39: -1014526199
-      PokerCards_4: -190887674
-      PokerCards_40: -1503667536
-      PokerCards_41: -836639163
-      PokerCards_42: 989828555
-      PokerCards_43: -1713895535
-      PokerCards_44: 823270366
-      PokerCards_45: 447890261
-      PokerCards_46: 1295652758
-      PokerCards_47: -599838340
-      PokerCards_48: 765011704
-      PokerCards_49: 547636954
-      PokerCards_5: -800240048
-      PokerCards_50: -46594855
-      PokerCards_51: 1193366391
-      PokerCards_52: 2017449267
-      PokerCards_53: -1103222656
-      PokerCards_54: -683533735
-      PokerCards_6: -1392990738
-      PokerCards_7: -1486593433
-      PokerCards_8: -1808542275
-      PokerCards_9: 3985731
+      MBG Weapon Pack_0: -1708047720
+      MBG Weapon Pack_1: -1474035239
+      MBG Weapon Pack_10: 188841237
+      MBG Weapon Pack_11: 1479807559
+      MBG Weapon Pack_12: 1281769931
+      MBG Weapon Pack_13: 2010982434
+      MBG Weapon Pack_14: 1331944589
+      MBG Weapon Pack_15: -1138875489
+      MBG Weapon Pack_16: 1658396108
+      MBG Weapon Pack_17: 1583462177
+      MBG Weapon Pack_18: -873710364
+      MBG Weapon Pack_19: -1940468897
+      MBG Weapon Pack_2: 1882291789
+      MBG Weapon Pack_20: 46371385
+      MBG Weapon Pack_21: -475647884
+      MBG Weapon Pack_22: 737106530
+      MBG Weapon Pack_23: 1989783958
+      MBG Weapon Pack_24: -1766611322
+      MBG Weapon Pack_25: -1177037362
+      MBG Weapon Pack_26: 1842575713
+      MBG Weapon Pack_27: -1561144185
+      MBG Weapon Pack_28: 1235323221
+      MBG Weapon Pack_29: 1860788491
+      MBG Weapon Pack_3: -2005872199
+      MBG Weapon Pack_30: 797145275
+      MBG Weapon Pack_31: 2087339375
+      MBG Weapon Pack_32: 634803805
+      MBG Weapon Pack_33: -209082495
+      MBG Weapon Pack_34: 1814005092
+      MBG Weapon Pack_35: -493248034
+      MBG Weapon Pack_36: 909966596
+      MBG Weapon Pack_37: 1671990581
+      MBG Weapon Pack_38: 212399666
+      MBG Weapon Pack_39: 2047070071
+      MBG Weapon Pack_4: 680872647
+      MBG Weapon Pack_40: -518476411
+      MBG Weapon Pack_41: -1048141501
+      MBG Weapon Pack_42: -991530439
+      MBG Weapon Pack_43: 5494671
+      MBG Weapon Pack_44: 969048361
+      MBG Weapon Pack_45: -1892324622
+      MBG Weapon Pack_46: -2066129513
+      MBG Weapon Pack_47: -708657865
+      MBG Weapon Pack_48: 1369366279
+      MBG Weapon Pack_49: -445511017
+      MBG Weapon Pack_5: -1291203679
+      MBG Weapon Pack_50: 404583565
+      MBG Weapon Pack_51: 138090415
+      MBG Weapon Pack_6: 2089141703
+      MBG Weapon Pack_7: 1322383611
+      MBG Weapon Pack_8: -2120839104
+      MBG Weapon Pack_9: -246305415
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
