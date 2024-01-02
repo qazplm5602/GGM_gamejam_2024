@@ -10,16 +10,13 @@ public class CkeckCard : MonoBehaviour
     public static CkeckCard instance;
     private void Awake() {
         instance = this;
-    }
-    public Card[] playerCards;
-    public RankingInfo rankingInfo;
-
-    private void Start() {
         playerCards = new Card[5];
         foreach (var iter in playerCards) {
             iter.cardNumber = 1;
         }
     }
+    public Card[] playerCards;
+    public RankingInfo rankingInfo;
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.K)) {
