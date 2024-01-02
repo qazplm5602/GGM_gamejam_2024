@@ -14,6 +14,8 @@ public class ShowCard : MonoBehaviour
 
     private void Update() {
         if(Input.GetKeyDown(KeyCode.P)) {
+            CkeckCard.instance.DrawCard();
+            for(int i = 0; i < transform.childCount; ++i) Destroy(gameObject.transform.GetChild(i).gameObject);
             StartCoroutine(ShowingCard());
         }
     }
@@ -38,7 +40,8 @@ public class ShowCard : MonoBehaviour
 
         foreach(GameObject obj in cardObj.Keys) {
             if(rankingInfo.ranking == Ranking.HIGHCARD || rankingInfo.ranking == Ranking.ONEPAIR || rankingInfo.ranking == Ranking.TWOPAIR || rankingInfo.ranking == Ranking.TRIPLE || rankingInfo.ranking == Ranking.FOURCARD) {
-                if(cardObj[obj] == rankingInfo.cardData1.cardNumber || cardObj[obj] == rankingInfo.cardData2.cardNumber) obj.transform.GetChild(0).gameObject.SetActive(true);
+                if(cardObj[obj] == rankingInfo.cardData1.cardNumber || (rankingInfo.cardData2 != null && cardObj[obj] == rankingInfo.cardData2.cardNumber)) 
+                obj.transform.GetChild(0).gameObject.SetActive(true);
                 else obj.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f);
             }
             else obj.transform.GetChild(0).gameObject.SetActive(true);
