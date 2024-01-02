@@ -41,7 +41,7 @@ public class CkeckCard : MonoBehaviour
 
     private void ShuffleCards() {
         for (int i = 0; i < playerCards.Length; i++) {
-            int randIdx = Random.Range(i, playerCards.Length - 1);
+            int randIdx = Random.Range(i, playerCards.Length);
             (playerCards[i], playerCards[randIdx]) = (playerCards[randIdx], playerCards[i]);  
         }
     }
