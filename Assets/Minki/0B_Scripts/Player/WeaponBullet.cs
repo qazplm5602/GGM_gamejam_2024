@@ -30,11 +30,23 @@ public class WeaponBullet : MonoBehaviour
         // 여기에서 UI 연동
     }
 
-    public GameObject CreateBullet(Card card) {
-        var spriteName = card.cardShape.ToString().ToLower()+"_"+(card.cardNumber == 1 || card.cardNumber == 14 ? "A" : card.cardNumber);
-        var bullet = Instantiate(cardBulletTemplate);
+    public GameObject[] CreateBullets() {
+        var bullets = new GameObject[CkeckCard.instance.playerCards.Length];
+        
+        int i = 0;
+        foreach (var card in CkeckCard.instance.playerCards)
+        {
+            var shapeName = card.cardShape.ToString().ToLower();
+            if (card.cardShape == CardShape.CLUB) shapeName = "clover";
 
-        bullet.GetComponent<SpriteRenderer>().sprite = cardSpriteIndex[spriteName];
-        return null;
+            var spriteName = shapeName+"_"+(card.cardNumber == 1 || card.cardNumber == 14 ? "A" : card.cardNumber);
+            var bullet = Instantiate(cardBulletTemplate);
+            bullets[i] = bullet;
+
+            bullet.GetComponentInChildren<SpriteRenderer>().sprite = cardSpriteIndex[spriteName];
+            i++;
+        }
+
+        return bullets;
     }
 }

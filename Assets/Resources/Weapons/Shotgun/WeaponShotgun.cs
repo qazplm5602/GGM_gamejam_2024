@@ -57,19 +57,13 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
                 // 데드존
                 if (Vector2.Distance((Vector2)mousePos, (Vector2)transform.root.position) < deadDistance) return;
 
-                foreach (var card in CkeckCard.instance.playerCards)
-                {
-                    _weaponBullet.CreateBullet(card);
-                    // print(card.cardShape.ToString() + " / " + card.cardNumber);
-                    // print(CkeckCard.instance.GetInfo().ranking.ToString());
-                }
-                
+                var bullets = _weaponBullet.CreateBullets();
+
                 // TEST 총알
-                for (int i = -2; i < 3; i++)
+                for (int i = -2, k = 0; i < 3; i++, k ++)
                 {
-                    var entity = Instantiate(bullet);
-                    entity.transform.position = firePos.position;
-                    entity.transform.rotation = Quaternion.AngleAxis(angle + (15 * i), Vector3.forward);
+                    bullets[k].transform.position = firePos.position;
+                    bullets[k].transform.rotation = Quaternion.AngleAxis(angle + (15 * i), Vector3.forward);
                     // entity.transform.right = firePos.right;
                     // print(entity.transform.right);
                     // print(firePos.right);
