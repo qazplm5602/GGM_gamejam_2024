@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 1537869108}
   - component: {fileID: 1537869109}
   - component: {fileID: 1537869107}
+  - component: {fileID: 1537869110}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -154,16 +155,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCards:
-  - cardShape: 2
-    cardNumber: 1
-  - cardShape: 0
-    cardNumber: 2
+  - cardShape: 1
+    cardNumber: 3
   - cardShape: 3
     cardNumber: 3
-  - cardShape: 0
+  - cardShape: 2
     cardNumber: 4
   - cardShape: 1
     cardNumber: 5
+  - cardShape: 0
+    cardNumber: 6
+  rankingInfo:
+    ranking: 0
+    cardData:
+      cardShape: 0
+      cardNumber: 0
 --- !u!4 &1537869108
 Transform:
   m_ObjectHideFlags: 0
@@ -191,6 +197,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76976f2e3f44ded44a418f1a020cac4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1537869110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537869106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a945e801baef94d428d5f1e1a0f84188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numbeWeights:
+  - number: 0
+    weight: 0
+  - number: 0
+    weight: 0
+  - number: 0
+    weight: 0
+  - number: 0
+    weight: 0
+  - number: 0
+    weight: 0
+  - number: 0
+    weight: 0
+  - number: 0
+    weight: 0
+  - number: 0
+    weight: 0
+  - number: 0
+    weight: 0
+  - number: 0
+    weight: 0
+  - number: 0
+    weight: 0
+  - number: 0
+    weight: 0
+  - number: 0
+    weight: 0
+  - number: 0
+    weight: 0
+  shapeWeights:
+  - cardShape: 0
+    shapeWeight: 25
+  - cardShape: 1
+    shapeWeight: 25
+  - cardShape: 2
+    shapeWeight: 25
+  - cardShape: 3
+    shapeWeight: 25
 --- !u!1 &1676320100
 GameObject:
   m_ObjectHideFlags: 0

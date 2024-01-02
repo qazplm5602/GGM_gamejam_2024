@@ -13,52 +13,54 @@ public class HandRankings : MonoBehaviour
     }
 
     // One Pair
-    public bool OnePairCheck(Card[] cards) {
+    public (bool, Card) OnePairCheck(Card[] cards) {
         for (int i = 0; i < cards.Length; ++i) {
             int same = 1;
             for (int j = 0; j < cards.Length; ++j) {
                 if (i != j && cards[i].cardNumber == cards[j].cardNumber) {
                     ++same;
                     if (same == 2) {
-                        return true;
+                        return (true, cards[i]);
                     }
                 }
             }
         }
-        return false;
+        return (false, null);
     }
 
     // Two Pair
-    public bool TwoPairCheck(Card[] cards) {
+    public (bool, Card) TwoPairCheck(Card[] cards) {
+        Card[] pairCard = new Card[2];
         int pairCount = 0;
         for (int i = 0; i < cards.Length; ++i) {
             for (int j = i + 1; j < cards.Length; ++j) {
                 if (cards[i].cardNumber == cards[j].cardNumber) {
                     pairCount++;
+                    pairCard[pairCount - 1] = cards[i];
+                    Array.Sort(pairCard);
                     if (pairCount == 2) {
-                        return true;
+                        return (true, pairCard[pairCard.Length - 1]);
                     }
                 }
             }
         }
-
-        return false;
+        return (false, null);
     }
 
     // Three of a kind
-    public bool TripleCheck(Card[] cards) {
+    public (bool, Card) TripleCheck(Card[] cards) {
         for (int i = 0; i < cards.Length; ++i) {
             int same = 1;
             for (int j = 0; j < cards.Length; ++j) {
                 if (i != j && cards[i].cardNumber == cards[j].cardNumber) {
                     ++same;
                     if (same == 3) {
-                        return true;
+                        return (true, cards[i]);
                     }
                 }
             }
         }
-        return false;
+        return (false, null);
     }
 
     // Straight
@@ -101,98 +103,98 @@ public class HandRankings : MonoBehaviour
     }
 
     // Flush
-    public bool FlushCheck(Card[] cards) {
+    public (bool, Card) FlushCheck(Card[] cards) {
         for (int i = 0; i < cards.Length; ++i) {
             if (i == 0) continue;
             else if (cards[i].cardShape != cards[i - 1].cardShape) {
-                return false;
+                return (false, null);
             }
         }
-        return true;
+        return (true, cards[0]);
     }
 
     // Full house
     public bool FullHouseCheck(Card[] cards) {
-        Dictionary<int, int> cardCount = new();
-        foreach(Card iter in cards) {
+        Dictionary<int, int> cardCount = new Dictionary<int, int>();
+
+        foreach (Card iter in cards) {
             if (cardCount.ContainsKey(iter.cardNumber)) {
                 cardCount[iter.cardNumber]++;
-            }
-            else {
+            } else {
                 cardCount.Add(iter.cardNumber, 1);
             }
         }
 
-        bool hasTreple = false;
+        bool hasTriple = false;
         bool hasPair = false;
 
         foreach (int count in cardCount.Values) {
             if (count == 3) {
-                hasTreple = true;
-            }
-            else {
+                hasTriple = true;
+            } else if (count == 2) {
                 hasPair = true;
             }
         }
-        return hasPair && hasTreple;
+
+        return hasTriple && hasPair;
     }
 
     // four of a kind
-    public bool FourCardCheck(Card[] cards) {
+    public (bool, Card) FourCardCheck(Card[] cards) {
         for (int i = 0; i < cards.Length; ++i) {
             int same = 1;
             for (int j = 0; j < cards.Length; ++j) {
                 if (i != j && cards[i].cardNumber == cards[j].cardNumber) {
                     ++same;
                     if (same == 4) {
-                        return true;
+                        return (true, cards[i]);
                     }
                 }
             }
         }
-        return false;
+        return (false, null);
     }
 
     // Straight Flush
-    public bool StraightFlushCheck(Card[] cards) {
-        if (!StraightCheck(cards)) return false;
+    public (bool, Card) StraightFlushCheck(Card[] cards) {
+        if (!StraightCheck(cards)) return (false, null);
         for (int i = 0; i < cards.Length; ++i) {
             if (i == 0) {
                 continue;
             }
             else if (cards[i].cardShape != cards[i - 1].cardShape) {
-                return false;   
+                return (false, null);   
             }
         }
-        return true;
+        return (true, cards[0]);
     }
 
     // back straight flush
-    public bool BackStraightFlushCheck(Card[] cards) {
-        if (!BackStraightCheck(cards)) return false;
+    public (bool, Card) BackStraightFlushCheck(Card[] cards) {
+        if (!BackStraightCheck(cards)) return (false, null);
         for (int i = 0; i < cards.Length; ++i) {
             if (i == 0) {
                 continue;
             }
             else if (cards[i].cardShape != cards[i - 1].cardShape) {
-                return false;   
+                return (false, null);   
             }
         }
-        return true;
+        return (true, cards[0]);
     }
 
     // Royal Straight Flush
-    public bool RoyalStraightFlushCheck(Card[] cards) {
-        if (!MountainCheck(cards)) return false;
+    public (bool, Card) RoyalStraightFlushCheck(Card[] cards) {
+        if (!MountainCheck(cards)) return (false, null);
         for (int i = 0; i < cards.Length; ++i) {
             if (i == 0) {
                 continue;
             }
             else if (cards[i].cardShape != cards[i - 1].cardShape) {
-                return false;   
+                return (false, null);   
             }
         }
-        return true;
+        return (true, cards[0]);
     }
 
 /// <summary>
