@@ -9,6 +9,7 @@ public class PlayerExperience : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         ExpUP();
+        PoolManager.Instance.Push("Exp", other.gameObject);
     }
 
     public void ExpUP()
