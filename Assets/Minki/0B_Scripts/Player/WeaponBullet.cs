@@ -47,6 +47,9 @@ public class WeaponBullet : MonoBehaviour
     public GameObject[] CreateBullets() {
         var bullets = new GameObject[CheckCard.instance.playerCards.Length];
         
+        // 데미지 계산
+        print(default_damage * (GetRankingValue(CheckCard.instance.rankingInfo.ranking) / 100) * ((GetMaxRanking() / 100f) + 1));
+        
         int i = 0;
         foreach (var card in CheckCard.instance.playerCards)
         {
@@ -63,4 +66,25 @@ public class WeaponBullet : MonoBehaviour
 
         return bullets;
     }
+
+    float GetRankingValue(Ranking rank) {
+        switch (rank)
+        {
+            case Ranking.ONEPAIR:
+                return 120;
+            case Ranking.TWOPAIR:
+                return 140;
+            case Ranking.STRAIGHT:
+                return 120;
+            case Ranking.BACKSTRAIGHT:
+                return 145;
+            case Ranking.MOUNTAIN:
+                return 65;
+            case Ranking.FOURCARD:
+                return 144;
+            default:
+                return 100;
+        }
+    }
+    int GetMaxRanking() => CheckCard.instance.rankingInfo.cardData2?.cardNumber ?? CheckCard.instance.rankingInfo.cardData1.cardNumber;
 }
