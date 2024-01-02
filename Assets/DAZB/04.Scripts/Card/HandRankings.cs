@@ -12,6 +12,12 @@ public class HandRankings : MonoBehaviour
         instance = this;
     }
 
+    // High card
+    public (bool, Card) HighCardCheck(Card[] cards) {
+        Card[] sortedCard = CardSort(cards);
+        return (true, sortedCard[sortedCard.Length - 1]);
+    }
+
     // One Pair
     public (bool, Card) OnePairCheck(Card[] cards) {
         for (int i = 0; i < cards.Length; ++i) {
@@ -29,7 +35,7 @@ public class HandRankings : MonoBehaviour
     }
 
     // Two Pair
-    public (bool, Card) TwoPairCheck(Card[] cards) {
+    public (bool, Card[]) TwoPairCheck(Card[] cards) {
         Card[] pairCard = new Card[2];
         int pairCount = 0;
         for (int i = 0; i < cards.Length; ++i) {
@@ -37,9 +43,8 @@ public class HandRankings : MonoBehaviour
                 if (cards[i].cardNumber == cards[j].cardNumber) {
                     pairCount++;
                     pairCard[pairCount - 1] = cards[i];
-                    Array.Sort(pairCard);
                     if (pairCount == 2) {
-                        return (true, pairCard[pairCard.Length - 1]);
+                        return (true, pairCard);
                     }
                 }
             }
