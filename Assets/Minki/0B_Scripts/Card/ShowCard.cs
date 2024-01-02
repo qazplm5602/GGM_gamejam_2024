@@ -15,12 +15,14 @@ public class ShowCard : MonoBehaviour
     private void Update() {
         if(Input.GetKeyDown(KeyCode.P)) {
             CkeckCard.instance.DrawCard();
-            for(int i = 0; i < transform.childCount; ++i) Destroy(gameObject.transform.GetChild(i).gameObject);
+            DisappearCard();
             StartCoroutine(ShowingCard());
         }
     }
 
     private IEnumerator ShowingCard() {
+        yield return new WaitForSeconds(0.33f);
+
         Card[] cards = CkeckCard.instance.playerCards;
         RankingInfo rankingInfo = CkeckCard.instance.GetInfo();
         Dictionary<GameObject, int> cardObj = new Dictionary<GameObject, int>();
@@ -36,7 +38,7 @@ public class ShowCard : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.08f);
 
         foreach(GameObject obj in cardObj.Keys) {
             if(rankingInfo.ranking == Ranking.HIGHCARD || rankingInfo.ranking == Ranking.ONEPAIR || rankingInfo.ranking == Ranking.TWOPAIR || rankingInfo.ranking == Ranking.TRIPLE || rankingInfo.ranking == Ranking.FOURCARD) {
@@ -46,5 +48,22 @@ public class ShowCard : MonoBehaviour
             }
             else obj.transform.GetChild(0).gameObject.SetActive(true);
         }
+    }
+
+    public void DisappearCard() {
+        for(int i = 0; i < transform.childCount; ++i) {
+            StartCoroutine(MoveDownCard(gameObject.transform.GetChild(i).gameObject, 0.05f * i));
+        }
+    }
+
+    private IEnumerator MoveDownCard(GameObject obj, float time) {
+        yield return new WaitForSeconds(time);
+
+        while(obj.transform.localPosition.y > 0f) {
+            obj.transform.position -= obj.transform.up * Time.deltaTime * 8f;
+
+            yield return null;
+        }
+        Destroy(obj);
     }
 }
