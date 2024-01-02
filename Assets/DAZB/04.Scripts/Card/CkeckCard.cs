@@ -11,9 +11,6 @@ public class CkeckCard : MonoBehaviour
     private void Awake() {
         instance = this;
         playerCards = new Card[5];
-        foreach (var iter in playerCards) {
-            iter.cardNumber = 1;
-        }
     }
     public Card[] playerCards;
     public RankingInfo rankingInfo;
