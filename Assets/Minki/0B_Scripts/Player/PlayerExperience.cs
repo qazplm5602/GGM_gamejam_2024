@@ -8,13 +8,18 @@ public class PlayerExperience : MonoBehaviour
     private int _curExp = 0;
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.layer == 6) {
-            _curExp += 30;
-            if(_curExp >= _curNeedExp) {
-                _curExp -= _curNeedExp;
-                _curNeedExp = (int)(_curNeedExp * 1.5f);
-                ++level;
-            }
+        ExpUP();
+    }
+
+    public void ExpUP()
+    {
+        _curExp += 30;
+        if (_curExp >= _curNeedExp)
+        {
+            _curExp -= _curNeedExp;
+            _curNeedExp = (int)(_curNeedExp * 1.5f);
+            GameManager.Instance.OnStatCanvas();
+            ++level;
         }
     }
 }
