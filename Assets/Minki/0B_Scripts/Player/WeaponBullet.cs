@@ -35,6 +35,8 @@ public class WeaponBullet : MonoBehaviour
 
     public void ShotFire(Vector2 start, float angle) {
         var ranking = CkeckCard.instance.rankingInfo.ranking;
+        Debug.LogWarning("ShotFire Debug Code!! L39");
+        ranking = Ranking.STRAIGHT;
         if (eventListener.TryGetValue(ranking, out var cb)) {
             cb(start, angle);
         } else {
