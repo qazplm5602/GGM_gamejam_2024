@@ -35,7 +35,7 @@ public class HandRankings : MonoBehaviour
     }
 
     // Two Pair
-    public (bool, Card) TwoPairCheck(Card[] cards) {
+    public (bool, Card[]) TwoPairCheck(Card[] cards) {
         Card[] pairCard = new Card[2];
         int pairCount = 0;
         for (int i = 0; i < cards.Length; ++i) {
@@ -44,7 +44,7 @@ public class HandRankings : MonoBehaviour
                     pairCount++;
                     pairCard[pairCount - 1] = cards[i];
                     if (pairCount == 2) {
-                        return (true, pairCard[pairCard.Length - 1]);
+                        return (true, pairCard);
                     }
                 }
             }
