@@ -21,8 +21,7 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
         _weaponBullet = weaponBullet;
         _weaponBullet.SetAmmo(5);
 
-        CkeckCard.instance.GetCard();
-        CkeckCard.instance.rankingInfo = CkeckCard.instance.CheckedCard();
+        CkeckCard.instance.DrawCard();
     }
 
     bool isMouseDown = false;
@@ -48,7 +47,7 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
                 StartCoroutine(WeaponReload());
                 return;
             }
-            
+             
             // 마우스 좌표 ㄱㄱ
             {
                 Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -57,17 +56,18 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
                 // 데드존
                 if (Vector2.Distance((Vector2)mousePos, (Vector2)transform.root.position) < deadDistance) return;
 
-                var bullets = _weaponBullet.CreateBullets();
+                _weaponBullet.ShotFire(firePos.position, angle);
+                // var bullets = _weaponBullet.CreateBullets();
 
-                // TEST 총알
-                for (int i = -2, k = 0; i < 3; i++, k ++)
-                {
-                    bullets[k].transform.position = firePos.position;
-                    bullets[k].transform.rotation = Quaternion.AngleAxis(angle + (15 * i), Vector3.forward);
-                    // entity.transform.right = firePos.right;
-                    // print(entity.transform.right);
-                    // print(firePos.right);
-                }
+                // // TEST 총알
+                // for (int i = -2, k = 0; i < 3; i++, k ++)
+                // {
+                //     bullets[k].transform.position = firePos.position;
+                //     bullets[k].transform.rotation = Quaternion.AngleAxis(angle + (15 * i), Vector3.forward);
+                //     // entity.transform.right = firePos.right;
+                //     // print(entity.transform.right);
+                //     // print(firePos.right);
+                // }
             }
 
             fireTime = Time.time;
@@ -82,8 +82,7 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
     IEnumerator WeaponReload() {
         yield return new WaitForSeconds(reloadTime);
         print("weapon reloaded!");
-        CkeckCard.instance.GetCard();
-        CkeckCard.instance.rankingInfo = CkeckCard.instance.CheckedCard();
+        CkeckCard.instance.DrawCard();
         _weaponBullet.SetAmmo(5);
         isReload = false;
     }

@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WeaponBullet : MonoBehaviour
 {
+    [SerializeField] int default_damage;
     [SerializeField] GameObject cardBulletTemplate;
     [SerializeField] Sprite[] cards;
     Dictionary<string, Sprite> cardSpriteIndex = new();
+    public Dictionary<Ranking, UnityAction<Vector2 /* start */, float /* dir(angle) */>> eventListener = new();
 
     private void Awake() {
         // 카드 sprite 인덱싱
@@ -28,6 +31,15 @@ public class WeaponBullet : MonoBehaviour
         _ammo = amount;
 
         // 여기에서 UI 연동
+    }
+
+    public void ShotFire(Vector2 start, float angle) {
+        var ranking = CkeckCard.instance.rankingInfo.ranking;
+        if (eventListener.TryGetValue(ranking, out var cb)) {
+            cb(start, angle);
+        } else {
+            throw new System.Exception(ranking.ToString()+"에 대응하는 이벤트가 없습니다.");
+        }
     }
 
     public GameObject[] CreateBullets() {

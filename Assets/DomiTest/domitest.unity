@@ -463,6 +463,7 @@ GameObject:
   - component: {fileID: 1531690177}
   - component: {fileID: 1531690178}
   - component: {fileID: 1531690179}
+  - component: {fileID: 1531690180}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -524,6 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef21a9ee3754654e983b0d9d53d723f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  default_damage: 0
   cardBulletTemplate: {fileID: 3725183677671623966, guid: baefc42dda1255145b30b23e15492a96, type: 3}
   cards:
   - {fileID: -53976324, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
@@ -579,6 +581,18 @@ MonoBehaviour:
   - {fileID: -97265834, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
   - {fileID: -1352431511, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
   - {fileID: 1343063910, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
+--- !u!114 &1531690180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531690175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65dc0ec8254e04140b876f8a0607cc78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1886176061
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,7 +653,10 @@ MonoBehaviour:
   playerCards: []
   rankingInfo:
     ranking: 0
-    cardData:
+    cardData1:
+      cardShape: 0
+      cardNumber: 0
+    cardData2:
       cardShape: 0
       cardNumber: 0
 --- !u!4 &1886176065
