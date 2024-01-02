@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,9 +70,9 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -186,7 +186,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: diaomnd_5
+      name: diamond_5
       rect:
         serializedVersion: 2
         x: 320
@@ -270,7 +270,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: diaomnd_10
+      name: diamond_10
       rect:
         serializedVersion: 2
         x: 576
@@ -354,7 +354,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: diaomnd_4
+      name: diamond_4
       rect:
         serializedVersion: 2
         x: 320
@@ -438,7 +438,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: diaomnd_9
+      name: diamond_9
       rect:
         serializedVersion: 2
         x: 576
@@ -522,7 +522,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: diaomnd_3
+      name: diamond_3
       rect:
         serializedVersion: 2
         x: 320
@@ -606,7 +606,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: diaomnd_8
+      name: diamond_8
       rect:
         serializedVersion: 2
         x: 576
@@ -690,7 +690,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: diaomnd_13
+      name: diamond_13
       rect:
         serializedVersion: 2
         x: 832
@@ -774,7 +774,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: diaomnd_2
+      name: diamond_2
       rect:
         serializedVersion: 2
         x: 320
@@ -858,7 +858,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: diaomnd_7
+      name: diamond_7
       rect:
         serializedVersion: 2
         x: 576
@@ -942,7 +942,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: diaomnd_12
+      name: diamond_12
       rect:
         serializedVersion: 2
         x: 832
@@ -1068,7 +1068,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: diaomnd_A
+      name: diamond_A
       rect:
         serializedVersion: 2
         x: 321
@@ -1152,7 +1152,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: diaomnd_6
+      name: diamond_6
       rect:
         serializedVersion: 2
         x: 576
@@ -1236,7 +1236,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: diaomnd_11
+      name: diamond_11
       rect:
         serializedVersion: 2
         x: 832
@@ -1281,19 +1281,19 @@ TextureImporter:
       clover_8: -496755193
       clover_9: -1903468530
       clover_A: 444083302
-      diaomnd_10: 940540250
-      diaomnd_11: -1285166913
-      diaomnd_12: 65978900
-      diaomnd_13: -818106104
-      diaomnd_2: 413040065
-      diaomnd_3: 1243996872
-      diaomnd_4: -1521407450
-      diaomnd_5: -1301952454
-      diaomnd_6: 1138466778
-      diaomnd_7: -1093825012
-      diaomnd_8: -1475502078
-      diaomnd_9: -1475502078
-      diaomnd_A: 1570678494
+      diamond_10: 940540250
+      diamond_11: -1285166913
+      diamond_12: 65978900
+      diamond_13: -818106104
+      diamond_2: 1570678494
+      diamond_3: 413040065
+      diamond_4: 1243996872
+      diamond_5: -1521407450
+      diamond_6: -1301952454
+      diamond_7: 1138466778
+      diamond_8: -1093825012
+      diamond_9: -1475502078
+      diamond_A: 1700343036
       heart_10: -1018909750
       heart_11: 534415805
       heart_12: 460963881
