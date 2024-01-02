@@ -21,7 +21,7 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
         _weaponBullet = weaponBullet;
         _weaponBullet.SetAmmo(5);
 
-        CkeckCard.instance.DrawCard();
+        CheckCard.instance.DrawCard();
     }
 
     bool isMouseDown = false;
@@ -82,7 +82,7 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
     IEnumerator WeaponReload() {
         yield return new WaitForSeconds(reloadTime);
         print("weapon reloaded!");
-        CkeckCard.instance.DrawCard();
+        CheckCard.instance.DrawCard();
         _weaponBullet.SetAmmo(5);
         isReload = false;
     }
