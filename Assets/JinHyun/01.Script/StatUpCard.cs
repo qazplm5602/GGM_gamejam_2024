@@ -48,13 +48,8 @@ public class StatUpCard : MonoBehaviour
         if (transform.name == "Option3")
         {
             transform.parent.GetComponent<StatUpCanvas>().text.SetActive(true);
+            Time.timeScale = 0;
         }
-    }
-
-
-    void ShinyEffect()
-    {
-        jokerImage.material = statUpParent.cardShinyMat;
     }
 
     void DisableFriends()
@@ -67,9 +62,9 @@ public class StatUpCard : MonoBehaviour
     public void SelectCard()
     {
         //Disable GameObject Except Selected Card
+        Time.timeScale = 1;
         DisableFriends();
         statUpParent.DisableText();
-        ShinyEffect();
         selected = true;
         Exit();
 
@@ -81,9 +76,10 @@ public class StatUpCard : MonoBehaviour
 
         //Selected Card's Position to Move Zero, Add Shiny Effect, Decrease Size to 0
         Sequence seq = DOTween.Sequence();
-        seq.Append(transform.DOMove(Vector2.zero, 0.4f).SetEase(Ease.OutQuad));
         seq.Join(transform.DOScale(new Vector2(8, 8), 0.4f));
+        seq.Append(transform.DOMove(Camera.main.ViewportToScreenPoint(new Vector2(0.5f, 0.5f)), 0.4f).SetEase(Ease.OutQuad));
         seq.AppendInterval(0.4f);
+
         seq.Append(transform.DOScale(new Vector2(0, 0), 0.4f).SetEase(Ease.OutQuad).OnComplete(() => statUpParent.DisableAll()));
     }
 
