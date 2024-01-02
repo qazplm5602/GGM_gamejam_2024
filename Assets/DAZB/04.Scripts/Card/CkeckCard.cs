@@ -12,8 +12,7 @@ public class CkeckCard : MonoBehaviour
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.K)) {
-            GetCard();
-            rankingInfo = CheckedCard();
+            DrawCard();
         }
     }
 
@@ -21,7 +20,13 @@ public class CkeckCard : MonoBehaviour
         return rankingInfo;
     }
 
-    public void GetCard() {
+    public void DrawCard() {
+        GetCard();
+        rankingInfo = CheckedCard();
+        ShuffleCards();
+    }
+
+    private void GetCard() {
         for (int i = 0; i < 5; ++i) {
             Card newCard = GetRandomCard.instance.GetRandom();
             foreach (Card iter in playerCards) {
@@ -35,7 +40,14 @@ public class CkeckCard : MonoBehaviour
         }
     }
 
-    public RankingInfo CheckedCard() {
+    private void ShuffleCards() {
+        for (int i = 0; i < playerCards.Length; i++) {
+            int randIdx = Random.Range(i, playerCards.Length);
+            (playerCards[i], playerCards[randIdx]) = (playerCards[randIdx], playerCards[i]);  
+        }
+    }
+
+    private RankingInfo CheckedCard() {
         if (HandRankings.instance.RoyalStraightFlushCheck(playerCards).Item1) {
             print(HandRankings.instance.RoyalStraightFlushCheck(playerCards).Item2.cardShape + " Royal Straight Flush");        
             return new RankingInfo(Ranking.ROYALSTRAIGHTFLUSH, HandRankings.instance.RoyalStraightFlushCheck(playerCards).Item2);
@@ -84,7 +96,7 @@ public class CkeckCard : MonoBehaviour
             print(HandRankings.instance.OnePairCheck(playerCards).Item2.cardNumber + " One pair");
             return new RankingInfo(Ranking.ONEPAIR, HandRankings.instance.OnePairCheck(playerCards).Item2);
         }
-        print(HandRankings.instance.BackStraightFlushCheck(playerCards).Item2 + " High Card");
-        return new RankingInfo(Ranking.HIGHCARD, HandRankings.instance.BackStraightFlushCheck(playerCards).Item2);
+        print(HandRankings.instance.HighCardCheck(playerCards).Item2.cardNumber + " High Card");
+        return new RankingInfo(Ranking.HIGHCARD, HandRankings.instance.HighCardCheck(playerCards).Item2);
     }
 }

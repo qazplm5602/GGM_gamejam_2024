@@ -30,7 +30,7 @@ public class RankingInfo {
     }
 
     public RankingInfo(Ranking ranking, Card[] cardData) {
-    this.ranking = ranking;
+        this.ranking = ranking;
         this.cardData1 = cardData[0];
         this.cardData2 = cardData[1];
     }
