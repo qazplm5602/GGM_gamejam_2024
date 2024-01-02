@@ -34,7 +34,9 @@ public class WeaponBullet : MonoBehaviour
     }
 
     public void ShotFire(Vector2 start, float angle) {
-        var ranking = CkeckCard.instance.rankingInfo.ranking;
+        var ranking = CheckCard.instance.rankingInfo.ranking;
+        Debug.LogWarning("ShotFire Debug Code!! L39");
+        ranking = Ranking.BACKSTRAIGHT;
         if (eventListener.TryGetValue(ranking, out var cb)) {
             cb(start, angle);
         } else {
@@ -43,10 +45,10 @@ public class WeaponBullet : MonoBehaviour
     }
 
     public GameObject[] CreateBullets() {
-        var bullets = new GameObject[CkeckCard.instance.playerCards.Length];
+        var bullets = new GameObject[CheckCard.instance.playerCards.Length];
         
         int i = 0;
-        foreach (var card in CkeckCard.instance.playerCards)
+        foreach (var card in CheckCard.instance.playerCards)
         {
             var shapeName = card.cardShape.ToString().ToLower();
             if (card.cardShape == CardShape.CLUB) shapeName = "clover";
