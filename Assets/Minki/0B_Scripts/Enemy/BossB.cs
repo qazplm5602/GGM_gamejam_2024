@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting.FullSerializer.Internal;
 using UnityEngine;
 
 public class BossB : MonoBehaviour
@@ -13,11 +14,12 @@ public class BossB : MonoBehaviour
     }
 
     private void Start() {
-        StartCoroutine(Pattern1());
+        StartCoroutine(Pattern2());
     }
 
     private IEnumerator Pattern1() {
         yield return new WaitForSeconds(2f);
+        
         _controller.moveable = false;
         
         float range = 3f;
@@ -28,6 +30,22 @@ public class BossB : MonoBehaviour
 
         yield return new WaitForSeconds(0.35f);
 
+        _controller.moveable = true;
+    }
+
+    private IEnumerator Pattern2() {
+        yield return new WaitForSeconds(2f);
+        
+        _controller.moveable = false;
+
+        for(int i = 0; i < 5; ++i) {
+            float angle = Random.Range(0f, 360f);
+            Vector3 direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
+            PoolManager.Instance.Pop("BossProjectile", _playerTrm.position + direction.normalized * 3, angle + 180);
+            yield return new WaitForSeconds(0.07f);
+        }
+
+        yield return new WaitForSeconds(0.1f);
         _controller.moveable = true;
     }
 }
