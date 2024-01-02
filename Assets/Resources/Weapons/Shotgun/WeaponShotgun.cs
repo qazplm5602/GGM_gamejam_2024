@@ -6,6 +6,9 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
 {
     [SerializeField] float betweenTime = .3f;
     [SerializeField] float reloadTime = 3;
+    [SerializeField] float deadDistance = 2;
+    [SerializeField] Transform firePos;
+    [SerializeField] GameObject bullet;
     Animator _animator;
     bool isReload = false;
     float fireTime = 0;
@@ -42,6 +45,27 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
                 StartCoroutine(WeaponReload());
                 return;
             }
+            
+            // 마우스 좌표 ㄱㄱ
+            {
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector3 diff = mousePos - firePos.position;
+                var angle = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+                // 데드존
+                if (Vector2.Distance((Vector2)mousePos, (Vector2)transform.root.position) < deadDistance) return;
+
+                // TEST 총알
+                for (int i = -2; i < 3; i++)
+                {
+                    var entity = Instantiate(bullet);
+                    entity.transform.position = firePos.position;
+                    entity.transform.rotation = Quaternion.AngleAxis(angle + (15 * i), Vector3.forward);
+                    // entity.transform.right = firePos.right;
+                    // print(entity.transform.right);
+                    // print(firePos.right);
+                }
+            }
+
             fireTime = Time.time;
             _weaponBullet.SetAmmo(0);
             _animator.SetTrigger("Shot");
