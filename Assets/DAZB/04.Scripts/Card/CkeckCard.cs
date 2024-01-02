@@ -1,8 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using UnityEditor;
 using UnityEngine;
 
 public class CkeckCard : MonoBehaviour
@@ -10,26 +5,25 @@ public class CkeckCard : MonoBehaviour
     public static CkeckCard instance;
     private void Awake() {
         instance = this;
+        playerCards = new Card[5];
     }
     public Card[] playerCards;
     public RankingInfo rankingInfo;
 
-    private void Start() {
-        playerCards = new Card[5];
-        foreach (var iter in playerCards) {
-            iter.cardNumber = 1;
-        }
-    }
-
     private void Update() {
         if (Input.GetKeyDown(KeyCode.K)) {
-            GetCard();
-            rankingInfo = CheckedCard();
+            DrawCard();
         }
     }
 
     public RankingInfo GetInfo() {
         return rankingInfo;
+    }
+
+    public void DrawCard() {
+        GetCard();
+        rankingInfo = CheckedCard();
+        ShuffleCards();
     }
 
     private void GetCard() {
@@ -42,6 +36,13 @@ public class CkeckCard : MonoBehaviour
                 }
             }
             playerCards[i] = newCard;
+        }
+    }
+
+    private void ShuffleCards() {
+        for (int i = 0; i < playerCards.Length; i++) {
+            int randIdx = Random.Range(i, playerCards.Length);
+            (playerCards[i], playerCards[randIdx]) = (playerCards[randIdx], playerCards[i]);  
         }
     }
 
@@ -87,14 +88,14 @@ public class CkeckCard : MonoBehaviour
             return new RankingInfo(Ranking.TRIPLE, HandRankings.instance.TripleCheck(playerCards).Item2);
         }
         if (HandRankings.instance.TwoPairCheck(playerCards).Item1) {
-            print(HandRankings.instance.TwoPairCheck(playerCards).Item2.cardNumber + " Two pair");
+            print(/* HandRankings.instance.TwoPairCheck(playerCards).Item2[0].cardNumber +  */" Two pair");
             return new RankingInfo(Ranking.TWOPAIR, HandRankings.instance.TwoPairCheck(playerCards).Item2);
         }
         if (HandRankings.instance.OnePairCheck(playerCards).Item1) {
             print(HandRankings.instance.OnePairCheck(playerCards).Item2.cardNumber + " One pair");
             return new RankingInfo(Ranking.ONEPAIR, HandRankings.instance.OnePairCheck(playerCards).Item2);
         }
-        print(" High Card");
-        return new RankingInfo(Ranking.HIGHCARD, HandRankings.instance.BackStraightFlushCheck(playerCards).Item2);
+        print(HandRankings.instance.HighCardCheck(playerCards).Item2.cardNumber + " High Card");
+        return new RankingInfo(Ranking.HIGHCARD, HandRankings.instance.HighCardCheck(playerCards).Item2);
     }
 }
