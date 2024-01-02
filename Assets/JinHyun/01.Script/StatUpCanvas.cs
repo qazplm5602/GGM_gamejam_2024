@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class StatUpCanvas : MonoBehaviour
 {
-    [SerializeField] GameObject[] Options;
-    [SerializeField] GameObject text; 
+    public GameObject[] Options;
+    public GameObject text; 
 
     private void OnEnable()
     {
@@ -25,15 +25,18 @@ public class StatUpCanvas : MonoBehaviour
             print("¾Æ");
             await Task.Delay(50);
         }
-        text.SetActive(true);
     }
-
-    void DisableAll()
+    public void DisableAll()
     {
         foreach (var item in Options)
         {
             item.SetActive(false);
         }
+        text.SetActive(false);
+    }
+
+    public void DisableText()
+    {
         text.SetActive(false);
     }
 }
