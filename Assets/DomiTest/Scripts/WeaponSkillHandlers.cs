@@ -71,7 +71,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         for (int i = -2, k = 0; i < 3; i++, k ++)
         {
             bullets[k].transform.position = start;
-            bullets[k].transform.rotation = Quaternion.AngleAxis(angle + (15 * i), Vector3.forward);
+            bullets[k].transform.rotation = Quaternion.AngleAxis(angle + (5 * i), Vector3.forward);
 
             // 화염디버프 적용 ㄱㄱ
         }
