@@ -6,7 +6,8 @@ using UnityEngine;
 public class StatUpCanvas : MonoBehaviour
 {
     public GameObject[] Options;
-    public GameObject text; 
+    public GameObject text;
+    public Material cardShinyMat;
 
     private void OnEnable()
     {
@@ -22,7 +23,6 @@ public class StatUpCanvas : MonoBehaviour
         foreach (var item in Options)
         {
             item.SetActive(true);
-            print("¾Æ");
             await Task.Delay(50);
         }
     }
