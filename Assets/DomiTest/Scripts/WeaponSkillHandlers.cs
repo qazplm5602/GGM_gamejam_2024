@@ -12,11 +12,15 @@ public class WeaponSkillHandlers : MonoBehaviour
 
         _bulletMain.eventListener[Ranking.HIGHCARD] = DefaultFire;
         _bulletMain.eventListener[Ranking.STRAIGHT] = Straight;
+        _bulletMain.eventListener[Ranking.TRIPLE] = Triple;
+        _bulletMain.eventListener[Ranking.BACKSTRAIGHT] = Backstraight;
     }
 
     private void OnDestroy() {
         _bulletMain.eventListener.Remove(Ranking.HIGHCARD);
         _bulletMain.eventListener.Remove(Ranking.STRAIGHT);
+        _bulletMain.eventListener.Remove(Ranking.TRIPLE);
+        _bulletMain.eventListener.Remove(Ranking.BACKSTRAIGHT);
     }
 
 
@@ -50,6 +54,43 @@ public class WeaponSkillHandlers : MonoBehaviour
             Wait(() => {
                 bullet.SetActive(true);
                 bullet.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                bullet.transform.position = start;
+                // bullet.transform.position += bullet.transform.right * i;
+            }, i * .05f);
+            i++;
+        }
+    }
+
+    void Triple(Vector2 start, float angle) {
+        var bullets = _bulletMain.CreateBullets();
+
+        for (int i = -2, k = 0; i < 3; i++, k ++)
+        {
+            bullets[k].transform.position = start;
+            bullets[k].transform.rotation = Quaternion.AngleAxis(angle + (15 * i), Vector3.forward);
+
+            // 화염디버프 적용 ㄱㄱ
+        }
+    }
+    void Backstraight(Vector2 start, float angle) {
+        var bullets = _bulletMain.CreateBullets();
+
+        // 순서대로 정렬
+        bullets = bullets.OrderBy(n => {
+            string name = n.GetComponentInChildren<SpriteRenderer>().sprite.name;
+            string number = name.Substring(name.IndexOf("_") + 1);
+            if (number == "A") number = "1";
+            return int.Parse(number);
+        }).ToArray();
+
+        int i = 0;
+        foreach (var bullet in bullets)
+        {
+            bullet.SetActive(false);
+            bullet.GetComponentInChildren<SpriteRenderer>().sortingOrder = i;
+            Wait(() => {
+                bullet.SetActive(true);
+                bullet.transform.rotation = Quaternion.AngleAxis(angle + 180, Vector3.forward);
                 bullet.transform.position = start;
                 // bullet.transform.position += bullet.transform.right * i;
             }, i * .05f);
