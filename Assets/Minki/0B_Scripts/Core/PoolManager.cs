@@ -33,10 +33,15 @@ public class PoolManager : MonoBehaviour
         }
     }
 
-    public GameObject Pop(string name, Vector3 position) {
+    public GameObject Pop(string name, Vector3 position, float angle = 0f) {
+        if(_poolQueue[name].Count <= 1) {
+            _poolQueue[name].Enqueue(Instantiate(_poolQueue[name].Dequeue(), transform.position, Quaternion.identity, transform));
+        }
+
         GameObject obj = _poolQueue[name].Dequeue();
         obj.transform.parent = null;
         obj.transform.position = position;
+        obj.transform.rotation = Quaternion.Euler(0, 0, angle);
         obj.SetActive(true);
 
         return obj;
