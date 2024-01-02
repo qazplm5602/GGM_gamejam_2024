@@ -14,7 +14,11 @@ public class BossB : MonoBehaviour
     }
 
     private void Start() {
-        StartCoroutine(Pattern2());
+        InvokeRepeating("RandomPattern", 1f, 2f);
+    }
+
+    private void RandomPattern() {
+        StartCoroutine(Random.Range(0, 2) == 0 ? Pattern1() : Pattern2());
     }
 
     private IEnumerator Pattern1() {
@@ -42,10 +46,9 @@ public class BossB : MonoBehaviour
             float angle = Random.Range(0f, 360f);
             Vector3 direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
             PoolManager.Instance.Pop("BossProjectile", _playerTrm.position + direction.normalized * 3, angle + 180);
-            yield return new WaitForSeconds(0.07f);
         }
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.35f);
         _controller.moveable = true;
     }
 }
