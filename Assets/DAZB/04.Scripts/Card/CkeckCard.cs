@@ -25,7 +25,6 @@ public class CkeckCard : MonoBehaviour
     }
 
     public void GetCard() {
-        playerCards = new Card[5];
         for (int i = 0; i < 5; ++i) {
             Card newCard = GetRandomCard.instance.GetRandom();
             foreach (Card iter in playerCards) {
@@ -35,9 +34,6 @@ public class CkeckCard : MonoBehaviour
                     return;
                 }
             }
-            print(playerCards);
-            print(playerCards.Length);
-            print(i);
             playerCards[i] = newCard;
         }
     }
