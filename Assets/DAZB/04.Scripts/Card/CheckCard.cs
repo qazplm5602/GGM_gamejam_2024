@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CheckCard : MonoBehaviour
@@ -9,10 +10,16 @@ public class CheckCard : MonoBehaviour
     }
     public Card[] playerCards;
     public RankingInfo rankingInfo;
+    public int[] rankingCounter = new int[14];
+    public int[,] cardCounter = new int[14,4];
+    public int drawCount = 0;
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.K)) {
             DrawCard();
+        }
+        if (Input.GetKeyDown(KeyCode.Tab)) {
+            GetCardCount(new Card(CardShape.SPADE, 1));
         }
     }
 
@@ -23,7 +30,15 @@ public class CheckCard : MonoBehaviour
     public void DrawCard() {
         GetCard();
         rankingInfo = CheckedCard();
+        rankingCounter[(int)rankingInfo.ranking]++;
         ShuffleCards();
+        foreach (Card iter in playerCards) {
+            cardCounter[iter.cardNumber - 1, (int)iter.cardShape]++;
+        }
+    }
+
+    public void GetCardCount(Card card) {
+        print(cardCounter[card.cardNumber - 1, (int)card.cardShape]);
     }
 
     private void GetCard() {
@@ -38,6 +53,7 @@ public class CheckCard : MonoBehaviour
             }
             playerCards[i] = newCard;
         }
+        drawCount++;
     }
 
     private void ShuffleCards() {
