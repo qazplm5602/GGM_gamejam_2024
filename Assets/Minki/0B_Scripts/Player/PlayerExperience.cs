@@ -11,9 +11,9 @@ public class PlayerExperience : MonoBehaviour
         //ExpUP();
     }
 
-    public void ExpUP()
+    public void ExpUP(int value)
     {
-        _curExp += 30;
+        _curExp += value;
         print(_curExp);
         print(_curNeedExp);
         GameManager.Instance.SetEXP(_curExp, _curNeedExp);

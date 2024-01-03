@@ -3,6 +3,7 @@ using UnityEngine;
 public class Boom : MonoBehaviour
 {
     [SerializeField] private float _boomDelay;
+    [SerializeField] private bool _c = false;
 
     private float _timer = 0f;
 
@@ -11,7 +12,7 @@ public class Boom : MonoBehaviour
 
         if(_timer >= _boomDelay) {
             AudioManager.Instance.PlaySound("Dive");
-            PoolManager.Instance.Push("Boom", gameObject);
+            PoolManager.Instance.Push(_c ? "BoomC" : "Boom", gameObject);
             _timer = 0f;
         }
     }
