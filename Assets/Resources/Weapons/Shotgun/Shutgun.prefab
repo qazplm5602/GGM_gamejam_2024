@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   betweenTime: 0.3
-  reloadTime: 3
+  reloadTime: 0.5
+  deadDistance: 2
   firePos: {fileID: 3952768255057262733}
   bullet: {fileID: 7934217079359148369, guid: dcb80e769fb6e324d966459c73d96a5f, type: 3}
