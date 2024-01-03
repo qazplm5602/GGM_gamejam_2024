@@ -5,7 +5,8 @@ using UnityEngine;
 public class CharacterManager : MonoBehaviour
 {
     public static CharacterManager instance;
-    public Animator ainm;
+    public CharacterData currentCharacter;
+    public WeaponData currentWeapon;
     private void Awake() {
         if (instance == null) {
             instance = this;
@@ -16,9 +17,15 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    public void GetData() {
-
+    public (CharacterData, WeaponData) GetData() {
+        return (currentCharacter, currentWeapon);
     }
 
-    //public void s
+    public void SetChacracter(CharacterData characterData) {
+        currentCharacter = characterData;
+    }
+
+    public void SetWeapon(WeaponData weaponData) {
+        currentWeapon = weaponData;
+    }
 }
