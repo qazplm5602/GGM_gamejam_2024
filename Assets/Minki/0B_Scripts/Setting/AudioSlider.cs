@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using TMPro;
+using UnityEngine.Rendering;
 
 public class AudioSlider : MonoBehaviour
 {
     [SerializeField] private AudioMixer _mixer;
+    [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private Sprite[] _cards;
 
     private Slider _slider;
@@ -21,7 +24,7 @@ public class AudioSlider : MonoBehaviour
         int intValue = (int)value;
 
         _image.sprite = _cards[intValue];
-
+        text.text = $"Volume : {intValue}";
         float soundValue = (intValue - 1) / 12f;
         if(intValue == 0) _mixer.SetFloat("Master", -80f);
         else _mixer.SetFloat("Master", Mathf.Lerp(-40f, 0f, soundValue));

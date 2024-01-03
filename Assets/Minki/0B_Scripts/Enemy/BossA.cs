@@ -6,7 +6,6 @@ public class BossA : MonoBehaviour
     [SerializeField] private float _delay = 0.5f;
     [SerializeField] private float _dashTime = 0.6f;
 
-    private bool _freezeFlip = false;
     private Transform _playerTrm;
     private Animator _animator;
     private EnemyController _controller;
@@ -24,7 +23,7 @@ public class BossA : MonoBehaviour
     }
 
     private void Update() {
-        if(_freezeFlip) return;
+        if(_controller.freezeFlip) return;
 
         if(_playerTrm.position.x > transform.position.x) transform.localScale = new Vector3(-1, 1, 1);
         else if(_playerTrm.position.x < transform.position.x) transform.localScale = new Vector3(1, 1, 1);
@@ -37,7 +36,7 @@ public class BossA : MonoBehaviour
     private IEnumerator DashRoutine() {
         _controller.moveable = false;
         _animator.SetBool("isMove", false);
-        _freezeFlip = true;
+        _controller.freezeFlip = true;
 
         Vector3 direction = _playerTrm.position - transform.position;
 
@@ -47,7 +46,7 @@ public class BossA : MonoBehaviour
             yield return null;
         }
         _animator.SetBool("isMove", true);
-        _freezeFlip = false;
+        _controller.freezeFlip = false;
         while(time < _delay + _dashTime) {
             transform.position += direction.normalized * 20f * Time.deltaTime;
             time += Time.deltaTime;
