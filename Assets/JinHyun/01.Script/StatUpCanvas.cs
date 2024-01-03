@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -20,6 +18,12 @@ public class StatUpCanvas : MonoBehaviour
     {
         DisableAll();
     }
+
+    private void Update()
+    {
+        Time.timeScale = 0;
+    }
+
     async void ActiveOptions()
     {
         foreach (var item in Options)
