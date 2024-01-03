@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         _bulletMain.eventListener[Ranking.FOURCARD] = Fourcard;
         _bulletMain.eventListener[Ranking.FULLHOUSE] = Fullhouse;
         _bulletMain.eventListener[Ranking.FLUSH] = Flush;
+        _bulletMain.eventListener[Ranking.STRAIGHTFLUSH] = StraightFlush;
     }
 
     private void OnDestroy() {
@@ -188,7 +190,7 @@ public class WeaponSkillHandlers : MonoBehaviour
     [SerializeField] GameObject[] shapeGroups;
     void Flush(Vector2 start, float angle) {
         CardShape shape = CheckCard.instance.playerCards[0].cardShape;
-        int saveDamage = _bulletMain.GetDamange();        
+        int saveDamage = _bulletMain.GetDamange();
         var bullets = _bulletMain.CreateBullets();
         for (int i = 1; i < 5; i++)
             Destroy(bullets[i]);
@@ -199,10 +201,38 @@ public class WeaponSkillHandlers : MonoBehaviour
         bullets[0].GetComponent<CardWeaponBullet>().damage = _bulletMain.GetDamange();
         CheckCard.instance.rankingInfo.ranking = Ranking.FLUSH;
 
+        bullets[0].GetComponent<CardWeaponBullet>().OnCallback += CreateFlushCardHandler(shape, bullets[0].transform.position, saveDamage);
+    }
+    
+    void StraightFlush(Vector2 start, float angle) {
+        CardShape shape = CheckCard.instance.playerCards[0].cardShape;
 
-        bullets[0].GetComponent<CardWeaponBullet>().OnCallback += (Collider2D other) => {
+        var bullets = _bulletMain.CreateBullets();
+
+        // 데미지 구함
+        CheckCard.instance.rankingInfo.ranking = Ranking.NONE;
+        int defaultDamage = _bulletMain.GetDamange();
+        CheckCard.instance.rankingInfo.ranking = Ranking.STRAIGHTFLUSH;
+        int editDamage = _bulletMain.GetDamange();
+
+        for (int i = 0; i < 4; i++)
+        {
+            var bulletSys = bullets[i].GetComponent<CardWeaponBullet>();
+            bulletSys.damage = defaultDamage;
+            bulletSys.OnCallback += CreateFlushCardHandler(shape, bullets[i].transform.position, editDamage);
+
+            bullets[i].transform.position = start;
+            bullets[i].transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            angle += 90;
+        }
+        Destroy(bullets[4]);
+        
+    }
+    Func<Collider2D, bool> CreateFlushCardHandler(CardShape shape, Vector3 start, int damage) {
+        // start가 콜백 이후에도 메모리 주소복사가 아니라 좌표가 업데이트 되지 않음
+        return (Collider2D other) => {
             var parent = Instantiate(shapeGroups[(int)shape]);
-            parent.transform.position = other.ClosestPoint(bullets[0].transform.position);
+            parent.transform.position = other.ClosestPoint(start);
             
             int i;
             for (i = 0; i < parent.transform.childCount; i++)
@@ -211,7 +241,7 @@ public class WeaponSkillHandlers : MonoBehaviour
                 var bulletSys = card.AddComponent<CardWeaponBullet>();
                 
                 // bulletSys.speed = 24;
-                bulletSys.damage = saveDamage;
+                bulletSys.damage = damage;
                 bulletSys.customDir = (card.position - parent.transform.position).normalized;
                 bulletSys.OnCallback += (Collider2D other) => {
                     return false; // 삭제 방지
