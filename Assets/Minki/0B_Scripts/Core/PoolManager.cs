@@ -34,7 +34,7 @@ public class PoolManager : MonoBehaviour
         }
     }
 
-    public GameObject Pop(string name, Vector3 position, float angle = 0f) {
+    public GameObject Pop(string name, Vector3 position, float angle = 0f, Transform parent = null) {
         if(_poolQueue[name].Count <= 1) {
             GameObject oldObj = _poolQueue[name].Dequeue();
             GameObject newObj = Instantiate(oldObj, transform.position, Quaternion.identity, transform);
@@ -44,7 +44,7 @@ public class PoolManager : MonoBehaviour
         }
 
         GameObject obj = _poolQueue[name].Dequeue();
-        obj.transform.parent = null;
+        obj.transform.parent = parent;
         obj.transform.position = position;
         obj.transform.rotation = Quaternion.Euler(0, 0, angle);
         obj.SetActive(true);

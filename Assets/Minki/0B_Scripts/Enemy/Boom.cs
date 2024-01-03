@@ -10,7 +10,7 @@ public class Boom : MonoBehaviour
         _timer += Time.deltaTime;
 
         if(_timer >= _boomDelay) {
-            Debug.Log("Boom!");
+            AudioManager.Instance.PlaySound("Dive");
             PoolManager.Instance.Push("Boom", gameObject);
             _timer = 0f;
         }
