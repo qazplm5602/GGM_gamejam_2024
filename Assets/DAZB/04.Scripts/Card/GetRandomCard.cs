@@ -45,7 +45,7 @@ public class GetRandomCard : MonoBehaviour {
                 shapeWeights[shape].shapeWeight += per;
                 continue;
             }
-            shapeWeights[i].shapeWeight -= per / shapeWeights.Length;
+            shapeWeights[i].shapeWeight -= per / 3;
         }
     }
 
