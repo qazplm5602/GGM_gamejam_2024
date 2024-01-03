@@ -37,5 +37,6 @@ public class CharacterSelection : MonoBehaviour
     private void SetCharacter(int idx) {
         text.text = characternDatas[idx].name;
         anim.Play("Player_Idle_UI"+idx);
+        CharacterManager.instance.SetChacracter(characternDatas[idx]);
     }
 }

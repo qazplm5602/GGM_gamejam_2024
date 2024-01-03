@@ -6,7 +6,6 @@ public class BossE : MonoBehaviour
     [SerializeField] private float _patternDelay = 5f;
     [SerializeField] private Transform _castTrm;
 
-    private bool _freezeFlip = false;
     private Transform _playerTrm;
     private Animator _animator;
     private EnemyController _controller;
@@ -19,7 +18,7 @@ public class BossE : MonoBehaviour
     }
 
     private void Update() {
-        if(_freezeFlip) return;
+        if(_controller.freezeFlip) return;
 
         if(_playerTrm.position.x > transform.position.x) transform.localScale = new Vector3(-1, 1, 1);
         else if(_playerTrm.position.x < transform.position.x) transform.localScale = new Vector3(1, 1, 1);
@@ -27,13 +26,13 @@ public class BossE : MonoBehaviour
 
     public IEnumerator Transform() {
         _controller.moveable = false;
-        _freezeFlip = true;
+        _controller.freezeFlip = true;
         _animator.SetTrigger("transform");
 
         yield return new WaitForSeconds(3.2f);
 
         _controller.moveable = true;
-        _freezeFlip = false;
+        _controller.freezeFlip = false;
 
         StartCoroutine(RandomPattern());
     }
@@ -53,7 +52,7 @@ public class BossE : MonoBehaviour
 
     private IEnumerator Pattern1() {
         _controller.moveable = false;
-        _freezeFlip = true;
+        _controller.freezeFlip = true;
         _animator.SetBool("cast", true);
 
         for(int i = 0; i < 3; ++i) {
@@ -65,13 +64,13 @@ public class BossE : MonoBehaviour
         }
 
         _controller.moveable = true;
-        _freezeFlip = false;
+        _controller.freezeFlip = false;
         _animator.SetBool("cast", false);
     }
 
     private IEnumerator Pattern2() {
         _controller.moveable = false;
-        _freezeFlip = true;
+        _controller.freezeFlip = true;
         _animator.SetBool("cast", true);
 
         yield return new WaitForSeconds(0.5f);
@@ -83,13 +82,13 @@ public class BossE : MonoBehaviour
         }
 
         _controller.moveable = true;
-        _freezeFlip = false;
+        _controller.freezeFlip = false;
         _animator.SetBool("cast", false);
     }
 
     private IEnumerator Pattern3() {
         _controller.moveable = false;
-        _freezeFlip = true;
+        _controller.freezeFlip = true;
         _animator.SetTrigger("fire");
         
         yield return new WaitForSeconds(1.2f);
@@ -108,6 +107,13 @@ public class BossE : MonoBehaviour
         }
         
         _controller.moveable = true;
-        _freezeFlip = false;
+        _controller.freezeFlip = false;
+    }
+
+    public void Dead() {
+        StopAllCoroutines();
+        _controller.moveable = false;
+        _controller.freezeFlip = false;
+        _animator.SetTrigger("dead");
     }
 }
