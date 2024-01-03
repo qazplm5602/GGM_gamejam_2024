@@ -40,8 +40,10 @@ public class StatUpCard : MonoBehaviour
         transform.position = originPos;
         transform.localScale = originScale;
         transform.rotation = Quaternion.identity;
-        transform.DORotate(new Vector2(0, 360), 0.6f, RotateMode.WorldAxisAdd).SetEase(Ease.OutQuad)
-            .OnComplete(() => EnableText());
+        transform.DORotate(new Vector2(0, 360), 0.6f, RotateMode.WorldAxisAdd)
+            .SetEase(Ease.OutQuad)
+            .OnComplete(() => EnableText())
+            .SetUpdate(true);
     }
     void EnableText()
     {
@@ -62,7 +64,6 @@ public class StatUpCard : MonoBehaviour
     public void SelectCard()
     {
         //Disable GameObject Except Selected Card
-        Time.timeScale = 1;
         DisableFriends();
         statUpParent.DisableText();
         selected = true;
@@ -72,12 +73,17 @@ public class StatUpCard : MonoBehaviour
         GetRandomCard.instance.SetWeight(randShape, randPercent);
         print(GetRandomCard.instance.shapeWeights[randShape].shapeWeight);
         //Selected Card's Position to Move Zero, Add Shiny Effect, Decrease Size to 0
-        Sequence seq = DOTween.Sequence();
+        Sequence seq = DOTween.Sequence().SetUpdate(true);
         seq.Join(transform.DOScale(new Vector2(8, 8), 0.4f));
         seq.Append(transform.DOMove(Camera.main.ViewportToScreenPoint(new Vector2(0.5f, 0.5f)), 0.4f).SetEase(Ease.OutQuad));
         seq.AppendInterval(0.4f);
 
-        seq.Append(transform.DOScale(new Vector2(0, 0), 0.4f).SetEase(Ease.OutQuad).OnComplete(() => statUpParent.DisableAll()));
+        seq.Append(transform.DOScale(new Vector2(0, 0), 0.4f).SetEase(Ease.OutQuad).OnComplete(
+            () =>
+            {
+                statUpParent.DisableAll();
+                Time.timeScale = 1;
+            }));
     }
 
     public void Hover()

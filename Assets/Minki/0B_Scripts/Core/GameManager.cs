@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
-        //�÷��̾� �޾ƿð��� �ٵ� �� �ٸ���������� ��
         //float maxHp = player.GetComponent<>
     }
 
@@ -58,7 +57,6 @@ public class GameManager : MonoBehaviour
     }
     public void SetEXP(int curExp, int needExp)
     {
-        print("��");
         expFill.fillAmount = curExp / (float)needExp;
     }
 }
