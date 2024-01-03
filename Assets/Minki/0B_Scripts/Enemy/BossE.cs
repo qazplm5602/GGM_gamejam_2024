@@ -28,6 +28,7 @@ public class BossE : MonoBehaviour
         _controller.moveable = false;
         _controller.freezeFlip = true;
         _animator.SetTrigger("transform");
+        AudioManager.Instance.PlaySound("Encounter");
 
         yield return new WaitForSeconds(3.2f);
 
@@ -54,10 +55,13 @@ public class BossE : MonoBehaviour
         _controller.moveable = false;
         _controller.freezeFlip = true;
         _animator.SetBool("cast", true);
+        AudioManager.Instance.PlaySound("Block");
+        yield return new WaitForSeconds(0.1f);
 
         for(int i = 0; i < 3; ++i) {
             for(int j = 0; j < 3; ++j) {
                 PoolManager.Instance.Pop("BoomE", _playerTrm.position);
+                AudioManager.Instance.PlaySound("Dive");
                 yield return new WaitForSeconds(0.2f);
             }
             yield return new WaitForSeconds(0.5f);
@@ -72,12 +76,14 @@ public class BossE : MonoBehaviour
         _controller.moveable = false;
         _controller.freezeFlip = true;
         _animator.SetBool("cast", true);
+        AudioManager.Instance.PlaySound("Block");
 
         yield return new WaitForSeconds(0.5f);
         for(int j = 0; j < 4; ++j) {
             Vector2 direction = _playerTrm.position - _castTrm.position;
             direction.Normalize();
             PoolManager.Instance.Pop("Fireball", _castTrm.position, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
+            AudioManager.Instance.PlaySound("Unequipe");
             yield return new WaitForSeconds(0.2f);
         }
 
@@ -90,6 +96,7 @@ public class BossE : MonoBehaviour
         _controller.moveable = false;
         _controller.freezeFlip = true;
         _animator.SetTrigger("fire");
+        AudioManager.Instance.PlaySound("Encounter");
         
         yield return new WaitForSeconds(1.2f);
 
@@ -103,6 +110,7 @@ public class BossE : MonoBehaviour
                 Vector3 direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
                 PoolManager.Instance.Pop("Fire", center + direction.normalized * range).GetComponent<Fire>().center = center;
             }
+            AudioManager.Instance.PlaySound("FireExplosion");
             yield return new WaitForSeconds(0.1f);
         }
         

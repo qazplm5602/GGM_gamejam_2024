@@ -15,6 +15,8 @@ public class StatUpCard : MonoBehaviour
     Vector2 originScale;
     int randShape;
     float randPercent;
+
+    RectTransform rect;
     bool selected = false;
     private void Awake()
     {
@@ -22,6 +24,7 @@ public class StatUpCard : MonoBehaviour
         description = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         originPos = transform.position;
         originScale = transform.localScale;
+        rect = GetComponent<RectTransform>();
         statUpParent = transform.parent.GetComponent<StatUpCanvas>();
     }
     private void OnEnable()
@@ -32,7 +35,6 @@ public class StatUpCard : MonoBehaviour
             jokerImage.material = null;
         }
         selected = false;
-        print(selected);
         randShape = Random.Range(0, shapes.Length);
         randPercent = Random.Range(1, 4) + Random.Range(1, 10) * 0.1f;
         description.text = $"{shapes[randShape]}카드가 나올 확률이\n" +
@@ -71,7 +73,6 @@ public class StatUpCard : MonoBehaviour
 
         //Add Weight to Selected Card's Increase Stat Info
         GetRandomCard.instance.SetWeight(randShape, randPercent);
-        print(GetRandomCard.instance.shapeWeights[randShape].shapeWeight);
         //Selected Card's Position to Move Zero, Add Shiny Effect, Decrease Size to 0
         Sequence seq = DOTween.Sequence().SetUpdate(true);
         seq.Join(transform.DOScale(new Vector2(8, 8), 0.4f));
@@ -83,19 +84,12 @@ public class StatUpCard : MonoBehaviour
             {
                 statUpParent.DisableAll();
                 Time.timeScale = 1;
+                GameManager.Instance.player.CheckRemainLevelUP();
             }));
     }
 
-    public void Hover()
-    {
-        if(!selected) transform.localScale = transform.localScale * 1.2f;
-        print("들어옴");
-    }
+    public void Hover() { if (!selected) rect.DOScale(new Vector3(originScale.x * 1.1f, originScale.y * 1.1f), 0.1f).SetEase(Ease.Linear).SetUpdate(true); }
 
-    public void Exit()
-    {
-        if(!selected) transform.localScale = originScale;
-        print("나감");
-    }
+    public void Exit() { if (!selected) rect.DOScale(originScale, 0.15f).SetEase(Ease.Linear).SetUpdate(true); }
 
 }
