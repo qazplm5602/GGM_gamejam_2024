@@ -183,8 +183,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTrm: {fileID: 1984234845}
-  statCanvas: {fileID: 0}
   player: {fileID: 0}
+  hpFill: {fileID: 0}
+  expFill: {fileID: 0}
+  statCanvas: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,6 +598,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65dc0ec8254e04140b876f8a0607cc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shapeGroups:
+  - {fileID: 5482214015279617837, guid: 3837bb79ce7a8f44ca1d4738d873b49f, type: 3}
+  - {fileID: 5630304581765326456, guid: 73f839eb2b8a1ae43a72a7b7a711e664, type: 3}
+  - {fileID: 5488996560900948281, guid: ec3e848858b611544a6434160f395e1e, type: 3}
+  - {fileID: 540484606002005196, guid: e78d8bf909a0e2b48b376efc70796275, type: 3}
 --- !u!1 &1886176061
 GameObject:
   m_ObjectHideFlags: 0

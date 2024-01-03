@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -19,6 +20,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         _bulletMain.eventListener[Ranking.MOUNTAIN] = Mountain;
         _bulletMain.eventListener[Ranking.FOURCARD] = Fourcard;
         _bulletMain.eventListener[Ranking.FULLHOUSE] = Fullhouse;
+        _bulletMain.eventListener[Ranking.FLUSH] = Flush;
     }
 
     private void OnDestroy() {
@@ -31,6 +33,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         _bulletMain.eventListener.Remove(Ranking.MOUNTAIN);
         _bulletMain.eventListener.Remove(Ranking.FOURCARD);
         _bulletMain.eventListener.Remove(Ranking.FULLHOUSE);
+        _bulletMain.eventListener.Remove(Ranking.FLUSH);
     }
 
 
@@ -180,6 +183,47 @@ public class WeaponSkillHandlers : MonoBehaviour
             bullets[(int)k].transform.position = start;
             bullets[(int)k].transform.rotation = Quaternion.AngleAxis(angle + (2.5f * i), Vector3.forward);
         }
+    }
+    
+    [SerializeField] GameObject[] shapeGroups;
+    void Flush(Vector2 start, float angle) {
+        CardShape shape = CheckCard.instance.playerCards[0].cardShape;
+        int saveDamage = _bulletMain.GetDamange();        
+        var bullets = _bulletMain.CreateBullets();
+        for (int i = 1; i < 5; i++)
+            Destroy(bullets[i]);
+
+        bullets[0].transform.position = start;
+        bullets[0].transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        CheckCard.instance.rankingInfo.ranking = Ranking.NONE;
+        bullets[0].GetComponent<CardWeaponBullet>().damage = _bulletMain.GetDamange();
+        CheckCard.instance.rankingInfo.ranking = Ranking.FLUSH;
+
+
+        bullets[0].GetComponent<CardWeaponBullet>().OnCallback += (Collider2D other) => {
+            var parent = Instantiate(shapeGroups[(int)shape]);
+            parent.transform.position = other.ClosestPoint(bullets[0].transform.position);
+            
+            int i;
+            for (i = 0; i < parent.transform.childCount; i++)
+            {
+                var card = parent.transform.GetChild(i);
+                var bulletSys = card.AddComponent<CardWeaponBullet>();
+                
+                // bulletSys.speed = 24;
+                bulletSys.damage = saveDamage;
+                bulletSys.customDir = (card.position - parent.transform.position).normalized;
+                bulletSys.OnCallback += (Collider2D other) => {
+                    return false; // 삭제 방지
+                };
+            }
+
+            for (i = 0; i < parent.transform.childCount; i++) {
+                parent.transform.GetChild(i).transform.SetParent(null, true);
+            }
+            // parent.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            return true;
+        };
     }
 
     void Wait(UnityAction callback, float time) {
