@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -23,6 +24,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         _bulletMain.eventListener[Ranking.FULLHOUSE] = Fullhouse;
         _bulletMain.eventListener[Ranking.FLUSH] = Flush;
         _bulletMain.eventListener[Ranking.STRAIGHTFLUSH] = StraightFlush;
+        _bulletMain.eventListener[Ranking.BACKSTRAIGHTFLUSH] = BackStraightFlush;
     }
 
     private void OnDestroy() {
@@ -36,6 +38,8 @@ public class WeaponSkillHandlers : MonoBehaviour
         _bulletMain.eventListener.Remove(Ranking.FOURCARD);
         _bulletMain.eventListener.Remove(Ranking.FULLHOUSE);
         _bulletMain.eventListener.Remove(Ranking.FLUSH);
+        _bulletMain.eventListener.Remove(Ranking.STRAIGHTFLUSH);
+        _bulletMain.eventListener.Remove(Ranking.BACKSTRAIGHTFLUSH);
     }
 
 
@@ -254,6 +258,56 @@ public class WeaponSkillHandlers : MonoBehaviour
             // parent.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             return true;
         };
+    }
+
+    void BackStraightFlush(Vector2 start, float angle) {
+        StartCoroutine(_BackStraightFlush());
+    }
+
+    // test
+    private void Start() {
+        // StartCoroutine(_BackStraightFlush());
+    }
+
+    [SerializeField] GameObject clockTemplate;
+    IEnumerator _BackStraightFlush() {
+        while (Time.timeScale > 0) {
+            yield return null;
+            Time.timeScale = Mathf.Max(Time.timeScale - Time.unscaledDeltaTime, 0);
+        }
+
+        // 초기화
+        var clock = Instantiate(clockTemplate, transform.root).transform;
+        var texts = clock.Find("Texts");
+        clock.transform.position = transform.root.position;
+        for (int i = 0; i < texts.childCount; i++)
+        {
+            texts.GetChild(i).GetComponent<SpriteRenderer>().color *= new Color(1,1,1,0);
+        }
+
+        var roundCenter = clock.Find("roundCenter");
+        var roundCenter_render = roundCenter.GetComponent<SpriteRenderer>();
+        roundCenter_render.material = new Material(roundCenter_render.material);
+        roundCenter_render.material.SetFloat("_FillAmount", 0);
+
+        var roundCenter2 = clock.Find("roundCenter2");
+        var roundCenter2_render = roundCenter2.GetComponent<SpriteRenderer>();
+        roundCenter2_render.material = new Material(roundCenter2_render.material);
+        roundCenter2_render.material.SetFloat("_FillAmount", 0);
+
+        var roundCenter3 = clock.Find("roundCenter3");
+        var roundCenter3_render = roundCenter3.GetComponent<SpriteRenderer>();
+        roundCenter3_render.material = new Material(roundCenter3_render.material);
+        roundCenter3_render.material.SetFloat("_FillAmount", 0);
+
+        for (int i = 0; i < texts.childCount; i++)
+        {
+            texts.GetChild(i).GetComponent<SpriteRenderer>().DOFade(1, 0.3f).SetDelay(i * 0.05f).SetUpdate(true);
+        }
+
+        DOTween.To(() => 0f, number => roundCenter_render.material.SetFloat("_FillAmount", number), 1f, .7f).SetEase(Ease.OutQuad).SetUpdate(true).Play();
+        DOTween.To(() => 0f, number => roundCenter2_render.material.SetFloat("_FillAmount", number), 1f, .8f).SetEase(Ease.OutQuad).SetUpdate(true).Play();
+        DOTween.To(() => 0f, number => roundCenter3_render.material.SetFloat("_FillAmount", number), 1f, .9f).SetEase(Ease.OutQuad).SetUpdate(true).Play();
     }
 
     void Wait(UnityAction callback, float time) {

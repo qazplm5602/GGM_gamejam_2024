@@ -36,7 +36,7 @@ public class WeaponBullet : MonoBehaviour
     public void ShotFire(Vector2 start, float angle) {
         var ranking = CheckCard.instance.rankingInfo.ranking;
         Debug.LogWarning("ShotFire Debug Code!! L39");
-        ranking = Ranking.STRAIGHTFLUSH;
+        ranking = Ranking.BACKSTRAIGHTFLUSH;
         if (eventListener.TryGetValue(ranking, out var cb)) {
             cb(start, angle);
         } else {
@@ -87,6 +87,8 @@ public class WeaponBullet : MonoBehaviour
                 return 80;
             case Ranking.STRAIGHTFLUSH:
                 return 80;
+            case Ranking.BACKSTRAIGHTFLUSH:
+                return 105;
             default:
                 return 100;
         }
