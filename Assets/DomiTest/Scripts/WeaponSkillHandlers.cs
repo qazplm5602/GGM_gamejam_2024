@@ -255,6 +255,8 @@ public class WeaponSkillHandlers : MonoBehaviour
             for (i = 0; i < parent.transform.childCount; i++) {
                 parent.transform.GetChild(i).transform.SetParent(null, true);
             }
+
+            Destroy(parent.gameObject);
             // parent.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             return true;
         };
@@ -272,6 +274,9 @@ public class WeaponSkillHandlers : MonoBehaviour
     [SerializeField] GameObject clockTemplate;
     IEnumerator _RoyalBackStraightFlush() {
         var saveShape = CheckCard.instance.playerCards[0].cardShape;
+        CheckCard.instance.rankingInfo.ranking = Ranking.NONE;
+        var saveDamage_default = _bulletMain.GetDamange();
+        CheckCard.instance.rankingInfo.ranking = Ranking.ROYALSTRAIGHTFLUSH;
         var saveDamage = _bulletMain.GetDamange();
         while (Time.timeScale > 0) {
             yield return null;
@@ -337,7 +342,9 @@ public class WeaponSkillHandlers : MonoBehaviour
                 item.transform.position = transform.root.position;
 
                 // 콜백 생성
-                item.GetComponent<CardWeaponBullet>().OnCallback += CreateFlushCardHandler(saveShape, item.transform.position, saveDamage);
+                var bullet = item.GetComponent<CardWeaponBullet>();
+                bullet.OnCallback += CreateFlushCardHandler(saveShape, item.transform.position, saveDamage);
+                bullet.damage = saveDamage_default;
 
                 bullets.Add(item);
                 k ++;
@@ -362,15 +369,20 @@ public class WeaponSkillHandlers : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(1 + 1 + 1);
         clock.DORotate(new Vector3(0,0, 360 * 20), 5f, RotateMode.FastBeyond360).SetEase(Ease.InQuad).SetUpdate(true).OnComplete(() => Destroy(clock.gameObject));
-        foreach (var item in clock.GetComponentsInChildren<SpriteRenderer>())
-        {
-            item.DOFade(0, 1).SetDelay(2).SetUpdate(true);
+        clock.DOScale(.5f, 1.9f).SetEase(Ease.OutQuad).SetUpdate(true);
+        foreach (var item in bullets) {
+            item.transform.DOScale(item.transform.localScale / .5f, 1.9f).SetEase(Ease.OutQuad).SetUpdate(true);
         }
+
         yield return new WaitForSecondsRealtime(2);
 
         // 부모 없애ㅐㅐㅐ
         foreach (var item in bullets)
             item.transform.SetParent(null, true);
+
+        foreach (var item in clock.GetComponentsInChildren<SpriteRenderer>())
+            item.DOFade(0, 1).SetUpdate(true);
+
         Time.timeScale = 1;
     }
 
