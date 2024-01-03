@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Enemy
   m_EditorClassIdentifier: Assembly-CSharp::PoolSO
   name: Enemy
-  count: 100
+  count: 10
   prefab: {fileID: 7788085676905124050, guid: 2e9cfef5a287d2a41a6508eca9e91f3f, type: 3}

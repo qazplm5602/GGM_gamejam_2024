@@ -21,8 +21,8 @@ public class ExperienceBall : MonoBehaviour
     }
     public void PushEXP()
     {
-        print("æ∆¥œ");
+        print("∏‘¿Ω");
         GameManager.Instance.player.ExpUP();
-        PoolManager.Instance.Push("EXP", gameObject);
+        PoolManager.Instance.Push("Exp", gameObject);
     }
 }

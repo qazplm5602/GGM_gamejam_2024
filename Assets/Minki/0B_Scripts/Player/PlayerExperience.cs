@@ -8,13 +8,15 @@ public class PlayerExperience : MonoBehaviour
     private int _curExp = 0;
 
     private void OnTriggerEnter2D(Collider2D other) {
-        ExpUP();
-        PoolManager.Instance.Push("Exp", other.gameObject);
+        //ExpUP();
     }
 
     public void ExpUP()
     {
         _curExp += 30;
+        print(_curExp);
+        print(_curNeedExp);
+        GameManager.Instance.SetEXP(_curExp, _curNeedExp);
         if (_curExp >= _curNeedExp)
         {
             _curExp -= _curNeedExp;
