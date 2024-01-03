@@ -11,6 +11,8 @@ public class WeaponSkillHandlers : MonoBehaviour
         _bulletMain = GetComponent<WeaponBullet>();
 
         _bulletMain.eventListener[Ranking.HIGHCARD] = DefaultFire;
+        _bulletMain.eventListener[Ranking.ONEPAIR] = DefaultFire;
+        _bulletMain.eventListener[Ranking.TWOPAIR] = DefaultFire;
         _bulletMain.eventListener[Ranking.STRAIGHT] = Straight;
         _bulletMain.eventListener[Ranking.TRIPLE] = Triple;
         _bulletMain.eventListener[Ranking.BACKSTRAIGHT] = Backstraight;
@@ -20,6 +22,8 @@ public class WeaponSkillHandlers : MonoBehaviour
 
     private void OnDestroy() {
         _bulletMain.eventListener.Remove(Ranking.HIGHCARD);
+        _bulletMain.eventListener.Remove(Ranking.ONEPAIR);
+        _bulletMain.eventListener.Remove(Ranking.TWOPAIR);
         _bulletMain.eventListener.Remove(Ranking.STRAIGHT);
         _bulletMain.eventListener.Remove(Ranking.TRIPLE);
         _bulletMain.eventListener.Remove(Ranking.BACKSTRAIGHT);
@@ -74,6 +78,7 @@ public class WeaponSkillHandlers : MonoBehaviour
             bullets[k].transform.rotation = Quaternion.AngleAxis(angle + (5 * i), Vector3.forward);
 
             // 화염디버프 적용 ㄱㄱ
+            
         }
     }
     void Backstraight(Vector2 start, float angle) {

@@ -36,7 +36,7 @@ public class WeaponBullet : MonoBehaviour
     public void ShotFire(Vector2 start, float angle) {
         var ranking = CheckCard.instance.rankingInfo.ranking;
         Debug.LogWarning("ShotFire Debug Code!! L39");
-        ranking = Ranking.HIGHCARD;
+        ranking = Ranking.TRIPLE;
         if (eventListener.TryGetValue(ranking, out var cb)) {
             cb(start, angle);
         } else {
@@ -48,8 +48,8 @@ public class WeaponBullet : MonoBehaviour
         var bullets = new GameObject[CheckCard.instance.playerCards.Length];
         
         // 데미지 계산
-        print(default_damage * (GetRankingValue(CheckCard.instance.rankingInfo.ranking) / 100) * ((GetMaxRanking() / 100f) + 1));
-        
+        int damage = Mathf.RoundToInt(default_damage * (GetRankingValue(CheckCard.instance.rankingInfo.ranking) / 100) * ((GetMaxRanking() / 100f) + 1));
+
         int i = 0;
         foreach (var card in CheckCard.instance.playerCards)
         {
@@ -58,6 +58,7 @@ public class WeaponBullet : MonoBehaviour
 
             var spriteName = shapeName+"_"+(card.cardNumber == 1 || card.cardNumber == 14 ? "A" : card.cardNumber);
             var bullet = Instantiate(cardBulletTemplate);
+            bullet.GetComponent<CardWeaponBullet>().damage = damage;
             bullets[i] = bullet;
 
             bullet.GetComponentInChildren<SpriteRenderer>().sprite = cardSpriteIndex[spriteName];
