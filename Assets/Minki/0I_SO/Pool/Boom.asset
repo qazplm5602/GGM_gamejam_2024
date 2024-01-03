@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Boom
+  m_EditorClassIdentifier: Assembly-CSharp::PoolSO
+  name: Boom
+  count: 3
+  prefab: {fileID: 3123500086709570518, guid: 23f8bbe4838a19d48beb04a0ca401fac, type: 3}
