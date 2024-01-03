@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public Image hpFill;
     public Image expFill;
 
+    public GameObject SettingCanvas;
+
     float maxHp = 100;
     int curHp = 100;
 
@@ -38,6 +40,11 @@ public class GameManager : MonoBehaviour
         {
             curHp -= 7;
             SetHP(curHp);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SettingCanvas.SetActive(!SettingCanvas.activeSelf);
         }
     }
     public void OnStatCanvas()

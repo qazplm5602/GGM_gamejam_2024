@@ -25,4 +25,9 @@ public class PlayerExperience : MonoBehaviour
             ++level;
         }
     }
+
+    public void SetExp()
+    {
+        GameManager.Instance.SetEXP(_curExp, _curNeedExp);
+    }
 }
