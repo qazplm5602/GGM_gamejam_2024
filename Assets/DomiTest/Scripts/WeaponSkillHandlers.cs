@@ -24,7 +24,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         _bulletMain.eventListener[Ranking.FULLHOUSE] = Fullhouse;
         _bulletMain.eventListener[Ranking.FLUSH] = Flush;
         _bulletMain.eventListener[Ranking.STRAIGHTFLUSH] = StraightFlush;
-        _bulletMain.eventListener[Ranking.BACKSTRAIGHTFLUSH] = BackStraightFlush;
+        _bulletMain.eventListener[Ranking.ROYALSTRAIGHTFLUSH] = RoyalBackStraightFlush;
     }
 
     private void OnDestroy() {
@@ -39,7 +39,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         _bulletMain.eventListener.Remove(Ranking.FULLHOUSE);
         _bulletMain.eventListener.Remove(Ranking.FLUSH);
         _bulletMain.eventListener.Remove(Ranking.STRAIGHTFLUSH);
-        _bulletMain.eventListener.Remove(Ranking.BACKSTRAIGHTFLUSH);
+        _bulletMain.eventListener.Remove(Ranking.ROYALSTRAIGHTFLUSH);
     }
 
 
@@ -260,8 +260,8 @@ public class WeaponSkillHandlers : MonoBehaviour
         };
     }
 
-    void BackStraightFlush(Vector2 start, float angle) {
-        StartCoroutine(_BackStraightFlush());
+    void RoyalBackStraightFlush(Vector2 start, float angle) {
+        StartCoroutine(_RoyalBackStraightFlush());
     }
 
     // test
@@ -270,7 +270,9 @@ public class WeaponSkillHandlers : MonoBehaviour
     }
 
     [SerializeField] GameObject clockTemplate;
-    IEnumerator _BackStraightFlush() {
+    IEnumerator _RoyalBackStraightFlush() {
+        var saveShape = CheckCard.instance.playerCards[0].cardShape;
+        var saveDamage = _bulletMain.GetDamange();
         while (Time.timeScale > 0) {
             yield return null;
             Time.timeScale = Mathf.Max(Time.timeScale - Time.unscaledDeltaTime, 0);
@@ -315,6 +317,8 @@ public class WeaponSkillHandlers : MonoBehaviour
 
         // 카드 안삼 만듬
         var bullets = new List<GameObject>();
+        string[] cardLoop = {"spade_A", "heart_A", "diamond_A", "clover_A"};
+        int domi_a = cardLoop.Length - 1;
         for (int i = 0; i < 3; i++)
         {
             var list = _bulletMain.CreateBullets();
@@ -327,10 +331,17 @@ public class WeaponSkillHandlers : MonoBehaviour
                     continue;
                 }
                 
+                if (cardLoop.Length <= domi_a) domi_a = 0;
+                item.GetComponentInChildren<SpriteRenderer>().sprite = _bulletMain.GetCardSprite(cardLoop[domi_a]);
                 item.transform.parent = clock.transform;
                 item.transform.position = transform.root.position;
+
+                // 콜백 생성
+                item.GetComponent<CardWeaponBullet>().OnCallback += CreateFlushCardHandler(saveShape, item.transform.position, saveDamage);
+
                 bullets.Add(item);
                 k ++;
+                domi_a++;
             }
         }
     
@@ -350,7 +361,17 @@ public class WeaponSkillHandlers : MonoBehaviour
         DOTween.To(() => 4f, number => textMat.SetColor("_Color", new Color(1*Mathf.Pow(2,number),1*Mathf.Pow(2,number),1*Mathf.Pow(2,number))), 2f, 1f).SetEase(Ease.OutQuad).SetUpdate(true).Play().SetDelay(2f);
 
         yield return new WaitForSecondsRealtime(1 + 1 + 1);
-        
+        clock.DORotate(new Vector3(0,0, 360 * 20), 5f, RotateMode.FastBeyond360).SetEase(Ease.InQuad).SetUpdate(true).OnComplete(() => Destroy(clock.gameObject));
+        foreach (var item in clock.GetComponentsInChildren<SpriteRenderer>())
+        {
+            item.DOFade(0, 1).SetDelay(2).SetUpdate(true);
+        }
+        yield return new WaitForSecondsRealtime(2);
+
+        // 부모 없애ㅐㅐㅐ
+        foreach (var item in bullets)
+            item.transform.SetParent(null, true);
+        Time.timeScale = 1;
     }
 
         void RotateAround(Vector3 currentPos, Quaternion currentRotate, Vector3 cetner, Vector3 axis, float angle, out Vector3 endPos, out Quaternion endRotate){
