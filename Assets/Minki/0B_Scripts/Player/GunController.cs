@@ -8,7 +8,7 @@ public class GunController : MonoBehaviour
     #if UNITY_EDITOR
     [SerializeField] GameObject default_weapon;
     
-    private void Awake() {
+    private void Start() {
         SetWeapon(default_weapon);
     }
     #endif

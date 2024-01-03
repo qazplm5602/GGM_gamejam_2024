@@ -528,7 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef21a9ee3754654e983b0d9d53d723f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  default_damage: 0
+  default_damage: 10
   cardBulletTemplate: {fileID: 3725183677671623966, guid: baefc42dda1255145b30b23e15492a96, type: 3}
   cards:
   - {fileID: -53976324, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
