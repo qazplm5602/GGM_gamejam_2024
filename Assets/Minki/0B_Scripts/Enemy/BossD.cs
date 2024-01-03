@@ -5,7 +5,6 @@ public class BossD : MonoBehaviour
 {
     [SerializeField] private float _radius = 5f;
 
-    private bool _freezeFlip = false;
     private Transform _playerTrm;
     private Animator _animator;
     private EnemyController _controller;
@@ -22,7 +21,7 @@ public class BossD : MonoBehaviour
     }
 
     private void Update() {
-        if(_freezeFlip) return;
+        if(_controller.freezeFlip) return;
 
         if(_playerTrm.position.x > transform.position.x) transform.localScale = new Vector3(-1, 1, 1);
         else if(_playerTrm.position.x < transform.position.x) transform.localScale = new Vector3(1, 1, 1);
@@ -34,14 +33,14 @@ public class BossD : MonoBehaviour
 
             _controller.moveable = false;
             _animator.SetTrigger("attack");
-            _freezeFlip = true;
+            _controller.freezeFlip = true;
 
             PoolManager.Instance.Pop("Boom", _playerTrm.position);
 
             yield return new WaitForSeconds(1f);
 
             _controller.moveable = true;
-            _freezeFlip = false;
+            _controller.freezeFlip = false;
 
             yield return new WaitForSeconds(0.5f);
         }
