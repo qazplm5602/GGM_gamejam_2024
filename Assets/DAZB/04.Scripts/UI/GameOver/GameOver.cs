@@ -1,18 +1,48 @@
 using System.Collections;
-using System.Collections.Generic;
+using DG.Tweening;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public GameObject[] ui;
+    public Animator playerAnim;
+    public RuntimeAnimatorController changeController;
+
+    private void Start() {
+        PlayerDeath();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void PlayerDeath() {
+        playerAnim.runtimeAnimatorController = changeController;
+        StartCoroutine(DeathCor());
+    }
+
+    private IEnumerator DeathCor() {
+/*         playerAnim.speed = 0;
+        gameObject.GetComponent<Image>().DOColor(Color.black, 0.5f);
+        yield return new WaitForSeconds(1f);
+        playerAnim.speed = 1;
+        playerAnim.SetTrigger("Death");
+        yield return new WaitForSeconds(0.7f);
+        ui[0].GetComponent<TMP_Text>().DOColor(Color.white, 0.2f);
+        yield return new WaitForSeconds(0.4f);
+        ui[1].GetComponent<Image>().DOColor(Color.white, 0.2f);
+        yield return new WaitForSeconds(0.4f);
+        ui[2].GetComponent<CanvasGroup>().DOFade(1, 0.2f);
+        yield return null; */
+        playerAnim.speed = 0;
+        gameObject.GetComponent<Image>().DOColor(Color.black, 0.5f);
+        yield return new WaitForSeconds(1f);
+        playerAnim.speed = 1;
+        playerAnim.SetTrigger("Death");
+        yield return new WaitForSeconds(0.7f);
+        ui[0].GetComponent<TMP_Text>().DOColor(Color.white, 1.4f);
+        ui[1].GetComponent<RectTransform>().DOScale(new Vector3(1, 0.01f, 0), 0.8f);
+        yield return new WaitForSeconds(1f);
+        ui[1].GetComponent<RectTransform>().DOScale(new Vector3(1, 1, 0), 0.3f);
+        yield return new WaitForSeconds(0.4f);
+        ui[2].GetComponent<CanvasGroup>().DOFade(1, 0.2f);
     }
 }
