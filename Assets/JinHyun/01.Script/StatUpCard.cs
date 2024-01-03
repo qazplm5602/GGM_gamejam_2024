@@ -15,6 +15,8 @@ public class StatUpCard : MonoBehaviour
     Vector2 originScale;
     int randShape;
     float randPercent;
+
+    RectTransform rect;
     bool selected = false;
     private void Awake()
     {
@@ -22,6 +24,7 @@ public class StatUpCard : MonoBehaviour
         description = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         originPos = transform.position;
         originScale = transform.localScale;
+        rect = GetComponent<RectTransform>();
         statUpParent = transform.parent.GetComponent<StatUpCanvas>();
     }
     private void OnEnable()
@@ -85,16 +88,8 @@ public class StatUpCard : MonoBehaviour
             }));
     }
 
-    public void Hover()
-    {
-        if(!selected) transform.localScale = transform.localScale * 1.2f;
-        print("들어옴");
-    }
+    public void Hover() { if (!selected) rect.DOScale(new Vector3(originScale.x * 1.1f, originScale.y * 1.1f), 0.1f).SetEase(Ease.Linear).SetUpdate(true); }
 
-    public void Exit()
-    {
-        if(!selected) transform.localScale = originScale;
-        print("나감");
-    }
+    public void Exit() { if (!selected) rect.DOScale(originScale, 0.15f).SetEase(Ease.Linear).SetUpdate(true); }
 
 }
