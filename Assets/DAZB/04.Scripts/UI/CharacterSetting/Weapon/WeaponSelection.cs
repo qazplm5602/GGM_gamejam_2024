@@ -15,6 +15,10 @@ public class WeaponSelection : MonoBehaviour
         children = GetComponentsInChildren<Button>();
     }
 
+    private void Start() {
+        SelectTrue(0);
+    }
+
     public void SelectTrue(int idx) {
         SelectAllFalse();
         children[idx].GetComponent<Outline>().effectDistance = new Vector2(7, -7);
@@ -36,5 +40,6 @@ public class WeaponSelection : MonoBehaviour
     public void SetWeapon(int idx) {
         nowWeaponImage.sprite = weaponDatas[idx].weaponSprite;
         nowWeaponType = weaponDatas[idx].WeaponType;
+        CharacterManager.instance.SetWeapon(weaponDatas[idx]);
     }
 }
