@@ -36,7 +36,7 @@ public class WeaponBullet : MonoBehaviour
     public void ShotFire(Vector2 start, float angle) {
         var ranking = CheckCard.instance.rankingInfo.ranking;
         Debug.LogWarning("ShotFire Debug Code!! L39");
-        ranking = Ranking.TRIPLE;
+        ranking = Ranking.FLUSH;
         if (eventListener.TryGetValue(ranking, out var cb)) {
             cb(start, angle);
         } else {
@@ -83,9 +83,12 @@ public class WeaponBullet : MonoBehaviour
                 return 65;
             case Ranking.FOURCARD:
                 return 144;
+            case Ranking.FLUSH:
+                return 80;
             default:
                 return 100;
         }
     }
     int GetMaxRanking() => CheckCard.instance.rankingInfo.cardData2?.cardNumber ?? CheckCard.instance.rankingInfo.cardData1.cardNumber;
+    public int GetDamange() => Mathf.RoundToInt(default_damage * (GetRankingValue(CheckCard.instance.rankingInfo.ranking) / 100) * ((GetMaxRanking() / 100f) + 1));
 }

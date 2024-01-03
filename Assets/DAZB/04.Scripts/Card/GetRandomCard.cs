@@ -39,6 +39,45 @@ public class GetRandomCard : MonoBehaviour {
         return new Card(GetShape(), GetNumber());
     }
 
+    public void SetWeight(int shape, float per) {
+        for (int i = 0; i < shapeWeights.Length; ++i) {
+            if (i == shape) {
+                shapeWeights[shape].shapeWeight += per;
+                continue;
+            }
+            shapeWeights[i].shapeWeight -= per / 3;
+        }
+        float totalWeight = 0;
+        foreach (var iter in shapeWeights) {
+            totalWeight += iter.shapeWeight;
+        }
+        if (totalWeight <= 100) {
+            for (int i = 0; i < shapeWeights.Length; ++i) {
+                if (i != shape) {
+                    shapeWeights[i].shapeWeight = Mathf.Ceil(shapeWeights[i].shapeWeight * 10) / 10;
+                    print("가중치 합이 100안되서 올림");
+                    break;
+                }
+            }
+            totalWeight = 0;
+            foreach (var iter in shapeWeights) {
+                totalWeight += iter.shapeWeight;
+            }
+            if (totalWeight > 100) {
+                totalWeight -= 100;
+                foreach (var iter in shapeWeights) {
+                    iter.shapeWeight -= totalWeight / 4;
+                }
+            }
+        }
+        // 디버깅
+/*         totalWeight = 0;
+        foreach (var iter in shapeWeights) {
+            totalWeight += iter.shapeWeight;
+        }
+        print("가중치"+totalWeight); */
+    }
+
     private int GetNumber() {
         int totalWeight = 0;
         foreach (NumbeWeight item in numbeWeights) {
