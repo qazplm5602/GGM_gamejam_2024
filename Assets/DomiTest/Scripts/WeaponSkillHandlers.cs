@@ -280,9 +280,13 @@ public class WeaponSkillHandlers : MonoBehaviour
         var clock = Instantiate(clockTemplate, transform.root).transform;
         var texts = clock.Find("Texts");
         clock.transform.position = transform.root.position;
+
+        var textMat = texts.GetChild(0).GetComponent<SpriteRenderer>().material;
         for (int i = 0; i < texts.childCount; i++)
         {
-            texts.GetChild(i).GetComponent<SpriteRenderer>().color *= new Color(1,1,1,0);
+            var redner = texts.GetChild(i).GetComponent<SpriteRenderer>();
+            redner.material = textMat;
+            redner.color *= new Color(1,1,1,0);
         }
 
         var roundCenter = clock.Find("roundCenter");
@@ -302,13 +306,63 @@ public class WeaponSkillHandlers : MonoBehaviour
 
         for (int i = 0; i < texts.childCount; i++)
         {
-            texts.GetChild(i).GetComponent<SpriteRenderer>().DOFade(1, 0.3f).SetDelay(i * 0.05f).SetUpdate(true);
+            texts.GetChild(i).GetComponent<SpriteRenderer>().DOFade(1, 0.5f).SetUpdate(true);
         }
 
         DOTween.To(() => 0f, number => roundCenter_render.material.SetFloat("_FillAmount", number), 1f, .7f).SetEase(Ease.OutQuad).SetUpdate(true).Play();
         DOTween.To(() => 0f, number => roundCenter2_render.material.SetFloat("_FillAmount", number), 1f, .8f).SetEase(Ease.OutQuad).SetUpdate(true).Play();
         DOTween.To(() => 0f, number => roundCenter3_render.material.SetFloat("_FillAmount", number), 1f, .9f).SetEase(Ease.OutQuad).SetUpdate(true).Play();
+
+        // 카드 안삼 만듬
+        var bullets = new List<GameObject>();
+        for (int i = 0; i < 3; i++)
+        {
+            var list = _bulletMain.CreateBullets();
+
+            int k = 0;
+            foreach (var item in list)
+            {
+                if (i == 2 && k > 1) {
+                    Destroy(item);
+                    continue;
+                }
+                
+                item.transform.parent = clock.transform;
+                item.transform.position = transform.root.position;
+                bullets.Add(item);
+                k ++;
+            }
+        }
+    
+        var cardFirstInfo = clock.Find("CardFirstPos");
+
+        int angle = 0;
+        foreach (var item in bullets)
+        {
+            RotateAround(cardFirstInfo.position, cardFirstInfo.rotation, clock.position, Vector3.back, angle, out var endPos, out var endRotate);
+
+            item.transform.DOMove(endPos, .5f).SetEase(Ease.OutQuad).SetUpdate(true).SetDelay(0.05f * (angle / 30) + 1);
+            item.transform.DORotateQuaternion(endRotate, .5f).SetEase(Ease.OutQuad).SetUpdate(true).SetDelay(0.05f * (angle / 30) + 1);
+            angle += 30;
+        }
+
+        // 번쩍
+        DOTween.To(() => 4f, number => textMat.SetColor("_Color", new Color(1*Mathf.Pow(2,number),1*Mathf.Pow(2,number),1*Mathf.Pow(2,number))), 2f, 1f).SetEase(Ease.OutQuad).SetUpdate(true).Play().SetDelay(2f);
+
+        yield return new WaitForSecondsRealtime(1 + 1 + 1);
+        
     }
+
+        void RotateAround(Vector3 currentPos, Quaternion currentRotate, Vector3 cetner, Vector3 axis, float angle, out Vector3 endPos, out Quaternion endRotate){
+            Vector3 pos = currentPos;
+            Quaternion rot = Quaternion.AngleAxis(angle, axis); // get the desired rotation
+            Vector3 dir = pos - cetner; // find current direction relative to center
+            dir = rot * dir; // rotate the direction
+            endPos = cetner + dir; // define new position
+            // rotate object to keep looking at the center:
+            Quaternion myRot = currentRotate;
+            endRotate = currentRotate * Quaternion.Inverse(myRot) * rot * myRot;
+        }
 
     void Wait(UnityAction callback, float time) {
         StartCoroutine(_Wait(callback, time));
