@@ -70,6 +70,7 @@ public class StatUpCard : MonoBehaviour
 
         //Add Weight to Selected Card's Increase Stat Info
         GetRandomCard.instance.SetWeight(randShape, randPercent);
+        print(GetRandomCard.instance.shapeWeights[randShape].shapeWeight);
         //Selected Card's Position to Move Zero, Add Shiny Effect, Decrease Size to 0
         Sequence seq = DOTween.Sequence();
         seq.Join(transform.DOScale(new Vector2(8, 8), 0.4f));
