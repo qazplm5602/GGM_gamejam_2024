@@ -76,7 +76,9 @@ public class HandRankings : MonoBehaviour
         for (int i = 0; i < cards.Length; ++i) {
             int same = 1;
             for (int j = 0; j < cards.Length; ++j) {
-                if (i != j && cards[i].cardNumber == cards[j].cardNumber) {
+                if (i != j && (cards[i].cardNumber == cards[j].cardNumber || 
+                           (cards[i].cardNumber == 1 && cards[j].cardNumber == 14) ||
+                           (cards[i].cardNumber == 14 && cards[j].cardNumber == 1))) {
                     ++same;
                     if (same == 3) {
                         return (true, cards[i]);
@@ -168,7 +170,9 @@ public class HandRankings : MonoBehaviour
         for (int i = 0; i < cards.Length; ++i) {
             int same = 1;
             for (int j = 0; j < cards.Length; ++j) {
-                if (i != j && cards[i].cardNumber == cards[j].cardNumber) {
+                if (i != j && (cards[i].cardNumber == cards[j].cardNumber || 
+                           (cards[i].cardNumber == 1 && cards[j].cardNumber == 14) ||
+                           (cards[i].cardNumber == 14 && cards[j].cardNumber == 1))) {
                     ++same;
                     if (same == 4) {
                         return (true, cards[i]);

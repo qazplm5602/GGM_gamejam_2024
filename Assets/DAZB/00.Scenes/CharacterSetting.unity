@@ -251,11 +251,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e4dd535b2e69c4a993e2d875f4af7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characternName:
-  - pumpkin
-  - elf
-  - knight
-  - lizard
+  characternDatas:
+  - anim: {fileID: 0}
+    name: Pumkin
+  - anim: {fileID: 0}
+    name: Elf
+  - anim: {fileID: 0}
+    name: Knight
+  - anim: {fileID: 0}
+    name: Lizard
   nowSelectCharacterNumber: 0
 --- !u!114 &36455392
 MonoBehaviour:

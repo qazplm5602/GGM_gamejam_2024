@@ -16,7 +16,9 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    public void SetData(WeaponData weaponData) {
+    public void GetData() {
 
     }
+
+    //public void s
 }
