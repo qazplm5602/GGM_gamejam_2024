@@ -10,16 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-<<<<<<<< HEAD:Assets/Minki/0I_SO/Pool/BossProjectile.asset
-  m_Name: BossProjectile
-  m_EditorClassIdentifier: Assembly-CSharp::PoolSO
-  name: BossProjectile
-  count: 10
-  prefab: {fileID: 3355734530566503563, guid: 0a1c3061f30d2844e8c12c0ee3541805, type: 3}
-========
   m_Name: Boom
   m_EditorClassIdentifier: Assembly-CSharp::PoolSO
   name: Boom
   count: 3
   prefab: {fileID: 3123500086709570518, guid: 23f8bbe4838a19d48beb04a0ca401fac, type: 3}
->>>>>>>> main:Assets/Minki/0I_SO/Pool/Boom.asset

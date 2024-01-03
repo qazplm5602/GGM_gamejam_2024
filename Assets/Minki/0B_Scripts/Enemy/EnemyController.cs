@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     [HideInInspector] public bool moveable = true;
 
     [SerializeField] private EnemySO _enemySO;
+    [SerializeField] private bool _bossE = false;
 
     private int _hp;
     private int _damage;
@@ -34,6 +35,8 @@ public class EnemyController : MonoBehaviour
 
     private void Update() {
         Move();
+
+        if(Input.GetKeyDown(KeyCode.L)) Hit(100);
     }
 
     private void Move() {
@@ -48,8 +51,14 @@ public class EnemyController : MonoBehaviour
         _hp -= damage;
 
         if(_hp <= 0) {
-            PoolManager.Instance.Pop("Exp", transform.position);
-            PoolManager.Instance.Push("Enemy", gameObject);
+            if(_bossE) {
+                _bossE = false;
+                StartCoroutine(GetComponent<BossE>().Transform());
+            }
+            else {
+                PoolManager.Instance.Pop("Exp", transform.position);
+                PoolManager.Instance.Push("Enemy", gameObject);
+            }
         }
     }
 }

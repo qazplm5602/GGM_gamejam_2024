@@ -42,7 +42,7 @@ public class ShowCard : MonoBehaviour
 
         foreach(GameObject obj in cardObj.Keys) {
             if(rankingInfo.ranking == Ranking.HIGHCARD || rankingInfo.ranking == Ranking.ONEPAIR || rankingInfo.ranking == Ranking.TWOPAIR || rankingInfo.ranking == Ranking.TRIPLE || rankingInfo.ranking == Ranking.FOURCARD) {
-                if(cardObj[obj] == rankingInfo.cardData1.cardNumber || (rankingInfo.cardData2 != null && cardObj[obj] == rankingInfo.cardData2.cardNumber)) 
+                if(cardObj[obj] == rankingInfo.cardData1.cardNumber || (rankingInfo.cardData1.cardNumber == 1 && cardObj[obj] == 14) || (rankingInfo.cardData1.cardNumber == 14 && cardObj[obj] == 1) || (rankingInfo.cardData2 != null && cardObj[obj] == rankingInfo.cardData2.cardNumber)) 
                     SetColor(obj.transform.GetChild(0).gameObject, rankingInfo.ranking);
                 else obj.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f);
             }

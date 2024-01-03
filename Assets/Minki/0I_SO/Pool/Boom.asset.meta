@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Minki/0I_SO/Pool/BossProjectile.asset.meta
-guid: bba336f02d9b22141b328e40f013ac79
-========
-guid: f2dea029b5004184b92ab53d83880591
->>>>>>>> main:Assets/Minki/0I_SO/Pool/Boom.asset.meta
+guid: 8900f52c2168ed544856ccc11a413907
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000
