@@ -55,7 +55,6 @@ public class GetRandomCard : MonoBehaviour {
             for (int i = 0; i < shapeWeights.Length; ++i) {
                 if (i != shape) {
                     shapeWeights[i].shapeWeight = Mathf.Ceil(shapeWeights[i].shapeWeight * 10) / 10;
-                    print("가중치 합이 100안되서 올림");
                     break;
                 }
             }

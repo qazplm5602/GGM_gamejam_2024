@@ -32,7 +32,6 @@ public class StatUpCard : MonoBehaviour
             jokerImage.material = null;
         }
         selected = false;
-        print(selected);
         randShape = Random.Range(0, shapes.Length);
         randPercent = Random.Range(1, 4) + Random.Range(1, 10) * 0.1f;
         description.text = $"{shapes[randShape]}카드가 나올 확률이\n" +
@@ -71,7 +70,6 @@ public class StatUpCard : MonoBehaviour
 
         //Add Weight to Selected Card's Increase Stat Info
         GetRandomCard.instance.SetWeight(randShape, randPercent);
-        print(GetRandomCard.instance.shapeWeights[randShape].shapeWeight);
         //Selected Card's Position to Move Zero, Add Shiny Effect, Decrease Size to 0
         Sequence seq = DOTween.Sequence().SetUpdate(true);
         seq.Join(transform.DOScale(new Vector2(8, 8), 0.4f));
@@ -83,6 +81,7 @@ public class StatUpCard : MonoBehaviour
             {
                 statUpParent.DisableAll();
                 Time.timeScale = 1;
+                GameManager.Instance.player.CheckRemainLevelUP();
             }));
     }
 

@@ -8,9 +8,16 @@ public class StatUpCanvas : MonoBehaviour
     public Material cardShinyMat;
     public TextSetter textSetter;
 
+    bool firstLevelUp = true;
+
     private void OnEnable()
     {
         ActiveOptions();
+        if (firstLevelUp)
+        {
+            firstLevelUp = false;
+            GameManager.Instance.player.ChangeLevel();
+        }
         GameManager.Instance.player.SetExp();
     }
 
