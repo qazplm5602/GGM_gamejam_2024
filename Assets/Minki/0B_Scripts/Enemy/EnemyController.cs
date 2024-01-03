@@ -13,7 +13,7 @@ public class EnemySO : ScriptableObject
 
 public class EnemyController : MonoBehaviour
 {
-    public bool moveable = true;
+    [HideInInspector] public bool moveable = true;
 
     [SerializeField] private EnemySO _enemySO;
 

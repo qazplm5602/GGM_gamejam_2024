@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 9166661169722078411}
   - component: {fileID: 1174545843492653952}
   - component: {fileID: 5242005656485653700}
+  - component: {fileID: 7543762706037342210}
   - component: {fileID: 8509869632975389628}
-  - component: {fileID: 2895451733608182889}
+  - component: {fileID: 8184214832687052000}
   m_Layer: 0
-  m_Name: Boss
+  m_Name: BossA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,8 +76,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -836639163, guid: 3e00ac2baf640dc4889382c701ad6007, type: 3}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 1557946514, guid: 1b46fbf600d77a04c88c692e99cc165e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -114,6 +115,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &7543762706037342210
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2341776278218170704}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e46e8eaa9a79e6449ac5e2f870e636fd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &8509869632975389628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveable: 1
   _enemySO: {fileID: 11400000, guid: d18edfe07a6aecc47ab34df7d80bf4c1, type: 2}
---- !u!114 &2895451733608182889
+--- !u!114 &8184214832687052000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,6 +159,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 2341776278218170704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62aec37a3056ae3438223b3880780733, type: 3}
+  m_Script: {fileID: 11500000, guid: a3fb9ed698d38e74c9f8d4731e263433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _delay: 0.5
+  _dashTime: 0.6
