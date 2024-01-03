@@ -39,6 +39,16 @@ public class GetRandomCard : MonoBehaviour {
         return new Card(GetShape(), GetNumber());
     }
 
+    public void SetWeight(int shape, float per) {
+        for (int i = 0; i < shapeWeights.Length; ++i) {
+            if (i == shape) {
+                shapeWeights[shape].shapeWeight += per;
+                continue;
+            }
+            shapeWeights[i].shapeWeight -= per / shapeWeights.Length;
+        }
+    }
+
     private int GetNumber() {
         int totalWeight = 0;
         foreach (NumbeWeight item in numbeWeights) {
