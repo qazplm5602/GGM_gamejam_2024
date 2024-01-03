@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Projectile
   m_EditorClassIdentifier: Assembly-CSharp::PoolSO
-  name: 
+  name: BossProjectile
   count: 10
   prefab: {fileID: 3355734530566503563, guid: 0a1c3061f30d2844e8c12c0ee3541805, type: 3}
