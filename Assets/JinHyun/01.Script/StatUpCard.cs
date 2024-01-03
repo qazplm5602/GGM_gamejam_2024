@@ -69,9 +69,6 @@ public class StatUpCard : MonoBehaviour
         Exit();
 
         //Add Weight to Selected Card's Increase Stat Info
-        //
-        print(randShape + " 0123 스다하클");
-        print(GetRandomCard.instance.shapeWeights[randShape]);
         GetRandomCard.instance.shapeWeights[randShape].shapeWeight += randPercent;
 
         //Selected Card's Position to Move Zero, Add Shiny Effect, Decrease Size to 0
