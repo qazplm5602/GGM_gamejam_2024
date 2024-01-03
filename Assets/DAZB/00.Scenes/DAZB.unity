@@ -173,6 +173,8 @@ MonoBehaviour:
     cardData2:
       cardShape: 0
       cardNumber: 0
+  rankingCounter: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  drawCount: 0
 --- !u!4 &1537869108
 Transform:
   m_ObjectHideFlags: 0
@@ -262,6 +264,7 @@ GameObject:
   - component: {fileID: 1676320102}
   - component: {fileID: 1676320101}
   - component: {fileID: 1676320104}
+  - component: {fileID: 1676320105}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -387,6 +390,19 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &1676320105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676320100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6027cf23cc1cc074fa2bf24d3168d48f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stackDatas: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
