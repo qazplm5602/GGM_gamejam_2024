@@ -22,7 +22,6 @@ public class ExperienceBall : MonoBehaviour
     }
     public void PushEXP()
     {
-        print("����");
         GameManager.Instance.player.ExpUP(_boss ? 300 : 30);
         PoolManager.Instance.Push("Exp", gameObject);
     }
