@@ -10,8 +10,8 @@ public class BossSpawner : MonoBehaviour
     private void Update() {
         seconds += Time.deltaTime;
 
-        if(seconds > 60f) {
-            seconds -= 60f;
+        if(seconds > 120f) {
+            seconds -= 120f;
             Instantiate(bosses[bossCounter++], transform.position, Quaternion.identity);
         }
     }

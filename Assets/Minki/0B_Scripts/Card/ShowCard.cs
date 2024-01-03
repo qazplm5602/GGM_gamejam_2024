@@ -54,20 +54,23 @@ public class ShowCard : MonoBehaviour
         Color color = Color.white;
 
         switch(ranking) {
-            case Ranking.HIGHCARD: color = Color.red; break;
-            case Ranking.ONEPAIR: color = Color.red; break;
-            case Ranking.TWOPAIR: color = Color.red; break;
-            case Ranking.TRIPLE: color = Color.red; break;
-            case Ranking.STRAIGHT: color = Color.red; break;
-            case Ranking.FLUSH: color = Color.red; break;
-            case Ranking.FULLHOUSE: color = Color.red; break;
-            case Ranking.FOURCARD: color = Color.red; break;
-            case Ranking.STRAIGHTFLUSH: color = Color.red; break;
+            case Ranking.HIGHCARD: color = new Color(1, 0.82f, 0); break;
+            case Ranking.ONEPAIR: color = new Color(0.4f, 1, 0); break;
+            case Ranking.TWOPAIR: color = new Color(0, 1, 0.128f); break;
+            case Ranking.TRIPLE: color = new Color(0, 0.749f, 0.59f); break;
+            case Ranking.STRAIGHT: color = new Color(0, 0.39f, 1); break;
+            case Ranking.BACKSTRAIGHT: color = new Color(1, 0.373f, 0); break;
+            case Ranking.MOUNTAIN: color = new Color(1, 0.179f, 0); break;
+            case Ranking.FLUSH: color = new Color(1, 0.088f, 0); break;
+            case Ranking.FULLHOUSE: color = new Color(1, 0, 0.1f); break;
+            case Ranking.FOURCARD: color = new Color(1, 0, 0); break;
+            case Ranking.STRAIGHTFLUSH: color = new Color(1, 0, 0.883f); break;
+            case Ranking.BACKSTRAIGHTFLUSH: color = new Color(0.37f, 0, 1); break;
             case Ranking.ROYALSTRAIGHTFLUSH: color = new Color(0.12f, 0, 1); break;
         }
 
         obj.SetActive(true);
-        obj.GetComponent<SpriteRenderer>().material.SetColor("_Color", color * 7f);
+        obj.GetComponent<SpriteRenderer>().material.SetColor("_Color", color * 5f);
     }
 
     public void DisappearCard() {

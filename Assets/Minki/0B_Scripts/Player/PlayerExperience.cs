@@ -4,11 +4,12 @@ public class PlayerExperience : MonoBehaviour
 {
     public int level = 1;
 
-    public int _curNeedExp = 100;
-    public int _curExp = 0;
-    public void ExpUP()
+    private int _curNeedExp = 100;
+    private int _curExp = 0;
+
+    public void ExpUP(int value)
     {
-        _curExp += 30;
+        _curExp += value;
         print(_curExp);
         print(_curNeedExp);
         GameManager.Instance.SetEXP(_curExp, _curNeedExp);
@@ -32,9 +33,9 @@ public class PlayerExperience : MonoBehaviour
         _curExp -= _curNeedExp;
         _curNeedExp = (int)(_curNeedExp * 1.5f);
         ++level;
-        print("ÇöÀç ·¹º§ : " + level);
-        print("ÇöÀç °æÇèÄ¡ :" + _curExp);
-        print("ÇöÀç ÇÊ¿ä °æÇèÄ¡ : " + _curNeedExp);
+        print("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : " + level);
+        print("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ :" + _curExp);
+        print("ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ : " + _curNeedExp);
     }
     
     public void SetExp()

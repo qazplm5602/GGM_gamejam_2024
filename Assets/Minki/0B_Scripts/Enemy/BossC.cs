@@ -36,9 +36,10 @@ public class BossC : MonoBehaviour
             _animator.SetTrigger("attack");
             _controller.freezeFlip = true;
 
+            AudioManager.Instance.PlaySound("MissEvade");
             GameObject obj = PoolManager.Instance.Pop("BoomC", transform.position);
             Vector2 direction = _playerTrm.position - transform.position;
-            obj.GetComponent<Rigidbody2D>().AddForce(direction.normalized * _power, ForceMode2D.Impulse);
+            obj.GetComponent<Rigidbody2D>().AddForce(direction * _power, ForceMode2D.Impulse);
 
             yield return new WaitForSeconds(0.7f);
 

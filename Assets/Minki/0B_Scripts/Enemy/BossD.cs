@@ -36,6 +36,7 @@ public class BossD : MonoBehaviour
             _controller.freezeFlip = true;
 
             PoolManager.Instance.Pop("Boom", _playerTrm.position);
+            AudioManager.Instance.PlaySound("EnemyDeath");
 
             yield return new WaitForSeconds(1f);
 

@@ -149,7 +149,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveable: 1
+  freezeFlip: 0
   _enemySO: {fileID: 11400000, guid: d18edfe07a6aecc47ab34df7d80bf4c1, type: 2}
+  _boss: 1
+  _bossE: 0
 --- !u!114 &4587506820614160730
 MonoBehaviour:
   m_ObjectHideFlags: 0

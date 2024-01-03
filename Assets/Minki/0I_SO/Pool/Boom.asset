@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 6f0c383929a46d94dbc4aa3371b9ff0a, type: 3}
   m_Name: Boom
-  m_EditorClassIdentifier: Assembly-CSharp::PoolSO
+  m_EditorClassIdentifier: 
   name: Boom
   count: 3
   prefab: {fileID: 3123500086709570518, guid: 23f8bbe4838a19d48beb04a0ca401fac, type: 3}

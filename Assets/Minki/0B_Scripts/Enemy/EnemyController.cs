@@ -1,19 +1,12 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "SO/EnemySO")]
-public class EnemySO : ScriptableObject
-{
-    public int hp = 10;
-    public int damage = 2;
-    public float speed = 2;
-}
-
 public class EnemyController : MonoBehaviour
 {
     [HideInInspector] public bool moveable = true;
     [HideInInspector] public bool freezeFlip = false;
 
     [SerializeField] private EnemySO _enemySO;
+    [SerializeField] private bool _boss = false;
     [SerializeField] private bool _bossE = false;
 
     private int _hp;
@@ -30,18 +23,22 @@ public class EnemyController : MonoBehaviour
     }
     
     private void OnEnable() {
+        if(_boss) return;
+
         GetComponent<Animator>().runtimeAnimatorController = GameManager.Instance.enemy[Random.Range(0, GameManager.Instance.enemy.Length)];
     }
 
     private void Update() {
-        Move();
-
         if(Input.GetKeyDown(KeyCode.L)) Hit(100);
         
         if(freezeFlip) return;
 
         if(_playerTrm.position.x > transform.position.x) transform.localScale = new Vector3(-1, 1, 1);
         else if(_playerTrm.position.x < transform.position.x) transform.localScale = new Vector3(1, 1, 1);
+    }
+
+    private void FixedUpdate() {
+        Move();
     }
 
     private void Move() {
@@ -65,8 +62,14 @@ public class EnemyController : MonoBehaviour
                     boss.Dead();
                 }
                 else {
-                    PoolManager.Instance.Pop("Exp", transform.position);
-                    PoolManager.Instance.Push("Enemy", gameObject);
+                    if(_boss) {
+                        PoolManager.Instance.Pop("BossExp", transform.position);
+                        Destroy(gameObject);
+                    }
+                    else {
+                        PoolManager.Instance.Pop("Exp", transform.position);
+                        PoolManager.Instance.Push("Enemy", gameObject);
+                    }
                 }
             }
         }

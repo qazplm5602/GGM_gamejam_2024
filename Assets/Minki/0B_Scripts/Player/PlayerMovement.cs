@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
         _animator = (Animator)GetComponent("Animator");
     }
 
-    private void Update() {
+    private void FixedUpdate() {
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
