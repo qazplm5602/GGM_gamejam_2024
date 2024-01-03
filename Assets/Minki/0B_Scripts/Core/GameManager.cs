@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public Image hpFill;
     public Image expFill;
 
+    public RuntimeAnimatorController[] enemy;
     public GameObject SettingCanvas;
 
     float maxHp = 100;
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
-        //ÇÃ·¹ÀÌ¾î ¹Þ¾Æ¿Ã°ÅÀÓ ±Ùµ¥ ¹¹ ´Ù¸¥¹æ¹ý¹¹ÇÏÁö Èì
+        //ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½Þ¾Æ¿Ã°ï¿½ï¿½ï¿½ ï¿½Ùµï¿½ ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         //float maxHp = player.GetComponent<>
     }
 
@@ -57,7 +58,7 @@ public class GameManager : MonoBehaviour
     }
     public void SetEXP(int curExp, int needExp)
     {
-        print("¾Æ");
+        print("ï¿½ï¿½");
         expFill.fillAmount = curExp / (float)needExp;
     }
 }
