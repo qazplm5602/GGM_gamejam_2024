@@ -18,6 +18,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         _bulletMain.eventListener[Ranking.BACKSTRAIGHT] = Backstraight;
         _bulletMain.eventListener[Ranking.MOUNTAIN] = Mountain;
         _bulletMain.eventListener[Ranking.FOURCARD] = Fourcard;
+        _bulletMain.eventListener[Ranking.FULLHOUSE] = Fullhouse;
     }
 
     private void OnDestroy() {
@@ -29,6 +30,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         _bulletMain.eventListener.Remove(Ranking.BACKSTRAIGHT);
         _bulletMain.eventListener.Remove(Ranking.MOUNTAIN);
         _bulletMain.eventListener.Remove(Ranking.FOURCARD);
+        _bulletMain.eventListener.Remove(Ranking.FULLHOUSE);
     }
 
 
@@ -78,7 +80,7 @@ public class WeaponSkillHandlers : MonoBehaviour
             bullets[k].transform.rotation = Quaternion.AngleAxis(angle + (5 * i), Vector3.forward);
 
             // 화염디버프 적용 ㄱㄱ
-            
+
         }
     }
     void Backstraight(Vector2 start, float angle) {
@@ -163,6 +165,20 @@ public class WeaponSkillHandlers : MonoBehaviour
                 }, domi * .05f);
             }
             Destroy(bullets[4]);
+        }
+    }
+    
+    void Fullhouse(Vector2 start, float angle) {
+        List<GameObject> bullets = new();
+
+        for (int i = 0; i < 2; i++)
+            foreach (var item in _bulletMain.CreateBullets())
+                bullets.Add(item);
+
+        for (float i = -5, k = 0; i <= 5; i+=1.1f, k ++)
+        {
+            bullets[(int)k].transform.position = start;
+            bullets[(int)k].transform.rotation = Quaternion.AngleAxis(angle + (2.5f * i), Vector3.forward);
         }
     }
 
