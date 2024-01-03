@@ -11,9 +11,12 @@ public class Projectile : MonoBehaviour
     private void Update() {
         _timer += Time.deltaTime;
         if(_timer < _delayTime) return;
-        
+
         transform.Translate(Vector3.right * _speed * Time.deltaTime);
 
-        if(_timer >= _lifeTime + _delayTime) PoolManager.Instance.Push("BossProjectile", gameObject);
+        if(_timer >= _lifeTime + _delayTime) {
+            _timer = 0f;
+            PoolManager.Instance.Push("BossProjectile", gameObject);
+        }
     }
 }

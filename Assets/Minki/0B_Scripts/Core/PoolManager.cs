@@ -28,6 +28,7 @@ public class PoolManager : MonoBehaviour
             for(int j = 0; j < _poolList[i].count; ++j) {
                 GameObject obj = Instantiate(_poolList[i].prefab, transform.position, Quaternion.identity, transform);
                 obj.SetActive(false);
+                obj.name = obj.name.Replace("(Clone)", "");
                 _poolQueue[_poolList[i].name].Enqueue(obj);
             }
         }
@@ -37,6 +38,7 @@ public class PoolManager : MonoBehaviour
         if(_poolQueue[name].Count <= 1) {
             GameObject oldObj = _poolQueue[name].Dequeue();
             GameObject newObj = Instantiate(oldObj, transform.position, Quaternion.identity, transform);
+            newObj.name = newObj.name.Replace("(Clone)", "");
             _poolQueue[name].Enqueue(oldObj);
             _poolQueue[name].Enqueue(newObj);
         }
