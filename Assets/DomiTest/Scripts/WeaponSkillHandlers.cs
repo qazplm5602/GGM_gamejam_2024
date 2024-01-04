@@ -258,7 +258,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         // start가 콜백 이후에도 메모리 주소복사가 아니라 좌표가 업데이트 되지 않음
         return (Collider2D other) => {
             var parent = Instantiate(shapeGroups[(int)shape]);
-            parent.transform.position = other.ClosestPoint(start);
+            parent.transform.position = other.ClosestPoint(myEntity.transform.position);
             
             int i;
             for (i = 0; i < parent.transform.childCount; i++)
@@ -282,7 +282,7 @@ public class WeaponSkillHandlers : MonoBehaviour
             Destroy(parent.gameObject);
             Destroy(myEntity);
             // parent.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            return false;
+            return true;
         };
     }
 
@@ -402,6 +402,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         }
 
         // 출발~
+        CamManager.StartShake(2, .5f);
         Time.timeScale = 1;
 
         while (Time.timeScale > 0) {
@@ -427,6 +428,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         }
 
         Time.timeScale = 1;
+        CamManager.StartShake(2, 1.5f);
 
         yield return new WaitForSecondsRealtime(.3f);
 
@@ -542,7 +544,11 @@ public class WeaponSkillHandlers : MonoBehaviour
             item.transform.DOScale(item.transform.localScale / .5f, 1.9f).SetEase(Ease.OutQuad).SetUpdate(true);
         }
 
+        CamManager.StartShake(1, 1.5f);
+
         yield return new WaitForSecondsRealtime(2);
+
+        CamManager.StartShake(5, 2);
 
         // 부모 없애ㅐㅐㅐ
         foreach (var item in bullets)
