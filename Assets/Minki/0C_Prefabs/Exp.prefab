@@ -134,3 +134,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boss: 0
+  _magneticDistance: 5
+  _speed: 50
