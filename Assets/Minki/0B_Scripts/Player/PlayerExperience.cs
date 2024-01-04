@@ -30,6 +30,7 @@ public class PlayerExperience : MonoBehaviour
 
     public void ChangeLevel()
     {
+        print("안녕하ㅛㅔㅇ료");
         _curExp -= _curNeedExp;
         _curNeedExp = (int)(_curNeedExp * 1.5f);
         ++level;
