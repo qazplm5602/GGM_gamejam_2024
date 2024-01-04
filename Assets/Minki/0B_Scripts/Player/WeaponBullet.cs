@@ -8,8 +8,10 @@ public class WeaponBullet : MonoBehaviour
     [SerializeField] int default_damage;
     [SerializeField] GameObject cardBulletTemplate;
     [SerializeField] Sprite[] cards;
+    [SerializeField] ShowCard _showCard;
     Dictionary<string, Sprite> cardSpriteIndex = new();
     public Dictionary<Ranking, UnityAction<Vector2 /* start */, float /* dir(angle) */>> eventListener = new();
+    public bool fireDisable = false;
 
     private void Awake() {
         // 카드 sprite 인덱싱
@@ -33,10 +35,17 @@ public class WeaponBullet : MonoBehaviour
         // 여기에서 UI 연동
     }
 
+    public void Bridge_Showcard(bool active, bool arg1 = false) {
+        if (active)
+            StartCoroutine(_showCard.ShowingCard(arg1));
+        else
+            _showCard.DisappearCard(arg1);
+    }
+
     public void ShotFire(Vector2 start, float angle) {
         var ranking = CheckCard.instance.rankingInfo.ranking;
-        // Debug.LogWarning("ShotFire Debug Code!! L39");
-        // ranking = Ranking.ROYALSTRAIGHTFLUSH;
+        Debug.LogWarning("ShotFire Debug Code!! L39");
+        ranking = Ranking.FULLHOUSE;
         if (eventListener.TryGetValue(ranking, out var cb)) {
             cb(start, angle);
         } else {
@@ -85,6 +94,8 @@ public class WeaponBullet : MonoBehaviour
                 return 144;
             case Ranking.FLUSH:
                 return 80;
+            case Ranking.FULLHOUSE:
+                return 135;
             case Ranking.STRAIGHTFLUSH:
                 return 80;
             case Ranking.BACKSTRAIGHTFLUSH:
@@ -95,7 +106,7 @@ public class WeaponBullet : MonoBehaviour
                 return 100;
         }
     }
-    int GetMaxRanking() => CheckCard.instance.rankingInfo.cardData2?.cardNumber ?? (CheckCard.instance.rankingInfo.ranking == Ranking.MOUNTAIN ? 14 : CheckCard.instance.rankingInfo.cardData1.cardNumber);
-    public int GetDamange() => Mathf.RoundToInt(default_damage * (GetRankingValue(CheckCard.instance.rankingInfo.ranking) / 100) * ((GetMaxRanking() / 100f) + 1));
+    int GetMaxRanking() => CheckCard.instance.rankingInfo.cardData2?.cardNumber ?? (CheckCard.instance.rankingInfo.ranking == Ranking.MOUNTAIN || CheckCard.instance.rankingInfo.ranking == Ranking.FULLHOUSE || CheckCard.instance.rankingInfo.ranking == Ranking.BACKSTRAIGHT ? 14 : CheckCard.instance.rankingInfo.cardData1.cardNumber);
+    public int GetDamange(int customRank = -1) => Mathf.RoundToInt(default_damage * ((customRank >= 0 ? customRank : GetRankingValue(CheckCard.instance.rankingInfo.ranking)) / 100) * ((GetMaxRanking() / 100f) + 1));
     public Sprite GetCardSprite(string name) => cardSpriteIndex[name];
 }

@@ -20,7 +20,7 @@ public class ShowCard : MonoBehaviour
         }
     }
 
-    private IEnumerator ShowingCard(bool doubleBarrel = false) {
+    public IEnumerator ShowingCard(bool doubleBarrel = false) {
         yield return new WaitForSeconds(0.33f);
 
         Card[] cards = CheckCard.instance.playerCards;
