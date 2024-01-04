@@ -189,6 +189,8 @@ MonoBehaviour:
   expFill: {fileID: 0}
   enemy: []
   SettingCanvas: {fileID: 0}
+  enemyKill: 0
+  timer: 00:00
   curHp: 100
   statCanvas: {fileID: 0}
 --- !u!1 &481317890
@@ -1081,11 +1083,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8998713190403198585, guid: dbb3382c57089cd4aa08ec16994a32ad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.562
+      value: 0.429
       objectReference: {fileID: 0}
     - target: {fileID: 8998713190403198585, guid: dbb3382c57089cd4aa08ec16994a32ad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.009
+      value: -0.105
       objectReference: {fileID: 0}
     - target: {fileID: 8998713190403198585, guid: dbb3382c57089cd4aa08ec16994a32ad, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1134,11 +1136,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4585745271221866841, guid: e491ca2a0de6f4c43b82b440a241c0b3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.646
+      value: 0.179
       objectReference: {fileID: 0}
     - target: {fileID: 4585745271221866841, guid: e491ca2a0de6f4c43b82b440a241c0b3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.084
       objectReference: {fileID: 0}
     - target: {fileID: 4585745271221866841, guid: e491ca2a0de6f4c43b82b440a241c0b3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1179,6 +1181,10 @@ PrefabInstance:
     - target: {fileID: 4620032811582190429, guid: e491ca2a0de6f4c43b82b440a241c0b3, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7032334788173317753, guid: e491ca2a0de6f4c43b82b440a241c0b3, type: 3}
+      propertyPath: deadDistance
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

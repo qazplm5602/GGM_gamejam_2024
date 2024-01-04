@@ -21,7 +21,7 @@ public class DebuffFire : MonoBehaviour
     IEnumerator Tick() {
         for (int i = 0; i < 4; i++)
         {
-            controller.Hit(damage);
+            controller.Hit(damage, transform.position);
             print($"fire debuff damage {damage} / "+i+" / "+gameObject.name);
             yield return new WaitForSeconds(1);
         }
