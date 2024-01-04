@@ -47,6 +47,7 @@ public class BossA : MonoBehaviour
         }
         AudioManager.Instance.PlaySound("Jump");
         _animator.SetBool("isMove", true);
+        CamManager.StartShake(2, 0.5f);
         while(time < _delay + _dashTime) {
             transform.position += direction.normalized * 20f * Time.deltaTime;
             time += Time.deltaTime;

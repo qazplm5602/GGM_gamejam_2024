@@ -29,6 +29,7 @@ public class BossE : MonoBehaviour
         _controller.freezeFlip = true;
         _animator.SetTrigger("transform");
         AudioManager.Instance.PlaySound("Encounter");
+            CamManager.StartShake(4f, 3f);
 
         yield return new WaitForSeconds(3.2f);
 
@@ -84,6 +85,7 @@ public class BossE : MonoBehaviour
             direction.Normalize();
             PoolManager.Instance.Pop("Fireball", _castTrm.position, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
             AudioManager.Instance.PlaySound("Unequipe");
+            CamManager.StartShake(10f, 0.2f);
             yield return new WaitForSeconds(0.2f);
         }
 
@@ -111,6 +113,7 @@ public class BossE : MonoBehaviour
                 PoolManager.Instance.Pop("Fire", center + direction.normalized * range).GetComponent<Fire>().center = center;
             }
             AudioManager.Instance.PlaySound("FireExplosion");
+            CamManager.StartShake(2f, 0.3f);
             yield return new WaitForSeconds(0.1f);
         }
         

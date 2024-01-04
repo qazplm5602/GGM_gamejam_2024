@@ -16,4 +16,8 @@ public class Boom : MonoBehaviour
             _timer = 0f;
         }
     }
+
+    public void Shake() {
+        CamManager.StartShake(9f, 0.2f);
+    }
 }

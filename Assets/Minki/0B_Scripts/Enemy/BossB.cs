@@ -40,6 +40,10 @@ public class BossB : MonoBehaviour
 
         _controller.moveable = true;
         _controller.freezeFlip = false;
+
+        yield return new WaitForSeconds(0.15f);
+
+        CamManager.StartShake(7, 0.3f);
     }
 
     private IEnumerator Pattern2() {
@@ -56,5 +60,9 @@ public class BossB : MonoBehaviour
         yield return new WaitForSeconds(0.35f);
         _controller.moveable = true;
         _controller.freezeFlip = false;
+
+        yield return new WaitForSeconds(0.15f);
+
+        CamManager.StartShake(1, 0.5f);
     }
 }

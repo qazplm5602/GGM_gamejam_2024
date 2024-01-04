@@ -90,24 +90,25 @@ public class ShowCard : MonoBehaviour
 
     private void ShowText(Ranking ranking) {
         Color color = Color.white;
+        string text = "";
         
         switch(ranking) {
-            case Ranking.HIGHCARD: color = new Color(1, 0.82f, 0); break;
-            case Ranking.ONEPAIR: color = new Color(0.4f, 1, 0); break;
-            case Ranking.TWOPAIR: color = new Color(0, 1, 0.128f); break;
-            case Ranking.TRIPLE: color = new Color(0, 0.749f, 0.59f); break;
-            case Ranking.STRAIGHT: color = new Color(0, 0.39f, 1); break;
-            case Ranking.BACKSTRAIGHT: color = new Color(1, 0.373f, 0); break;
-            case Ranking.MOUNTAIN: color = new Color(1, 0.179f, 0); break;
-            case Ranking.FLUSH: color = new Color(1, 0.088f, 0); break;
-            case Ranking.FULLHOUSE: color = new Color(1, 0, 0.1f); break;
-            case Ranking.FOURCARD: color = new Color(1, 0, 0); break;
-            case Ranking.STRAIGHTFLUSH: color = new Color(1, 0, 0.883f); break;
-            case Ranking.BACKSTRAIGHTFLUSH: color = new Color(0.37f, 0, 1); break;
-            case Ranking.ROYALSTRAIGHTFLUSH: color = new Color(0.12f, 0, 1); break;
+            case Ranking.HIGHCARD: text = "High Card"; color = new Color(1, 0.82f, 0); break;
+            case Ranking.ONEPAIR: text = "One Pair"; color = new Color(0.4f, 1, 0); break;
+            case Ranking.TWOPAIR: text = "Two Pair"; color = new Color(0, 1, 0.128f); break;
+            case Ranking.TRIPLE: text = "Triple"; color = new Color(0, 0.749f, 0.59f); break;
+            case Ranking.STRAIGHT: text = "Staight"; color = new Color(0, 0.39f, 1); break;
+            case Ranking.BACKSTRAIGHT: text = "Back Straight"; color = new Color(1, 0.373f, 0); break;
+            case Ranking.MOUNTAIN: text = "Mountain"; color = new Color(1, 0.179f, 0); break;
+            case Ranking.FLUSH: text = "Flush"; color = new Color(1, 0.088f, 0); break;
+            case Ranking.FULLHOUSE: text = "Full House"; color = new Color(1, 0, 0.1f); break;
+            case Ranking.FOURCARD: text = "Four Card"; color = new Color(1, 0, 0); break;
+            case Ranking.STRAIGHTFLUSH: text = "Staight Flush"; color = new Color(1, 0, 0.883f); break;
+            case Ranking.BACKSTRAIGHTFLUSH: text = "Back Straight Flush"; color = new Color(0.37f, 0, 1); break;
+            case Ranking.ROYALSTRAIGHTFLUSH: text = "Royal Straight Flush"; color = new Color(0.12f, 0, 1); break;
         }
 
-        Instantiate(_rankingTextPrefab, transform.position + new Vector3(Random.Range(-0.07f, 0.07f), Random.Range(-0.07f, 0.07f)), Quaternion.identity).GetComponent<ShowRanking>().Show(color);
+        Instantiate(_rankingTextPrefab, transform.position + new Vector3(Random.Range(-0.07f, 0.07f), Random.Range(-0.07f, 0.07f)), Quaternion.identity).GetComponent<ShowRanking>().Show(text, color);
     }
 
     public void DisappearCard(bool doubleBarrel = false) {
