@@ -89,11 +89,19 @@ public class ShowCard : MonoBehaviour
         obj.GetComponent<SpriteRenderer>().material.SetColor("_Color", color * 5f);
     }
 
-    public void DisappearCard() {
-        if(transform.childCount < 5) return;
+    public void DisappearCard(bool doubleBarrel = false) {
+        if(doubleBarrel) {
+            if(transform.childCount < 5) return;
+            for(int i = 0; i < 5; ++i) {
+                StartCoroutine(MoveDownCard(transform.GetChild(i).gameObject, 0.05f * i));
+            }
+        }
+        else {
+            for(int i = 0; i < transform.childCount - 5; ++i) Destroy(transform.GetChild(i).gameObject);
 
-        for(int i = 0; i < 5; ++i) {
-            StartCoroutine(MoveDownCard(gameObject.transform.GetChild(i).gameObject, 0.05f * i));
+            for(int i = transform.childCount - 5; i < transform.childCount; ++i) {
+                StartCoroutine(MoveDownCard(transform.GetChild(i).gameObject, 0.05f * i));
+            }
         }
     }
 
