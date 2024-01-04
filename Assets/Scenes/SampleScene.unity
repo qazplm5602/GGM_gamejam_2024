@@ -21555,6 +21555,7 @@ MonoBehaviour:
     - {fileID: 1227981183, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
     - {fileID: -1903468530, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
   _cardPrefab: {fileID: 7257405347208465219, guid: e0f6d5e4638652b45bc4c78cb61e016b, type: 3}
+  _rankingTextPrefab: {fileID: 0}
 --- !u!224 &2134121632511424416
 RectTransform:
   m_ObjectHideFlags: 0

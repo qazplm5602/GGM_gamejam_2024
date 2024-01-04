@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [System.Serializable]
@@ -11,6 +12,7 @@ public class ShowCard : MonoBehaviour
 {
     [SerializeField] private CardSprite[] _cardSprites;
     [SerializeField] private GameObject _cardPrefab;
+    [SerializeField] private GameObject _rankingTextPrefab;
 
     private bool _doubleBarrelFirst = true;
 
@@ -58,6 +60,7 @@ public class ShowCard : MonoBehaviour
             }
             else SetColor(obj.transform.GetChild(0).gameObject, rankingInfo.ranking);
         }
+        ShowText(rankingInfo.ranking);
     }
 
     private void SetColor(GameObject obj, Ranking ranking) {
@@ -83,6 +86,28 @@ public class ShowCard : MonoBehaviour
 
         obj.SetActive(true);
         obj.GetComponent<SpriteRenderer>().material.SetColor("_Color", color * 5f);
+    }
+
+    private void ShowText(Ranking ranking) {
+        Color color = Color.white;
+        
+        switch(ranking) {
+            case Ranking.HIGHCARD: color = new Color(1, 0.82f, 0); break;
+            case Ranking.ONEPAIR: color = new Color(0.4f, 1, 0); break;
+            case Ranking.TWOPAIR: color = new Color(0, 1, 0.128f); break;
+            case Ranking.TRIPLE: color = new Color(0, 0.749f, 0.59f); break;
+            case Ranking.STRAIGHT: color = new Color(0, 0.39f, 1); break;
+            case Ranking.BACKSTRAIGHT: color = new Color(1, 0.373f, 0); break;
+            case Ranking.MOUNTAIN: color = new Color(1, 0.179f, 0); break;
+            case Ranking.FLUSH: color = new Color(1, 0.088f, 0); break;
+            case Ranking.FULLHOUSE: color = new Color(1, 0, 0.1f); break;
+            case Ranking.FOURCARD: color = new Color(1, 0, 0); break;
+            case Ranking.STRAIGHTFLUSH: color = new Color(1, 0, 0.883f); break;
+            case Ranking.BACKSTRAIGHTFLUSH: color = new Color(0.37f, 0, 1); break;
+            case Ranking.ROYALSTRAIGHTFLUSH: color = new Color(0.12f, 0, 1); break;
+        }
+
+        Instantiate(_rankingTextPrefab, transform.position + new Vector3(Random.Range(-0.07f, 0.07f), Random.Range(-0.07f, 0.07f)), Quaternion.identity).GetComponent<ShowRanking>().Show(color);
     }
 
     public void DisappearCard(bool doubleBarrel = false) {
