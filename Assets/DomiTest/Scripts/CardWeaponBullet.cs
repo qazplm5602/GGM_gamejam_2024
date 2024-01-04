@@ -29,7 +29,7 @@ public class CardWeaponBullet : MonoBehaviour
         // Cancel Event
         if (OnCallback != null && !OnCallback.Invoke(other)) return;
 
-        controller.Hit(damage);
+        controller.Hit(damage, transform.position);
         // Destroy(gameObject);
     }
 }
