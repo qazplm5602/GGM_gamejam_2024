@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private SpriteRenderer backBoard;
     [SerializeField] private GameObject inGameCanvas;
     private float _timer = 0f;
+    private bool _invincibility = false;
 
     private void Update() {
         _timer += Time.deltaTime;
@@ -19,7 +20,8 @@ public class PlayerHealth : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.layer == 8) {
+        if(!_invincibility && other.gameObject.layer == 8) {
+            StartCoroutine(Invincibility());
             GameManager.Instance.curHp -= 15;
             AudioManager.Instance.PlaySound("Bite");
             PoolManager.Instance.Pop("PlayerHit", transform.position + new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.5f, -0.1f)));
@@ -29,6 +31,14 @@ public class PlayerHealth : MonoBehaviour
                 StartCoroutine(DeathCor());
             } */
         }
+    }
+
+    private IEnumerator Invincibility() {
+        _invincibility = false;
+
+        yield return new WaitForSeconds(0.1f);
+
+        _invincibility = true;
     }
 
     private IEnumerator DeathCor() {
