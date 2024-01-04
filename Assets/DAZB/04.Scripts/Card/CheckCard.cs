@@ -31,7 +31,7 @@ public class CheckCard : MonoBehaviour
     }
 
     public void DrawCard() {
-        //SetCard();
+        GetCard();
         rankingInfo = CheckedCard();
         rankingCounter[(int)rankingInfo.ranking]++;
         ShuffleCards();
