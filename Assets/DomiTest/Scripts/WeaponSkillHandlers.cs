@@ -269,9 +269,10 @@ public class WeaponSkillHandlers : MonoBehaviour
                 bulletSys.speed = 24;
                 bulletSys.damage = damage;
                 bulletSys.customDir = (card.position - parent.transform.position).normalized;
-                bulletSys.OnCallback += (Collider2D other) => {
-                    return false; // 삭제 방지
-                };
+                bulletSys.standEntity = transform.root;
+                // bulletSys.OnCallback += (Collider2D other) => {
+                //     return false; // 삭제 방지
+                // };
             }
 
             for (i = 0; i < parent.transform.childCount; i++) {
