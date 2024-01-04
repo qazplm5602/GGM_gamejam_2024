@@ -42,6 +42,10 @@ public class WeaponBullet : MonoBehaviour
             _showCard.DisappearCard(arg1);
     }
 
+    public void SetReloadTime(float time) {
+        _showCard.reloadTime = time;
+    }
+
     public void ShotFire(Vector2 start, float angle) {
         Debug.Log("shotfire");
         var ranking = CheckCard.instance.rankingInfo.ranking;

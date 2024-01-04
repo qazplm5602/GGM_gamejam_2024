@@ -10,6 +10,8 @@ public class CardSprite {
 
 public class ShowCard : MonoBehaviour
 {
+    public float reloadTime = 0.5f;
+
     [SerializeField] private CardSprite[] _cardSprites;
     [SerializeField] private GameObject _cardPrefab;
     [SerializeField] private GameObject _rankingTextPrefab;
@@ -31,7 +33,7 @@ public class ShowCard : MonoBehaviour
 
             cardObj[obj] = cards[i].cardNumber;
 
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds((reloadTime - 0.2f) / 10);
         }
         if(doubleBarrel) {
             for(int i = 0; i < 5; ++i) {
@@ -46,7 +48,7 @@ public class ShowCard : MonoBehaviour
 
                 cardObj[obj] = cards[i].cardNumber;
 
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds((reloadTime - 0.2f) / 13);
             }
         }
 
