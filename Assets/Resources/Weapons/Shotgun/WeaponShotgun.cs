@@ -83,10 +83,10 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
     }
 
     IEnumerator WeaponReload() {
-        yield return new WaitForSeconds(reloadTime);
-        print("weapon reloaded!");
         CheckCard.instance.DrawCard();
         _weaponBullet.Bridge_Showcard(true);
+        yield return new WaitForSeconds(reloadTime);
+        print("weapon reloaded!");
         _weaponBullet.SetAmmo(5);
         isReload = false;
     }

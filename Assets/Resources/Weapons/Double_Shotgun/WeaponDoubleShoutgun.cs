@@ -66,10 +66,10 @@ public class WeaponDoubleShoutgun : MonoBehaviour, IWeaponEvent
     }
 
     IEnumerator WeaponReload() {
-        yield return new WaitForSeconds(reloadTime);
-        print("weapon reloaded!");
         CheckCard.instance.DrawCard();
         _weaponBullet.Bridge_Showcard(true, true);
+        yield return new WaitForSeconds(reloadTime);
+        print("weapon reloaded!");
         _weaponBullet.SetAmmo(10);
         isReload = false;
     }
