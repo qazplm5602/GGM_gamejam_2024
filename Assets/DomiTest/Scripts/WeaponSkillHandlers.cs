@@ -9,6 +9,7 @@ using UnityEngine.Events;
 
 public class WeaponSkillHandlers : MonoBehaviour
 {
+    [SerializeField] private GameObject _fireEffectPrefab;
     WeaponBullet _bulletMain;
     private void Awake() {
         _bulletMain = GetComponent<WeaponBullet>();
@@ -99,6 +100,7 @@ public class WeaponSkillHandlers : MonoBehaviour
 
                 var debuffSys = collider.AddComponent<DebuffFire>();
                 debuffSys.damage = fireDamage;
+                debuffSys.effectEntity = _fireEffectPrefab;
                 return false;
             };
         }
