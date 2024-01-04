@@ -9,6 +9,10 @@ public class PlayerMovement : MonoBehaviour
     private void Awake() {
         _animator = (Animator)GetComponent("Animator");
     }
+    
+    private void Start() {
+        _animator.runtimeAnimatorController = CharacterManager.instance.GetData().Item1.anim;
+    }
 
     private void FixedUpdate() {
         float x = Input.GetAxisRaw("Horizontal");
