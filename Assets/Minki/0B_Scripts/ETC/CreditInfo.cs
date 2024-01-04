@@ -8,17 +8,12 @@ public class CreditInfo : MonoBehaviour
 
     private int[,] _cardCounter = new int[14,4];
     private int[] _rankingCounter = new int[14];
-    private float _shapeWeightSum;
 
     private string _content = "";
 
     private void Awake() {
         _cardCounter = CheckCard.instance.cardCounter;
         _rankingCounter = CheckCard.instance.rankingCounter;
-
-        for(int i = 0; i < GetRandomCard.instance.shapeWeights.Length; ++i) {
-            _shapeWeightSum += GetRandomCard.instance.shapeWeights[i].shapeWeight;
-        }
     }
 
     private void Start() {
@@ -54,9 +49,9 @@ public class CreditInfo : MonoBehaviour
         _content += $"처치한 적: {GameManager.Instance.enemyKill}마리\n";
         _content += $"살아남은 시간: {GameManager.Instance.timer}\n";
 
-        _content += $"\n\n\n{GetRandomCard.instance.shapeWeights[0].shapeWeight / _shapeWeightSum * 100}%";
+        _content += $"\n\n\n{GetRandomCard.instance.shapeWeights[0].shapeWeight * 100}%";
         for(int i = 1; i < 4; ++i) {
-            _content += $"  {GetRandomCard.instance.shapeWeights[i].shapeWeight / _shapeWeightSum * 100}%";
+            _content += $"  {GetRandomCard.instance.shapeWeights[i].shapeWeight * 100}%";
         }
 
         _text2.text = _content;
