@@ -49,6 +49,7 @@ public class StatUpCanvas : MonoBehaviour
         text.SetActive(false);
         textSetter.SetPercentText();
         gameObject.SetActive(false);
+        GameManager.Instance.SettingCanvas.SetActive(false);
     }
 
     public void DisableText()
