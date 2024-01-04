@@ -85,6 +85,7 @@ public class StatUpCard : MonoBehaviour
                 statUpParent.DisableAll();
                 Time.timeScale = 1;
                 GameManager.Instance.player.CheckRemainLevelUP();
+                print("레벨업체크메서드실행");
             }));
     }
 
