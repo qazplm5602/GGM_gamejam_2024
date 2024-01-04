@@ -277,8 +277,8 @@ public class WeaponSkillHandlers : MonoBehaviour
                 // };
             }
 
-            for (i = 0; i < parent.transform.childCount; i++) {
-                parent.transform.GetChild(i).transform.SetParent(null, true);
+            for (i = 0; i < 25; i++) {
+                parent.transform.GetChild(0).transform.SetParent(null, true);
             }
 
             Destroy(parent.gameObject);
@@ -494,7 +494,8 @@ public class WeaponSkillHandlers : MonoBehaviour
 
         // 카드 안삼 만듬
         var bullets = new List<GameObject>();
-        string[] cardLoop = {"spade_A", "heart_A", "diamond_A", "clover_A"};
+        string[] cardLoop = {"spade_A", "diamond_A", "heart_A", "clover_A"};
+        CardShape[] cardShapeLoop = {CardShape.SPADE, CardShape.DIAMOND, CardShape.HEART, CardShape.CLUB };
         int domi_a = cardLoop.Length - 1;
         for (int i = 0; i < 3; i++)
         {
@@ -515,7 +516,7 @@ public class WeaponSkillHandlers : MonoBehaviour
 
                 // 콜백 생성
                 var bullet = item.GetComponent<CardWeaponBullet>();
-                bullet.OnCallback += CreateFlushCardHandler(saveShape, item.transform.position, saveDamage, item);
+                bullet.OnCallback += CreateFlushCardHandler(cardShapeLoop[domi_a], item.transform.position, saveDamage, item);
                 bullet.damage = saveDamage_default;
 
                 bullets.Add(item);
