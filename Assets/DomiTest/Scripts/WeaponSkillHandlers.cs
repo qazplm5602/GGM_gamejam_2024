@@ -402,6 +402,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         }
 
         // 출발~
+        CamManager.StartShake(2, .5f);
         Time.timeScale = 1;
 
         while (Time.timeScale > 0) {
@@ -427,6 +428,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         }
 
         Time.timeScale = 1;
+        CamManager.StartShake(2, 1.5f);
 
         yield return new WaitForSecondsRealtime(.3f);
 
@@ -542,7 +544,11 @@ public class WeaponSkillHandlers : MonoBehaviour
             item.transform.DOScale(item.transform.localScale / .5f, 1.9f).SetEase(Ease.OutQuad).SetUpdate(true);
         }
 
+        CamManager.StartShake(1, 1.5f);
+
         yield return new WaitForSecondsRealtime(2);
+
+        CamManager.StartShake(5, 2);
 
         // 부모 없애ㅐㅐㅐ
         foreach (var item in bullets)
