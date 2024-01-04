@@ -24,10 +24,10 @@ public class PlayerHealth : MonoBehaviour
             AudioManager.Instance.PlaySound("Bite");
             PoolManager.Instance.Pop("PlayerHit", transform.position + new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.5f, -0.1f)));
             GameManager.Instance.SetHP(GameManager.Instance.curHp);
-            if (GameManager.Instance.curHp <= 0) {
+/*             if (GameManager.Instance.curHp <= 0) {
                 inGameCanvas.SetActive(false);
                 StartCoroutine(DeathCor());
-            }
+            } */
         }
     }
 

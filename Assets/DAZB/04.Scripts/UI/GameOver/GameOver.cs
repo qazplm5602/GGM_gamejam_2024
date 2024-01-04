@@ -2,6 +2,7 @@ using System.Collections;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour
@@ -19,6 +20,12 @@ public class GameOver : MonoBehaviour
     public void PlayerDeath() {
         playerAnim.runtimeAnimatorController = changeController;
         StartCoroutine(DeathCor());
+    }
+
+    public void NextScene(string name) {
+        CheckCard.instance.ResetCounter();
+        Destroy(GameManager.Instance);
+        SceneManager.LoadScene(name);
     }
 
     private IEnumerator DeathCor() {

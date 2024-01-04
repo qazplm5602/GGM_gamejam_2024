@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [System.Serializable]
@@ -53,6 +53,11 @@ public class ShowCard : MonoBehaviour
         yield return new WaitForSeconds(0.08f);
 
         foreach(GameObject obj in cardObj.Keys) {
+            if (cardObj[obj].IsUnityNull()) {
+                // GameObject에 대한 null 체크
+                Debug.LogError("cardObj contains a null GameObject.");
+                continue;
+            }
             if(rankingInfo.ranking == Ranking.HIGHCARD || rankingInfo.ranking == Ranking.ONEPAIR || rankingInfo.ranking == Ranking.TWOPAIR || rankingInfo.ranking == Ranking.TRIPLE || rankingInfo.ranking == Ranking.FOURCARD) {
                 if(cardObj[obj] == rankingInfo.cardData1.cardNumber || (rankingInfo.cardData1.cardNumber == 1 && cardObj[obj] == 14) || (rankingInfo.cardData1.cardNumber == 14 && cardObj[obj] == 1) || (rankingInfo.cardData2 != null && cardObj[obj] == rankingInfo.cardData2.cardNumber)) 
                     SetColor(obj.transform.GetChild(0).gameObject, rankingInfo.ranking);

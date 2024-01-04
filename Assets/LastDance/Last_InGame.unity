@@ -661,8 +661,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1011866298}
   - component: {fileID: 1011866297}
-  - component: {fileID: 1011866295}
-  - component: {fileID: 1011866294}
   - component: {fileID: 1011866299}
   - component: {fileID: 1011866300}
   m_Layer: 0
@@ -672,145 +670,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!82 &1011866294
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1011866293}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 4545276309224547273, guid: ca9181442fc814047af81188becddaed, type: 2}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!114 &1011866295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1011866293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c617b1f37004d5b49b74627a90688678, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioSerializeDictionary:
-    data:
-    - key: Wind
-      value: {fileID: 8300000, guid: a19117e4374799f4d973963a740341a7, type: 3}
-    - key: Unequip
-      value: {fileID: 8300000, guid: 8845e50cc662eca4189530385c8f6414, type: 3}
-    - key: FireExplosion
-      value: {fileID: 8300000, guid: 803474181bba466429db5d31fb343497, type: 3}
-    - key: MissEvade
-      value: {fileID: 8300000, guid: 049b79f45f3e65d4d9a3ab3c162a9865, type: 3}
-    - key: Block
-      value: {fileID: 8300000, guid: 7c97b3e47804d3c4c8621d8b5a71e389, type: 3}
-    - key: Dive
-      value: {fileID: 8300000, guid: abb7ccd6c2c2dd642b98aae1c9747f43, type: 3}
-    - key: Encounter
-      value: {fileID: 8300000, guid: f208f81af6cdf474d900c45b61777771, type: 3}
-    - key: EnemyDeath
-      value: {fileID: 8300000, guid: 3605d45125df8684ca31a52af4cc3970, type: 3}
-    - key: Jump
-      value: {fileID: 8300000, guid: cd73d333cd9cfc4429fd721744ffaa37, type: 3}
-    - key: Bite
-      value: {fileID: 8300000, guid: 24de7fadefc34754ca9ee1a841e101c3, type: 3}
-    - key: IceExplosion
-      value: {fileID: 8300000, guid: ea30f1c01677694469328618ea6e1ed2, type: 3}
-    - key: GaugeSingle
-      value: {fileID: 8300000, guid: c8783c2380739b64f90d2238cd370ca3, type: 3}
-    - key: Lnading
-      value: {fileID: 8300000, guid: 76410e371bb71494e940ffbd72d4d333, type: 3}
-  _masterVolume: 6
-  _bgmVolume: 6
-  _sfxVolume: 6
 --- !u!114 &1011866297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -836,7 +695,7 @@ MonoBehaviour:
   SettingCanvas: {fileID: 258640067}
   enemyKill: 0
   timer: 00:00
-  curHp: 100
+  curHp: 500
   statCanvas: {fileID: 258640068}
 --- !u!4 &1011866298
 Transform:
@@ -19581,6 +19440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65dc0ec8254e04140b876f8a0607cc78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fireEffectPrefab: {fileID: 7060876665643535058, guid: be41cf8f0f5a7e34bb317d01796fedf9, type: 3}
   shapeGroups:
   - {fileID: 5482214015279617837, guid: 3837bb79ce7a8f44ca1d4738d873b49f, type: 3}
   - {fileID: 5630304581765326456, guid: 73f839eb2b8a1ae43a72a7b7a711e664, type: 3}
