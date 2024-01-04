@@ -6,7 +6,7 @@ using UnityEngine;
 public class Timer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _timerText;
-    private float _timer = 570;
+    private float _timer = 590;
 
     private void Update()
     {

@@ -34,11 +34,11 @@ public class PlayerHealth : MonoBehaviour
     }
 
     private IEnumerator Invincibility() {
-        _invincibility = false;
+        _invincibility = true;
 
         yield return new WaitForSeconds(0.1f);
 
-        _invincibility = true;
+        _invincibility = false;
     }
 
     private IEnumerator DeathCor() {

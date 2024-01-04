@@ -5,6 +5,7 @@ public class EnemyController : MonoBehaviour
 {
     [HideInInspector] public bool moveable = true;
     [HideInInspector] public bool freezeFlip = false;
+    [HideInInspector] public bool dead = false;
 
     [SerializeField] private EnemySO _enemySO;
     [SerializeField] private bool _boss = false;
@@ -70,7 +71,7 @@ public class EnemyController : MonoBehaviour
     }
 
     public void Hit(int damage, Vector3 position) {
-        if(_invincibility) return;
+        if(_invincibility || dead) return;
 
         _hp -= damage;
         StartCoroutine(Knockback(transform.position - position));

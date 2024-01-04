@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 2203705462960938188}
   - component: {fileID: 7165744102574193668}
   - component: {fileID: 3745448062113053723}
-  m_Layer: 0
+  - component: {fileID: 153494845955770658}
+  m_Layer: 8
   m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,3 +123,38 @@ MonoBehaviour:
   _speed: 16
   _lifeTime: 1
   _delayTime: 0
+--- !u!70 &153494845955770658
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3355734530566503563}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.33345935, y: -0.00000003975145}
+  m_Size: {x: 1.8330878, y: 0.68750197}
+  m_Direction: 1

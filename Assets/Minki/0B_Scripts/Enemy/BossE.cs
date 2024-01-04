@@ -125,6 +125,7 @@ public class BossE : MonoBehaviour
 
     public void Dead() {
         StopAllCoroutines();
+        _controller.dead = true;
         _controller.moveable = false;
         _controller.freezeFlip = false;
         _animator.SetTrigger("dead");
@@ -136,6 +137,6 @@ public class BossE : MonoBehaviour
         GameManager.Instance.canvas.SetActive(false);
         GameManager.Instance.bakcBoard.GetComponent<SpriteRenderer>().DOFade(1, 0.5f);
         yield return new WaitForSeconds(0.7f);
-        SceneManager.LoadScene("Credit");
+        SceneManager.LoadScene("Last_Credit");
     }
 }

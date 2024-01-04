@@ -5,7 +5,7 @@ public class BossSpawner : MonoBehaviour
     [SerializeField] private GameObject[] bosses;
 
     private int bossCounter = 4;
-    private float seconds = 90;
+    private float seconds = 110;
 
     private void Update() {
         seconds += Time.deltaTime;
