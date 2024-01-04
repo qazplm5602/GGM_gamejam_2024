@@ -118,8 +118,36 @@ public class WeaponBullet : MonoBehaviour
         switch (rank)
         {
             case Ranking.ONEPAIR:
-                amplitude = 1;
+                amplitude = 2;
                 time = .3f;
+                return;
+            case Ranking.TWOPAIR:
+                amplitude = 2;
+                time = .3f;
+                return;
+            case Ranking.TRIPLE:
+                amplitude = 2;
+                time = .3f;
+                return;
+            case Ranking.STRAIGHT:
+                amplitude = 2;
+                time = 1;
+                return;
+            case Ranking.BACKSTRAIGHT:
+                amplitude = 2;
+                time = 1;
+                return;
+            case Ranking.MOUNTAIN:
+                amplitude = 8;
+                time = 1;
+                return;
+            case Ranking.FOURCARD:
+                amplitude = 8;
+                time = 1;
+                return;
+            case Ranking.STRAIGHTFLUSH:
+                amplitude = 5;
+                time = 1;
                 return;
             default:
                 amplitude = 0;
