@@ -252,13 +252,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characternDatas:
-  - anim: {fileID: 0}
+  - anim: {fileID: 9100000, guid: b9d3cd2f53ee4734e94fa819afe758b8, type: 2}
     name: Pumkin
-  - anim: {fileID: 0}
+  - anim: {fileID: 22100000, guid: b1d657f8f6aa3474c99d12de96efaad4, type: 2}
     name: Elf
-  - anim: {fileID: 0}
+  - anim: {fileID: 22100000, guid: 6904273b9d8a908439ee6b629dec85d2, type: 2}
     name: Knight
-  - anim: {fileID: 0}
+  - anim: {fileID: 22100000, guid: 1b25fb290d8431d48b22c8e889e4ff71, type: 2}
     name: Lizard
   nowSelectCharacterNumber: 0
 --- !u!114 &36455392
