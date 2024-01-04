@@ -18,13 +18,37 @@ public class CheckCard : MonoBehaviour
     public int[] rankingCounter = new int[14];
     public int[,] cardCounter = new int[14,4];
     public int drawCount = 0;
+    public bool isCheat;
+    public int cheatRankCount = 0;
 
     public RankingInfo GetInfo() {
         return rankingInfo;
     }
 
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.P) && Input.GetKeyDown(KeyCode.O)) {
+            isCheat = !isCheat;
+            print("cheat " + isCheat);
+        }
+        if (isCheat) {
+            if (Input.GetKeyDown(KeyCode.PageUp)) {
+                if (cheatRankCount >= 13) return; 
+                cheatRankCount++;
+            }
+            else if (Input.GetKeyDown(KeyCode.PageDown)) {
+                if (cheatRankCount <= 0) return; 
+                cheatRankCount--;
+            }
+        }
+    }
+
     public void DrawCard() {
-        GetCard();
+        if (isCheat) {
+            SetCard(cheatRankCount);
+        }
+        else {
+            GetCard();
+        }
         rankingInfo = CheckedCard();
         rankingCounter[(int)rankingInfo.ranking]++;
         ShuffleCards();
@@ -62,12 +86,113 @@ public class CheckCard : MonoBehaviour
         drawCount++;
     }
 
-    private void SetCard() {
-        playerCards[0] = new Card(CardShape.SPADE, 1);
-        playerCards[1] = new Card(CardShape.SPADE, 2);
-        playerCards[2] = new Card(CardShape.SPADE, 3);
-        playerCards[3] = new Card(CardShape.SPADE, 4);
-        playerCards[4] = new Card(CardShape.SPADE, 5);
+    private void SetCard(int val) {
+        switch (val) {
+            case 0: {
+                playerCards[0] = new Card(CardShape.SPADE, 14);
+                playerCards[1] = new Card(CardShape.SPADE, 3);
+                playerCards[2] = new Card(CardShape.SPADE, 5);
+                playerCards[3] = new Card(CardShape.CLUB, 8);
+                playerCards[4] = new Card(CardShape.HEART, 2);
+                break;
+            }
+            case 1: {
+                playerCards[0] = new Card(CardShape.SPADE, 14);
+                playerCards[1] = new Card(CardShape.SPADE, 14);
+                playerCards[2] = new Card(CardShape.SPADE, 5);
+                playerCards[3] = new Card(CardShape.CLUB, 8);
+                playerCards[4] = new Card(CardShape.HEART, 2);
+                break;
+            }
+            case 2: {
+                playerCards[0] = new Card(CardShape.SPADE, 6);
+                playerCards[1] = new Card(CardShape.SPADE, 6);
+                playerCards[2] = new Card(CardShape.SPADE, 9);
+                playerCards[3] = new Card(CardShape.CLUB, 8);
+                playerCards[4] = new Card(CardShape.HEART, 9);
+                break;
+            }
+            case 3: {
+                playerCards[0] = new Card(CardShape.SPADE, 1);
+                playerCards[1] = new Card(CardShape.SPADE, 2);
+                playerCards[2] = new Card(CardShape.SPADE, 6);
+                playerCards[3] = new Card(CardShape.CLUB, 1);
+                playerCards[4] = new Card(CardShape.HEART, 1);
+                break;
+            }
+            case 4: {
+                playerCards[0] = new Card(CardShape.SPADE, 2);
+                playerCards[1] = new Card(CardShape.SPADE, 3);
+                playerCards[2] = new Card(CardShape.SPADE, 4);
+                playerCards[3] = new Card(CardShape.CLUB, 5);
+                playerCards[4] = new Card(CardShape.HEART, 6);
+                break;
+            }
+            case 5: {
+                playerCards[0] = new Card(CardShape.SPADE, 1);
+                playerCards[1] = new Card(CardShape.SPADE, 2);
+                playerCards[2] = new Card(CardShape.SPADE, 3);
+                playerCards[3] = new Card(CardShape.CLUB, 4);
+                playerCards[4] = new Card(CardShape.HEART, 5);
+                break;
+            }
+            case 6: {
+                playerCards[0] = new Card(CardShape.SPADE, 10);
+                playerCards[1] = new Card(CardShape.SPADE, 11);
+                playerCards[2] = new Card(CardShape.SPADE, 12);
+                playerCards[3] = new Card(CardShape.SPADE, 13);
+                playerCards[4] = new Card(CardShape.HEART, 14);
+                break;
+            }
+            case 7: {
+                playerCards[0] = new Card(CardShape.SPADE, 9);
+                playerCards[1] = new Card(CardShape.SPADE, 1);
+                playerCards[2] = new Card(CardShape.SPADE, 4);
+                playerCards[3] = new Card(CardShape.SPADE, 5);
+                playerCards[4] = new Card(CardShape.SPADE, 2);
+                break;
+            }
+            case 8: {
+                playerCards[0] = new Card(CardShape.HEART, 3);
+                playerCards[1] = new Card(CardShape.DIAMOND, 3);
+                playerCards[2] = new Card(CardShape.SPADE, 3);
+                playerCards[3] = new Card(CardShape.SPADE, 2);
+                playerCards[4] = new Card(CardShape.HEART, 2);
+                break;
+            }
+            case 9: {
+                playerCards[0] = new Card(CardShape.SPADE, 14);
+                playerCards[1] = new Card(CardShape.CLUB, 14);
+                playerCards[2] = new Card(CardShape.DIAMOND, 14);
+                playerCards[3] = new Card(CardShape.CLUB, 2);
+                playerCards[4] = new Card(CardShape.HEART, 14);
+                break;
+            }
+            case 10: {
+                playerCards[0] = new Card(CardShape.SPADE, 2);
+                playerCards[1] = new Card(CardShape.SPADE, 3);
+                playerCards[2] = new Card(CardShape.SPADE, 4);
+                playerCards[3] = new Card(CardShape.SPADE, 5);
+                playerCards[4] = new Card(CardShape.SPADE, 6);
+                break;
+            }
+            case 11: {
+                playerCards[0] = new Card(CardShape.SPADE, 1);
+                playerCards[1] = new Card(CardShape.SPADE, 2);
+                playerCards[2] = new Card(CardShape.SPADE, 3);
+                playerCards[3] = new Card(CardShape.SPADE, 4);
+                playerCards[4] = new Card(CardShape.SPADE, 5);
+                break;
+            }
+            case 12: {
+                playerCards[0] = new Card(CardShape.SPADE, 10);
+                playerCards[1] = new Card(CardShape.SPADE, 11);
+                playerCards[2] = new Card(CardShape.SPADE, 12);
+                playerCards[3] = new Card(CardShape.SPADE, 13);
+                playerCards[4] = new Card(CardShape.SPADE, 14);
+                break;
+            }
+        }
     }
 
     private void ShuffleCards() {
