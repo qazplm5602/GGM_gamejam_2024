@@ -9,9 +9,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private EnemySO _enemySO;
     [SerializeField] private bool _boss = false;
     [SerializeField] private bool _bossE = false;
+    [SerializeField] private Material _originMaterial;
     [SerializeField] private Material _hitMaterial;
-
-    private Material _originMaterial;
 
     private int _hp;
     private int _damage;
