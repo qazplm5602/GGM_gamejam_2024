@@ -89,10 +89,13 @@ public class WeaponBullet : MonoBehaviour
                 return 80;
             case Ranking.BACKSTRAIGHTFLUSH:
                 return 105;
+            case Ranking.ROYALSTRAIGHTFLUSH:
+                return 2000;
             default:
                 return 100;
         }
     }
     int GetMaxRanking() => CheckCard.instance.rankingInfo.cardData2?.cardNumber ?? CheckCard.instance.rankingInfo.cardData1.cardNumber;
     public int GetDamange() => Mathf.RoundToInt(default_damage * (GetRankingValue(CheckCard.instance.rankingInfo.ranking) / 100) * ((GetMaxRanking() / 100f) + 1));
+    public Sprite GetCardSprite(string name) => cardSpriteIndex[name];
 }
