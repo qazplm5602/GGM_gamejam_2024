@@ -246,7 +246,7 @@ public class WeaponSkillHandlers : MonoBehaviour
                 var card = parent.transform.GetChild(i);
                 var bulletSys = card.AddComponent<CardWeaponBullet>();
                 
-                // bulletSys.speed = 24;
+                bulletSys.speed = 24;
                 bulletSys.damage = damage;
                 bulletSys.customDir = (card.position - parent.transform.position).normalized;
                 bulletSys.OnCallback += (Collider2D other) => {
@@ -347,8 +347,12 @@ public class WeaponSkillHandlers : MonoBehaviour
             foreach (int idx in activeNums)
             {
                 var card = bulletList.Dequeue();
+                var bullet = card.GetComponent<CardWeaponBullet>();
+                card.transform.position = clock.position;
+
+                bullet.damage = saveDamage_default;
+                bullet.OnCallback += CreateFlushCardHandler(saveShape, card.transform.position, saveDamage);
                 card.SetActive(true);
-                print(card);
                 
                 RotateAround(cardFirstInfo.position, Quaternion.Euler(new(0,0,90)), clock.position, Vector3.back, idx * 30, out var endPos, out var endRotate);
 
@@ -368,12 +372,18 @@ public class WeaponSkillHandlers : MonoBehaviour
             if (activeNums.Contains(i)) {
                 DOTween.To(() => 4f, number => render.material.SetColor("_Color", new Color(1*Mathf.Pow(2,number),1*Mathf.Pow(2,number),1*Mathf.Pow(2,number))), 2f, 1f).SetEase(Ease.OutQuad).SetUpdate(true).Play();
             } else {
-                render.DOFade(.2f, 1f).SetUpdate(true);
+                render.DOFade(.5f, 1f).SetUpdate(true);
             }
         }
 
         // 출발~
         Time.timeScale = 1;
+
+        while (Time.timeScale > 0) {
+            yield return null;
+            Time.timeScale = Mathf.Max(Time.timeScale - (Time.unscaledDeltaTime / 0.5f), 0);
+        }
+        // yield return new WaitForSecondsRealtime(.5f);
 
         activeNums = new() { 2, 6, 10 };
         setCards();
@@ -383,22 +393,24 @@ public class WeaponSkillHandlers : MonoBehaviour
         for (int i = 0; i < texts.childCount; i++) {
             var render = texts.GetChild(i).GetComponent<SpriteRenderer>();
             if (activeNums.Contains(i)) {
-                render.DOFade(1, 1f).SetUpdate(true);
-                DOTween.To(() => 4f, number => render.material.SetColor("_Color", new Color(1*Mathf.Pow(2,number),1*Mathf.Pow(2,number),1*Mathf.Pow(2,number))), 2f, 1f).SetEase(Ease.OutQuad).SetUpdate(true).Play();
+                render.DOFade(1, .3f).SetUpdate(true);
+                DOTween.To(() => 4f, number => render.material.SetColor("_Color", new Color(1*Mathf.Pow(2,number),1*Mathf.Pow(2,number),1*Mathf.Pow(2,number))), 2f, .3f).SetEase(Ease.OutQuad).SetUpdate(true).Play();
             } else {
-                DOTween.To(() => render.material.GetColor("_Color").a, number => render.material.SetColor("_Color", new Color(1*Mathf.Pow(2,number),1*Mathf.Pow(2,number),1*Mathf.Pow(2,number))), 1f, 1f).SetEase(Ease.OutQuad).SetUpdate(true).Play();
-                render.DOFade(.2f, 1f).SetUpdate(true);
+                DOTween.To(() => render.material.GetColor("_Color").a, number => render.material.SetColor("_Color", new Color(1*Mathf.Pow(2,number),1*Mathf.Pow(2,number),1*Mathf.Pow(2,number))), 1f, .3f).SetEase(Ease.OutQuad).SetUpdate(true).Play();
+                render.DOFade(.5f, .3f).SetUpdate(true);
             }
         }
 
-        yield return new WaitForSecondsRealtime(1);
+        Time.timeScale = 1;
+
+        yield return new WaitForSecondsRealtime(.3f);
 
         foreach (var item in clock.GetComponentsInChildren<SpriteRenderer>())
         {
-            item.DOFade(0, .5f);
+            item.DOFade(0, .3f);
         }
         
-        Destroy(clock.gameObject, .6f);
+        Destroy(clock.gameObject, .31f);
     }
     IEnumerator _RoyalBackStraightFlush() {
         var saveShape = CheckCard.instance.playerCards[0].cardShape;
