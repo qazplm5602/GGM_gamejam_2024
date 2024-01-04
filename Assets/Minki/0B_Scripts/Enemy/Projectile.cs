@@ -8,8 +8,14 @@ public class Projectile : MonoBehaviour
 
     private float _timer = 0f;
     private bool _first = true;
+    private bool _create = true;
 
     private void OnEnable() {
+        if(_create) {
+            _create = false;
+            return;
+        }
+        
         AudioManager.Instance.PlaySound("Unequip");
     }
 
