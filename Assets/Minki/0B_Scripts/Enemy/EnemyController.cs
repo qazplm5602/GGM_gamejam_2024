@@ -74,6 +74,7 @@ public class EnemyController : MonoBehaviour
         if(_invincibility || dead) return;
 
         _hp -= damage;
+        AudioManager.Instance.PlaySound("Landing");
         StartCoroutine(Knockback(transform.position - position));
         StartCoroutine(HitMat());
 

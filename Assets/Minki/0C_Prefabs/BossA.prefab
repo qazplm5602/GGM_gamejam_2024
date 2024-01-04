@@ -151,6 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveable: 1
   freezeFlip: 0
+  dead: 0
   _enemySO: {fileID: 11400000, guid: d18edfe07a6aecc47ab34df7d80bf4c1, type: 2}
   _boss: 1
   _bossE: 0
