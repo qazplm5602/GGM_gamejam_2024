@@ -19,15 +19,6 @@ public class CheckCard : MonoBehaviour
     public int[,] cardCounter = new int[14,4];
     public int drawCount = 0;
 
-    private void Update() {
-        if (Input.GetKey(KeyCode.K)) {
-            DrawCard();
-        }
-        if (Input.GetKeyDown(KeyCode.Tab)) {
-            GetCardCount(new Card(CardShape.SPADE, 1));
-        }
-    }
-
     public RankingInfo GetInfo() {
         return rankingInfo;
     }
