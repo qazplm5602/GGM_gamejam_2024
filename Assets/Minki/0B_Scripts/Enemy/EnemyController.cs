@@ -25,9 +25,6 @@ public class EnemyController : MonoBehaviour
         if(_bossE) _spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
         else _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidbody = GetComponent<Rigidbody2D>();
-
-        if(_bossE) return;
-        _originMaterial = _spriteRenderer.material;
     }
 
     private void Start() {
@@ -41,6 +38,7 @@ public class EnemyController : MonoBehaviour
     private void OnEnable() {
         _hp = _enemySO.hp;
         StopAllCoroutines();
+        _spriteRenderer.material = _originMaterial;
         moveable = true;
         freezeFlip = false;
         _invincibility = false;
