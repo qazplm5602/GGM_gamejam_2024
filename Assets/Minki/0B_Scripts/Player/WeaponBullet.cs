@@ -95,7 +95,7 @@ public class WeaponBullet : MonoBehaviour
                 return 100;
         }
     }
-    int GetMaxRanking() => CheckCard.instance.rankingInfo.cardData2?.cardNumber ?? CheckCard.instance.rankingInfo.cardData1.cardNumber;
+    int GetMaxRanking() => CheckCard.instance.rankingInfo.cardData2?.cardNumber ?? (CheckCard.instance.rankingInfo.ranking == Ranking.MOUNTAIN ? 14 : CheckCard.instance.rankingInfo.cardData1.cardNumber);
     public int GetDamange() => Mathf.RoundToInt(default_damage * (GetRankingValue(CheckCard.instance.rankingInfo.ranking) / 100) * ((GetMaxRanking() / 100f) + 1));
     public Sprite GetCardSprite(string name) => cardSpriteIndex[name];
 }
