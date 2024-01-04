@@ -15,6 +15,7 @@ public class PlayerExperience : MonoBehaviour
         if (_curExp >= _curNeedExp)
         {
             print("레벨오름");
+            ChangeLevel();
             GameManager.Instance.OnStatCanvas();
         }
     }
@@ -25,7 +26,6 @@ public class PlayerExperience : MonoBehaviour
         if (_curExp >= _curNeedExp)
         {
             print("레벨업가능");
-            ChangeLevel();
             GameManager.Instance.OnStatCanvas();
         }
     }
