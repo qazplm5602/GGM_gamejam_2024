@@ -14,8 +14,10 @@ public class GameManager : MonoBehaviour
     public RuntimeAnimatorController[] enemy;
     public GameObject SettingCanvas;
 
+    public int enemyKill = 0;
+    public string timer = "00:00";
 
-    float maxHp = 100;
+    float maxHp = 100f;
     public int curHp = 100;
 
     [SerializeField] private GameObject statCanvas;
@@ -23,10 +25,11 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
+        if (Instance == null) {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         else Destroy(gameObject);
-
-        //float maxHp = player.GetComponent<>
     }
 
     private void Start()

@@ -2,8 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using TMPro;
-using UnityEngine.Rendering;
-
 public class AudioSlider : MonoBehaviour
 {
     [SerializeField] private AudioMixer _mixer;
@@ -21,6 +19,14 @@ public class AudioSlider : MonoBehaviour
         _slider.onValueChanged.AddListener(SliderChange);
     }
 
+    private void Start() {
+        switch(_mixerName) {
+            case "Master": _slider.value = AudioManager.Instance._masterVolume; break;
+            case "BGM": _slider.value = AudioManager.Instance._bgmVolume; break;
+            case "SFX": _slider.value = AudioManager.Instance._sfxVolume; break;
+        }
+    }
+
     private void SliderChange(float value) {
         int intValue = (int)value;
 
@@ -29,5 +35,11 @@ public class AudioSlider : MonoBehaviour
         float soundValue = (intValue - 1) / 12f;
         if(intValue == 0) _mixer.SetFloat(_mixerName, -80f);
         else _mixer.SetFloat(_mixerName, Mathf.Lerp(-40f, 0f, soundValue));
+
+        switch(_mixerName) {
+            case "Master": AudioManager.Instance._masterVolume = intValue; break;
+            case "BGM": AudioManager.Instance._bgmVolume = intValue; break;
+            case "SFX": AudioManager.Instance._sfxVolume = intValue; break;
+        }
     }
 }
