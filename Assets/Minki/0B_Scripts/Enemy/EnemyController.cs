@@ -9,16 +9,23 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private EnemySO _enemySO;
     [SerializeField] private bool _boss = false;
     [SerializeField] private bool _bossE = false;
+    [SerializeField] private Material _hitMaterial;
+
+    private Material _originMaterial;
 
     private int _hp;
     private int _damage;
     private float _speed;
     private bool _invincibility = false;
     private Transform _playerTrm;
+    private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody;
 
     private void Awake() {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidbody = GetComponent<Rigidbody2D>();
+
+        _originMaterial = _spriteRenderer.material;
     }
 
     private void Start() {
@@ -64,6 +71,7 @@ public class EnemyController : MonoBehaviour
 
         _hp -= damage;
         StartCoroutine(Knockback(transform.position - position));
+        StartCoroutine(HitMat());
 
         if(_hp <= 0) {
             if(_bossE) {
@@ -72,6 +80,11 @@ public class EnemyController : MonoBehaviour
             }
             else {
                 GameManager.Instance.enemyKill++;
+
+                for(int i = 0; i < transform.childCount; ++i) {
+                    if(transform.GetChild(i).name == "BurnEffect(Clone)") Destroy(transform.GetChild(i).gameObject, 0.01f);
+                }
+
                 if(TryGetComponent(out BossE boss)) {
                     boss.Dead();
                 }
@@ -104,5 +117,13 @@ public class EnemyController : MonoBehaviour
 
         moveable = true;
         freezeFlip = false;
+    }
+
+    private IEnumerator HitMat() {
+        _spriteRenderer.material = _hitMaterial;
+
+        yield return new WaitForSeconds(0.05f);
+
+        _spriteRenderer.material = _originMaterial;
     }
 }
