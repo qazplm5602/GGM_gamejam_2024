@@ -9,6 +9,7 @@ public class AudioSlider : MonoBehaviour
     [SerializeField] private AudioMixer _mixer;
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private Sprite[] _cards;
+    [SerializeField] private string _mixerName;
 
     private Slider _slider;
     private Image _image;
@@ -26,7 +27,7 @@ public class AudioSlider : MonoBehaviour
         _image.sprite = _cards[intValue];
         text.text = $"Volume : {intValue}";
         float soundValue = (intValue - 1) / 12f;
-        if(intValue == 0) _mixer.SetFloat("Master", -80f);
-        else _mixer.SetFloat("Master", Mathf.Lerp(-40f, 0f, soundValue));
+        if(intValue == 0) _mixer.SetFloat(_mixerName, -80f);
+        else _mixer.SetFloat(_mixerName, Mathf.Lerp(-40f, 0f, soundValue));
     }
 }

@@ -15243,6 +15243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1652707079}
   - component: {fileID: 1652707080}
+  - component: {fileID: 1652707081}
   m_Layer: 3
   m_Name: Collider
   m_TagString: Untagged
@@ -15300,6 +15301,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0.006274581, y: -0.22274762}
   m_Size: {x: 0.48745084, y: 0.8431355}
   m_Direction: 0
+--- !u!114 &1652707081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652707078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c71f2f47644ade54ab132a42f7b2b67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1971853926
 GameObject:
   m_ObjectHideFlags: 0
@@ -21613,6 +21626,7 @@ MonoBehaviour:
   - {fileID: -323682100, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
   - {fileID: -97265834, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
   - {fileID: -1352431511, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
+  _mixerName: Master
 --- !u!224 &2470244257012830425
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22413,6 +22427,7 @@ MonoBehaviour:
   - {fileID: -323682100, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
   - {fileID: -97265834, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
   - {fileID: -1352431511, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
+  _mixerName: BGM
 --- !u!114 &3175298965472251334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27812,6 +27827,7 @@ MonoBehaviour:
   - {fileID: -323682100, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
   - {fileID: -97265834, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
   - {fileID: -1352431511, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
+  _mixerName: SFX
 --- !u!1 &7912130126265130174
 GameObject:
   m_ObjectHideFlags: 0
@@ -29348,6 +29364,7 @@ MonoBehaviour:
   - {fileID: 9100000, guid: 0f3c062b5e32334438fd77b6c497bd94, type: 2}
   - {fileID: 9100000, guid: 06fbddbe75105fb41add73c216de7f9c, type: 2}
   SettingCanvas: {fileID: 9203221039420064939}
+  curHp: 100
   statCanvas: {fileID: 6116932268133186930}
 --- !u!114 &9171820184391653953
 MonoBehaviour:
