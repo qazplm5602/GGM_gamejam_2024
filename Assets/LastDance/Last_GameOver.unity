@@ -6371,7 +6371,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6633191879295983788}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1648607178932464421}
+        m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
+        m_MethodName: NextScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Last_Main
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2866565687983134781
 GameObject:
   m_ObjectHideFlags: 0
@@ -6786,7 +6798,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2868637240997072684}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1648607178932464421}
+        m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
+        m_MethodName: NextScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Last_InGame
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &4906957764139185562
 CanvasRenderer:
   m_ObjectHideFlags: 0

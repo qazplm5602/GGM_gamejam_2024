@@ -2317,7 +2317,7 @@ MonoBehaviour:
   - {fileID: -323682100, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
   - {fileID: -97265834, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
   - {fileID: -1352431511, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
-  _mixerName: 
+  _mixerName: Master
 --- !u!1 &1512163678324867749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2589,7 +2589,7 @@ MonoBehaviour:
   - {fileID: -323682100, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
   - {fileID: -97265834, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
   - {fileID: -1352431511, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
-  _mixerName: 
+  _mixerName: SFX
 --- !u!1 &1799659534798813108
 GameObject:
   m_ObjectHideFlags: 0
@@ -7120,7 +7120,7 @@ MonoBehaviour:
   - {fileID: -323682100, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
   - {fileID: -97265834, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
   - {fileID: -1352431511, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
-  _mixerName: 
+  _mixerName: BGM
 --- !u!1 &5446077473527925711
 GameObject:
   m_ObjectHideFlags: 0

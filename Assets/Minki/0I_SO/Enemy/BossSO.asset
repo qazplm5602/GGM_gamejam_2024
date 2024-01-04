@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: c9b6bc23d2dd2b74a9132da00c8c97ae, type: 3}
   m_Name: BossSO
   m_EditorClassIdentifier: Assembly-CSharp::EnemySO
-  hp: 10
-  damage: 2
-  speed: 2
-  enemyType: 0
-  isBoss: 1
+  hp: 1000
+  damage: 10
+  speed: 5
