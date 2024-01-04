@@ -275,8 +275,8 @@ public class WeaponSkillHandlers : MonoBehaviour
                 // };
             }
 
-            for (i = 0; i < parent.transform.childCount; i++) {
-                parent.transform.GetChild(i).transform.SetParent(null, true);
+            for (i = 0; i < 25; i++) {
+                parent.transform.GetChild(0).transform.SetParent(null, true);
             }
 
             Destroy(parent.gameObject);
