@@ -36,6 +36,20 @@ public class SetResolution : MonoBehaviour
         _dropdown.onValueChanged.AddListener(Resloution);
     }
 
+    private void OnEnable()
+    {
+        _dropdown.value = GetDropDownValue();
+    }
+
+    private int GetDropDownValue()
+    {
+        if (Screen.currentResolution.width >= 3840 && Screen.currentResolution.height >= 2160) return 0;
+        else if (Screen.currentResolution.width >= 2560 && Screen.currentResolution.height >= 1440) return 1;
+        else if (Screen.currentResolution.width >= 1920 && Screen.currentResolution.height >= 1080) return 2;
+        else if (Screen.currentResolution.width >= 1280 && Screen.currentResolution.height >= 720) return 3;
+        else return 4;
+    }
+
     private void Resloution(int value) {
         switch(value) {
             case 0: Screen.SetResolution(3840, 2160, fullScreen); break;

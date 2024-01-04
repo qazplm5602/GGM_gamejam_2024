@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public RuntimeAnimatorController[] enemy;
     public GameObject SettingCanvas;
 
+
     float maxHp = 100;
     public int curHp = 100;
 
