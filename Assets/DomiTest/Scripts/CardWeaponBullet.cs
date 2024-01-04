@@ -16,7 +16,7 @@ public class CardWeaponBullet : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (!other.TryGetComponent<EnemyController>(out var controller)) return;
+        if (!enabled || !other.TryGetComponent<EnemyController>(out var controller)) return;
 
         // Cancel Event
         if (OnCallback != null && !OnCallback.Invoke(other)) return;
