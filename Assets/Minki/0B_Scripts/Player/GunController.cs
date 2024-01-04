@@ -9,7 +9,7 @@ public class GunController : MonoBehaviour
     [SerializeField] GameObject default_weapon;
     
     private void Start() {
-        SetWeapon(CharacterManager.instance.GetData().Item2.weaponPrf);
+        SetWeapon(CharacterManager.instance.GetData().Item2?.weaponPrf ==  null ? default_weapon : CharacterManager.instance.GetData().Item2?.weaponPrf);
     }
     #endif
 
