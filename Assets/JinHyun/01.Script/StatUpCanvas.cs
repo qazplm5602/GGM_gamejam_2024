@@ -15,6 +15,7 @@ public class StatUpCanvas : MonoBehaviour
         ActiveOptions();
         if (firstLevelUp)
         {
+            print("첫레벨업");
             firstLevelUp = false;
             GameManager.Instance.player.ChangeLevel();
         }
