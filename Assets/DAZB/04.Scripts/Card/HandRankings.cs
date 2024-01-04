@@ -114,7 +114,7 @@ public class HandRankings : MonoBehaviour
     // Mountain
     public bool MountainCheck(Card[] cards) {
         Card[] sortedCard = CardSort(cards);
-        if (sortedCard[0].cardNumber != 10) {
+        if (sortedCard[0].cardNumber !=  10 && sortedCard[0].cardNumber != 1) {
             return false;
         }
         for (int i = 0; i < sortedCard.Length; ++i) {
@@ -122,6 +122,9 @@ public class HandRankings : MonoBehaviour
                 continue;
             }
             else if (sortedCard[i].cardNumber - sortedCard[i - 1].cardNumber != 1) {
+                if (sortedCard[0].cardNumber == 1 && sortedCard[1].cardNumber == 10) {
+                    continue;
+                }
                 return false;
             }
         }
