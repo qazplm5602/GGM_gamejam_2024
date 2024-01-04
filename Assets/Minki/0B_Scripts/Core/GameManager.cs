@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public PlayerExperience player;
     public Image hpFill;
     public Image expFill;
+    public GameObject bakcBoard;
 
     public RuntimeAnimatorController[] enemy;
     public GameObject SettingCanvas;

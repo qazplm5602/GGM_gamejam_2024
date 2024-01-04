@@ -28,8 +28,9 @@ public class CardWeaponBullet : MonoBehaviour
         print(other.gameObject.name);
         print(other.TryGetComponent<EnemyController>(out var _));
         if (!enabled) return;
-        if(!other.TryGetComponent<EnemyController>(out var controller))
-            if(!other.transform.root.TryGetComponent<EnemyController>(out var controller)) return;
+        EnemyController controller = null;
+        if(!other.TryGetComponent<EnemyController>(out controller))
+            if(!other.transform.root.TryGetComponent<EnemyController>(out controller)) return;
 
         // Cancel Event
         if (OnCallback != null && !OnCallback.Invoke(other)) return;

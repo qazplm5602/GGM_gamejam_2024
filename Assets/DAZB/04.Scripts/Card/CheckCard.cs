@@ -72,11 +72,11 @@ public class CheckCard : MonoBehaviour
     }
 
     private void SetCard() {
-        playerCards[0] = new Card(CardShape.SPADE, 10);
-        playerCards[1] = new Card(CardShape.SPADE, 11);
-        playerCards[2] = new Card(CardShape.SPADE, 12);
-        playerCards[3] = new Card(CardShape.SPADE, 13);
-        playerCards[4] = new Card(CardShape.SPADE, 14);
+        playerCards[0] = new Card(CardShape.SPADE, 1);
+        playerCards[1] = new Card(CardShape.SPADE, 2);
+        playerCards[2] = new Card(CardShape.SPADE, 3);
+        playerCards[3] = new Card(CardShape.SPADE, 4);
+        playerCards[4] = new Card(CardShape.SPADE, 5);
     }
 
     private void ShuffleCards() {
