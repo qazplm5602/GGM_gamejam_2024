@@ -9,6 +9,8 @@ public class GameOver : MonoBehaviour
     public GameObject[] ui;
     public Animator playerAnim;
     public RuntimeAnimatorController changeController;
+    public Button[] pageChangeButtons; // 1: left 2: right
+    public Button[] cards;
 
     private void Start() {
         PlayerDeath();
@@ -42,6 +44,11 @@ public class GameOver : MonoBehaviour
         ui[1].GetComponent<RectTransform>().DOScale(new Vector3(1, 0.01f, 0), 0.8f);
         yield return new WaitForSeconds(1f);
         ui[1].GetComponent<RectTransform>().DOScale(new Vector3(1, 1, 0), 0.3f);
+        yield return new WaitForSeconds(0.4f);
+        for (int i = 0; i < cards.Length; ++i) {
+            cards[i].GetComponent<Image>().DOFade(1, 0.2f);
+        }
+        pageChangeButtons[1].GetComponent<Image>().DOFade(1, 0.2f);
         yield return new WaitForSeconds(0.4f);
         ui[2].GetComponent<CanvasGroup>().DOFade(1, 0.2f);
     }
