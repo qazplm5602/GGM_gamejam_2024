@@ -47,7 +47,6 @@ public class BossA : MonoBehaviour
         }
         AudioManager.Instance.PlaySound("Jump");
         _animator.SetBool("isMove", true);
-        _controller.freezeFlip = false;
         while(time < _delay + _dashTime) {
             transform.position += direction.normalized * 20f * Time.deltaTime;
             time += Time.deltaTime;
@@ -55,5 +54,6 @@ public class BossA : MonoBehaviour
         }
         
         _controller.moveable = true;
+        _controller.freezeFlip = false;
     }
 }
