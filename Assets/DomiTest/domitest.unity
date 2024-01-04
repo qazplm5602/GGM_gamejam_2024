@@ -640,7 +640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bullet: {fileID: 1531690179}
-  default_weapon: {fileID: 811395127846636116, guid: 7fe936f37c5e2414f99fc36b77463764, type: 3}
+  default_weapon: {fileID: 4310910080718471228, guid: dbb3382c57089cd4aa08ec16994a32ad, type: 3}
 --- !u!114 &1531690179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -710,6 +710,7 @@ MonoBehaviour:
   - {fileID: 1343063910, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
   - {fileID: 1802235012, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
   _showCard: {fileID: 1676437420}
+  fireDisable: 0
 --- !u!114 &1531690180
 MonoBehaviour:
   m_ObjectHideFlags: 0

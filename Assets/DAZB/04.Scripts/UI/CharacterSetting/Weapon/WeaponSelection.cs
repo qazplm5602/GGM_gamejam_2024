@@ -10,6 +10,7 @@ public class WeaponSelection : MonoBehaviour
     public WeaponData[] weaponDatas;
     public WeaponType nowWeaponType;
     public GameObject nowWeapon;
+    public Image weaponImage;
 
     private void Awake() {
         children = GetComponentsInChildren<Button>();
@@ -40,6 +41,7 @@ public class WeaponSelection : MonoBehaviour
     public void SetWeapon(int idx) {
         nowWeapon = weaponDatas[idx].weaponPrf;
         nowWeaponType = weaponDatas[idx].WeaponType;
+        weaponImage.sprite = weaponDatas[idx].weaponPrf.GetComponent<SpriteRenderer>().sprite;
         CharacterManager.instance.SetWeapon(weaponDatas[idx]);
     }
 }
