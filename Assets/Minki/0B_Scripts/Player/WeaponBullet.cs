@@ -121,6 +121,10 @@ public class WeaponBullet : MonoBehaviour
                 amplitude = 2;
                 time = .3f;
                 return;
+            case Ranking.HIGHCARD:
+                amplitude = 1;
+                time = .3f;
+                return;
             case Ranking.TWOPAIR:
                 amplitude = 2;
                 time = .3f;
