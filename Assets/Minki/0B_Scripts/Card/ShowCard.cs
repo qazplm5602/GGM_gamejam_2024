@@ -16,7 +16,7 @@ public class ShowCard : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.P)) {
             CheckCard.instance.DrawCard();
             DisappearCard();
-            StartCoroutine(ShowingCard(true));
+            StartCoroutine(ShowingCard());
         }
     }
 
@@ -67,6 +67,8 @@ public class ShowCard : MonoBehaviour
     }
 
     private void SetColor(GameObject obj, Ranking ranking) {
+        if(obj == null) return;
+
         Color color = Color.white;
 
         switch(ranking) {
@@ -100,7 +102,9 @@ public class ShowCard : MonoBehaviour
             for(int i = 0; i < transform.childCount - 5; ++i) Destroy(transform.GetChild(i).gameObject);
 
             for(int i = transform.childCount - 5; i < transform.childCount; ++i) {
-                StartCoroutine(MoveDownCard(transform.GetChild(i).gameObject, 0.05f * i));
+                if(i >= 0)
+                    StartCoroutine(MoveDownCard(transform.GetChild(i).gameObject, 0.05f * (i - transform.childCount - 5)));
+                else break;
             }
         }
     }
