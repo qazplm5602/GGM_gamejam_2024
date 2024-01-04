@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -12,7 +13,13 @@ public class EnemyController : MonoBehaviour
     private int _hp;
     private int _damage;
     private float _speed;
+    private bool _invincibility = false;
     private Transform _playerTrm;
+    private Rigidbody2D _rigidbody;
+
+    private void Awake() {
+        _rigidbody = GetComponent<Rigidbody2D>();
+    }
 
     private void Start() {
         _hp = _enemySO.hp;
@@ -29,8 +36,6 @@ public class EnemyController : MonoBehaviour
     }
 
     private void Update() {
-        if(Input.GetKeyDown(KeyCode.L)) Hit(100);
-        
         if(freezeFlip) return;
 
         if(_playerTrm.position.x > transform.position.x) transform.localScale = new Vector3(-1, 1, 1);
@@ -49,8 +54,11 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void Hit(int damage) {
+    public void Hit(int damage, Vector3 position) {
+        if(_invincibility) return;
+
         _hp -= damage;
+        StartCoroutine(Knockback(transform.position - position));
 
         if(_hp <= 0) {
             if(_bossE) {
@@ -74,5 +82,22 @@ public class EnemyController : MonoBehaviour
                 }
             }
         }
+    }
+
+    private IEnumerator Knockback(Vector2 direction) {
+        moveable = false;
+        freezeFlip = true;
+        _invincibility = true;
+
+        _rigidbody.AddForce(direction.normalized * 2f);
+
+        yield return new WaitForSeconds(0.1f);
+
+        _invincibility = false;
+
+        yield return new WaitForSeconds(0.5f);
+
+        moveable = true;
+        freezeFlip = false;
     }
 }

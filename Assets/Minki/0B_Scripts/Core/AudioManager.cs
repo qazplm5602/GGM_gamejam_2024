@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -13,6 +14,7 @@ public class AudioManager : MonoBehaviour
 
     private Dictionary<string, AudioClip> _audioDictionary = new Dictionary<string, AudioClip>();
     private AudioSource _audioSource;
+    private AudioSource _uiAudioSource;
 
     private void Awake() {
         if(Instance == null) {
@@ -22,6 +24,7 @@ public class AudioManager : MonoBehaviour
         else Destroy(gameObject);
 
         _audioSource = GetComponent<AudioSource>();
+        _uiAudioSource = gameObject.AddComponent<AudioSource>();
 
         _audioDictionary = _audioSerializeDictionary.GetDict();
     }
@@ -29,6 +32,13 @@ public class AudioManager : MonoBehaviour
     public void PlaySound(string name) {
         if(_audioDictionary.ContainsKey(name)) {
             _audioSource.PlayOneShot(_audioDictionary[name]);
+        }
+        else Debug.LogError("[AudioMAnager] Not found clip name!");
+    }
+
+    public void UIPlaySound(string name) {
+        if(_audioDictionary.ContainsKey(name)) {
+            _uiAudioSource.PlayOneShot(_audioDictionary[name]);
         }
         else Debug.LogError("[AudioMAnager] Not found clip name!");
     }
