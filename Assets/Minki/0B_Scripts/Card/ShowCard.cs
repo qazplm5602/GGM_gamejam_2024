@@ -33,7 +33,7 @@ public class ShowCard : MonoBehaviour
 
             cardObj[obj] = cards[i].cardNumber;
 
-            yield return new WaitForSeconds((reloadTime - 0.2f) / 10);
+            yield return new WaitForSeconds((reloadTime - 0.5f) / 10);
         }
         if(doubleBarrel) {
             for(int i = 0; i < 5; ++i) {
@@ -48,7 +48,7 @@ public class ShowCard : MonoBehaviour
 
                 cardObj[obj] = cards[i].cardNumber;
 
-                yield return new WaitForSeconds((reloadTime - 0.2f) / 13);
+                yield return new WaitForSeconds((reloadTime - 0.5f) / 13);
             }
         }
 
