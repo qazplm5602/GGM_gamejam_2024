@@ -12,7 +12,8 @@ public class DebuffFire : MonoBehaviour
     private GameObject _effectObj;
 
     private void Awake() {
-        controller = GetComponent<EnemyController>();
+        if(TryGetComponent(out EnemyController ec)) controller = ec;
+        else transform.root.GetComponent<EnemyController>();
     }
 
     private void Start() {

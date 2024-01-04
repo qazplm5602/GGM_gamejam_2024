@@ -27,7 +27,9 @@ public class CardWeaponBullet : MonoBehaviour
         print("---------- bullet collider logger");
         print(other.gameObject.name);
         print(other.TryGetComponent<EnemyController>(out var _));
-        if (!enabled || !other.TryGetComponent<EnemyController>(out var controller)) return;
+        if (!enabled) return;
+        if(!other.TryGetComponent<EnemyController>(out var controller))
+            if(!other.transform.root.TryGetComponent<EnemyController>(out var controller)) return;
 
         // Cancel Event
         if (OnCallback != null && !OnCallback.Invoke(other)) return;

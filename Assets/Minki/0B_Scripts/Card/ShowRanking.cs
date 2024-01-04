@@ -10,7 +10,8 @@ public class ShowRanking : MonoBehaviour
         _text = GetComponent<TextMeshPro>();
     }
 
-    public void Show(Color color) {
+    public void Show(string text, Color color) {
+        _text.text = text;
         _text.color = color;
         
         StartCoroutine(ShowRoutine(color));
@@ -21,13 +22,13 @@ public class ShowRanking : MonoBehaviour
 
         while(timer < 0.05f) {
             timer += Time.deltaTime;
-            _text.fontSize = Mathf.Lerp(5f, 8f, timer * 20);
+            _text.fontSize = Mathf.Lerp(2f, 5f, timer * 20);
             yield return null;
         }
         timer = 0f;
         while(timer < 0.05f) {
             timer += Time.deltaTime;
-            _text.fontSize = Mathf.Lerp(8f, 5f, timer * 20);
+            _text.fontSize = Mathf.Lerp(5f, 2f, timer * 20);
             yield return null;
         }
         timer = 0f;

@@ -22,9 +22,11 @@ public class EnemyController : MonoBehaviour
     private Rigidbody2D _rigidbody;
 
     private void Awake() {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+        if(_bossE) _spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        else _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidbody = GetComponent<Rigidbody2D>();
 
+        if(_bossE) return;
         _originMaterial = _spriteRenderer.material;
     }
 
@@ -48,6 +50,10 @@ public class EnemyController : MonoBehaviour
     }
 
     private void Update() {
+        if(Input.GetKeyDown(KeyCode.L)) {
+            Hit(100, transform.position);
+        }
+
         if(freezeFlip) return;
 
         if(_playerTrm.position.x < transform.position.x) transform.localScale = new Vector3(-1, 1, 1);
@@ -115,7 +121,7 @@ public class EnemyController : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        moveable = true;
+        if(!TryGetComponent(out DebuffFreeze df)) moveable = true;
         freezeFlip = false;
     }
 
