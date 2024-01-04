@@ -48,6 +48,11 @@ public class WeaponBullet : MonoBehaviour
         // ranking = Ranking.BACKSTRAIGHTFLUSH;
         if (eventListener.TryGetValue(ranking, out var cb)) {
             cb(start, angle);
+
+            // 카메라 shake
+            GetShaking(ranking, out float amplitude, out float time);
+            if (amplitude > 0 && time > 0)
+                CamManager.StartShake(amplitude, time);
         } else {
             throw new System.Exception(ranking.ToString()+"에 대응하는 이벤트가 없습니다.");
         }
@@ -106,6 +111,19 @@ public class WeaponBullet : MonoBehaviour
                 return 2000;
             default:
                 return 100;
+        }
+    }
+    void GetShaking(Ranking rank, out float amplitude, out float time) {
+        switch (rank)
+        {
+            case Ranking.ONEPAIR:
+                amplitude = 1;
+                time = .3f;
+                return;
+            default:
+                amplitude = 0;
+                time = 0;
+                break;
         }
     }
     int GetMaxRanking() => CheckCard.instance.rankingInfo.cardData2?.cardNumber ?? (CheckCard.instance.rankingInfo.ranking == Ranking.MOUNTAIN || CheckCard.instance.rankingInfo.ranking == Ranking.FULLHOUSE || CheckCard.instance.rankingInfo.ranking == Ranking.BACKSTRAIGHT ? 14 : CheckCard.instance.rankingInfo.cardData1.cardNumber);
