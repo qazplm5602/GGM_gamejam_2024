@@ -34,12 +34,7 @@ public class GameOver : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         ui[2].GetComponent<CanvasGroup>().DOFade(1, 0.2f);
         yield return null; */
-        playerAnim.speed = 0;
-        gameObject.GetComponent<Image>().DOColor(Color.black, 0.5f);
-        yield return new WaitForSeconds(1f);
-        playerAnim.speed = 1;
-        playerAnim.SetTrigger("Death");
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.5f);
         ui[0].GetComponent<TMP_Text>().DOColor(Color.white, 1.4f);
         ui[1].GetComponent<RectTransform>().DOScale(new Vector3(1, 0.01f, 0), 0.8f);
         yield return new WaitForSeconds(1f);

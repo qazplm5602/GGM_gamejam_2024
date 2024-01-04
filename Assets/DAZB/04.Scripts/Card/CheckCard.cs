@@ -5,7 +5,12 @@ public class CheckCard : MonoBehaviour
 {
     public static CheckCard instance;
     private void Awake() {
-        instance = this;
+        if (instance == null) {
+            instance = this;
+            DontDestroyOnLoad(this);
+        } else {
+            Destroy(gameObject);
+        }
         playerCards = new Card[5];
     }
     public Card[] playerCards;
@@ -13,9 +18,6 @@ public class CheckCard : MonoBehaviour
     public int[] rankingCounter = new int[14];
     public int[,] cardCounter = new int[14,4];
     public int drawCount = 0;
-
-    private void Start() {
-    }
 
     private void Update() {
         if (Input.GetKey(KeyCode.K)) {
@@ -43,6 +45,11 @@ public class CheckCard : MonoBehaviour
     public int GetCardCount(Card card) {
         print(card.cardNumber - 1);
         return cardCounter[card.cardNumber - 1, (int)card.cardShape];
+    }
+
+    public void ResetCounter() {
+        rankingCounter = new int[14];
+        cardCounter = new int[14,4];
     }
 
     private void GetCard() {

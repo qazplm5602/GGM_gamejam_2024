@@ -113,23 +113,31 @@ public class HandRankings : MonoBehaviour
 
     // Mountain
     public bool MountainCheck(Card[] cards) {
-        Card[] sortedCard = CardSort(cards);
-        if (sortedCard[0].cardNumber !=  10 && sortedCard[0].cardNumber != 1) {
-            return false;
-        }
-        for (int i = 0; i < sortedCard.Length; ++i) {
-            if (i == 0) {
-                continue;
-            }
-            else if (sortedCard[i].cardNumber - sortedCard[i - 1].cardNumber != 1) {
-                if (sortedCard[0].cardNumber == 1 && sortedCard[1].cardNumber == 10) {
-                    continue;
+    Card[] sortedCard = CardSort(cards);
+        // 10부터 시작하는 경우 체크
+        if (sortedCard[0].cardNumber == 10) {
+            for (int i = 1; i < sortedCard.Length; ++i) {
+                if (sortedCard[i].cardNumber != sortedCard[i - 1].cardNumber + 1) {
+                    return false;
                 }
-                return false;
+            }
+            return true;
+        }
+
+        // 1부터 시작하는 경우 체크
+        if (sortedCard[0].cardNumber == 1) {
+            // 카드가 1, 2, 3, 4, 5인 경우 체크
+            if (sortedCard[1].cardNumber == 10 &&
+                sortedCard[2].cardNumber == 11 &&
+                sortedCard[3].cardNumber == 12 &&
+                sortedCard[4].cardNumber == 13) {
+                return true;
             }
         }
-        return true;
+
+        return false;
     }
+
 
     // Flush
     public (bool, Card) FlushCheck(Card[] cards) {
@@ -216,6 +224,7 @@ public class HandRankings : MonoBehaviour
 
     // Royal Straight Flush
     public (bool, Card) RoyalStraightFlushCheck(Card[] cards) {
+        print(MountainCheck(cards));
         if (!MountainCheck(cards)) return (false, null);
         for (int i = 0; i < cards.Length; ++i) {
             if (i == 0) {
