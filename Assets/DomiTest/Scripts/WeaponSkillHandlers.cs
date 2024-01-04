@@ -536,7 +536,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         DOTween.To(() => 4f, number => textMat.SetColor("_Color", new Color(1*Mathf.Pow(2,number),1*Mathf.Pow(2,number),1*Mathf.Pow(2,number))), 2f, 1f).SetEase(Ease.OutQuad).SetUpdate(true).Play().SetDelay(2f);
 
         yield return new WaitForSecondsRealtime(1 + 1 + 1);
-        clock.DORotate(new Vector3(0,0, 360 * 20), 5f, RotateMode.FastBeyond360).SetEase(Ease.InQuad).SetUpdate(true).OnComplete(() => Destroy(clock.gameObject));
+        clock.DORotate(new Vector3(0,0, 360 * 20 * -1), 5f, RotateMode.FastBeyond360).SetEase(Ease.InQuad).SetUpdate(true).OnComplete(() => Destroy(clock.gameObject));
         clock.DOScale(.5f, 1.9f).SetEase(Ease.OutQuad).SetUpdate(true);
         foreach (var item in bullets) {
             item.transform.DOScale(item.transform.localScale / .5f, 1.9f).SetEase(Ease.OutQuad).SetUpdate(true);
