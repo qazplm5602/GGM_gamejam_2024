@@ -3,6 +3,6 @@ using UnityEngine;
 [System.Serializable]
 public class CharacterData
 {
-    public Animator anim;
+    public RuntimeAnimatorController anim;
     public string name;
 }

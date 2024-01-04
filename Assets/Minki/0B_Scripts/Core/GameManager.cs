@@ -34,8 +34,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        hpFill.fillAmount = 1;
-        expFill.fillAmount = 0;
+        if(hpFill) hpFill.fillAmount = 1;
+        if(expFill) expFill.fillAmount = 0;
     }
 
     private void Update()

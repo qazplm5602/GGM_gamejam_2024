@@ -84,6 +84,7 @@ public class WeaponSkillHandlers : MonoBehaviour
 
     void Triple(Vector2 start, float angle) {
         var bullets = _bulletMain.CreateBullets();
+        int fireDamage = _bulletMain.GetDamange(45);
 
         for (int i = -2, k = 0; i < 3; i++, k ++)
         {
@@ -91,7 +92,17 @@ public class WeaponSkillHandlers : MonoBehaviour
             bullets[k].transform.rotation = Quaternion.AngleAxis(angle + (5 * i), Vector3.forward);
 
             // 화염디버프 적용 ㄱㄱ
+            int idx = k;
+            var bulletSys = bullets[k].GetComponent<CardWeaponBullet>();
+            bulletSys.OnCallback += (Collider2D collider) => {
+                if (collider.TryGetComponent<DebuffFire>(out var debuffSys_)) Destroy(debuffSys_); // 기존꺼 삭제
 
+                var debuffSys = collider.AddComponent<DebuffFire>();
+                debuffSys.damage = fireDamage;
+
+                Destroy(bullets[idx]);
+                return false;
+            };
         }
     }
     void Backstraight(Vector2 start, float angle) {
@@ -190,6 +201,17 @@ public class WeaponSkillHandlers : MonoBehaviour
         {
             bullets[(int)k].transform.position = start;
             bullets[(int)k].transform.rotation = Quaternion.AngleAxis(angle + (2.5f * i), Vector3.forward);
+
+            int idx = (int)k;
+            var bulletSys = bullets[idx].GetComponent<CardWeaponBullet>();
+            // bulletSys.damage  = 0;
+            bulletSys.OnCallback += (Collider2D collider) => {
+                if (collider.TryGetComponent<DebuffFreeze>(out var debuffSys_)) Destroy(debuffSys_); // 기존꺼 삭제
+
+                collider.AddComponent<DebuffFreeze>();
+
+                return true;
+            };
         }
     }
     
@@ -297,6 +319,8 @@ public class WeaponSkillHandlers : MonoBehaviour
 
         for (int i = 6; i < bulletList.Count; i++)
             Destroy(bulletList.Dequeue());
+
+        _bulletMain.fireDisable = true;
 
         while (Time.timeScale > 0) {
             yield return null;
@@ -412,6 +436,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         }
         
         Destroy(clock.gameObject, .31f);
+        _bulletMain.fireDisable = false;
     }
     IEnumerator _RoyalBackStraightFlush() {
         var saveShape = CheckCard.instance.playerCards[0].cardShape;
@@ -419,6 +444,8 @@ public class WeaponSkillHandlers : MonoBehaviour
         var saveDamage_default = _bulletMain.GetDamange();
         CheckCard.instance.rankingInfo.ranking = Ranking.ROYALSTRAIGHTFLUSH;
         var saveDamage = _bulletMain.GetDamange();
+
+        _bulletMain.fireDisable = true;
         while (Time.timeScale > 0) {
             yield return null;
             Time.timeScale = Mathf.Max(Time.timeScale - Time.unscaledDeltaTime, 0);
@@ -509,7 +536,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         DOTween.To(() => 4f, number => textMat.SetColor("_Color", new Color(1*Mathf.Pow(2,number),1*Mathf.Pow(2,number),1*Mathf.Pow(2,number))), 2f, 1f).SetEase(Ease.OutQuad).SetUpdate(true).Play().SetDelay(2f);
 
         yield return new WaitForSecondsRealtime(1 + 1 + 1);
-        clock.DORotate(new Vector3(0,0, 360 * 20), 5f, RotateMode.FastBeyond360).SetEase(Ease.InQuad).SetUpdate(true).OnComplete(() => Destroy(clock.gameObject));
+        clock.DORotate(new Vector3(0,0, 360 * 20 * -1), 5f, RotateMode.FastBeyond360).SetEase(Ease.InQuad).SetUpdate(true).OnComplete(() => Destroy(clock.gameObject));
         clock.DOScale(.5f, 1.9f).SetEase(Ease.OutQuad).SetUpdate(true);
         foreach (var item in bullets) {
             item.transform.DOScale(item.transform.localScale / .5f, 1.9f).SetEase(Ease.OutQuad).SetUpdate(true);
@@ -525,6 +552,7 @@ public class WeaponSkillHandlers : MonoBehaviour
             item.DOFade(0, 1).SetUpdate(true);
 
         Time.timeScale = 1;
+        _bulletMain.fireDisable = false;
     }
 
         void RotateAround(Vector3 currentPos, Quaternion currentRotate, Vector3 cetner, Vector3 axis, float angle, out Vector3 endPos, out Quaternion endRotate){

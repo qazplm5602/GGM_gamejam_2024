@@ -22,6 +22,7 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
         _weaponBullet.SetAmmo(5);
 
         CheckCard.instance.DrawCard();
+        _weaponBullet.Bridge_Showcard(true);
     }
 
     bool isMouseDown = false;
@@ -36,7 +37,7 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
     }
 
     private void Update() {
-        if (isReload) return;
+        if (isReload || _weaponBullet.fireDisable) return;
         if ((Time.time - fireTime) <= betweenTime) return;
         
         if (isMouseDown) {
@@ -57,6 +58,8 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
                 if (Vector2.Distance((Vector2)mousePos, (Vector2)transform.root.position) < deadDistance) return;
 
                 _weaponBullet.ShotFire(firePos.position, angle);
+                _weaponBullet.Bridge_Showcard(false);
+
                 // var bullets = _weaponBullet.CreateBullets();
 
                 // // TEST 총알
@@ -83,6 +86,7 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
         yield return new WaitForSeconds(reloadTime);
         print("weapon reloaded!");
         CheckCard.instance.DrawCard();
+        _weaponBullet.Bridge_Showcard(true);
         _weaponBullet.SetAmmo(5);
         isReload = false;
     }

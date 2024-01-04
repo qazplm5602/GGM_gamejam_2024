@@ -12,5 +12,5 @@ public enum WeaponType {
 [System.Serializable]
 public class WeaponData {
     public WeaponType WeaponType;
-    public Sprite weaponSprite;
+    public GameObject weaponPrf;
 }

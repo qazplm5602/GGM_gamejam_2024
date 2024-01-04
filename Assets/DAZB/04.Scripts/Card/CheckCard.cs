@@ -14,6 +14,9 @@ public class CheckCard : MonoBehaviour
     public int[,] cardCounter = new int[14,4];
     public int drawCount = 0;
 
+    private void Start() {
+    }
+
     private void Update() {
         if (Input.GetKey(KeyCode.K)) {
             DrawCard();
@@ -37,8 +40,9 @@ public class CheckCard : MonoBehaviour
         }
     }
 
-    public void GetCardCount(Card card) {
-        print(cardCounter[card.cardNumber - 1, (int)card.cardShape]);
+    public int GetCardCount(Card card) {
+        print(card.cardNumber - 1);
+        return cardCounter[card.cardNumber - 1, (int)card.cardShape];
     }
 
     private void GetCard() {
@@ -46,7 +50,11 @@ public class CheckCard : MonoBehaviour
             Card newCard = GetRandomCard.instance.GetRandom();
             foreach (Card iter in playerCards) {
                 if (iter == null) continue;
-                if (newCard.cardNumber == iter.cardNumber && newCard.cardShape == iter.cardShape) {
+                if ((newCard.cardNumber == iter.cardNumber || 
+                 (newCard.cardNumber == 1 && iter.cardNumber == 14) || 
+                 (newCard.cardNumber == 14 && iter.cardNumber == 1)) && 
+                newCard.cardShape == iter.cardShape) {
+                    print("" + newCard.cardNumber + newCard.cardShape + " " + iter.cardNumber + iter.cardShape);
                     GetCard();
                     return;
                 }
