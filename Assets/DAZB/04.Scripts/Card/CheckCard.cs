@@ -31,7 +31,7 @@ public class CheckCard : MonoBehaviour
     }
 
     public void DrawCard() {
-        GetCard();
+        GetStraight();
         rankingInfo = CheckedCard();
         rankingCounter[(int)rankingInfo.ranking]++;
         ShuffleCards();
@@ -62,6 +62,14 @@ public class CheckCard : MonoBehaviour
             playerCards[i] = newCard;
         }
         drawCount++;
+    }
+
+    private void GetStraight() {
+        playerCards[0] = new Card(CardShape.SPADE, 6);
+        playerCards[1] = new Card(CardShape.SPADE, 2);
+        playerCards[2] = new Card(CardShape.SPADE, 3);
+        playerCards[3] = new Card(CardShape.SPADE, 4);
+        playerCards[4] = new Card(CardShape.SPADE, 5);
     }
 
     private void ShuffleCards() {

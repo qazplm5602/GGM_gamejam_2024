@@ -129,5 +129,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc0137be04690c4390bdc6ec3056d35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  betweenDelay: 0.6
+  betweenDelay: 0.7
   deadDistance: 1.35

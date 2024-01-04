@@ -253,12 +253,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characternDatas:
   - anim: {fileID: 9100000, guid: b9d3cd2f53ee4734e94fa819afe758b8, type: 2}
+    sprite: {fileID: -1426354895, guid: e2a4ad94698c6c04fba7a9733f5c2554, type: 3}
     name: Pumkin
   - anim: {fileID: 9100000, guid: 24f378202af364c4980f4bc782f148a2, type: 2}
+    sprite: {fileID: 21300000, guid: 5f33c7b71de540244a853b0712da1a45, type: 3}
     name: Elf
   - anim: {fileID: 9100000, guid: 7a58aed6e0569c64783bad7e77e68256, type: 2}
+    sprite: {fileID: 21300000, guid: b8f4395fa86223c4b8a4762839ff65f1, type: 3}
     name: Knight
   - anim: {fileID: 9100000, guid: 520b59b0ed0577c4e890aad9eaa65e23, type: 2}
+    sprite: {fileID: 21300000, guid: fd1b686cc4044da4c868f78a4a4a32ba, type: 3}
     name: Lizard
   nowSelectCharacterNumber: 0
 --- !u!114 &36455392
@@ -1164,7 +1168,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: DAZB
+          m_StringArgument: Last_InGame
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1083222935
@@ -1236,6 +1240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCharacter:
     anim: {fileID: 0}
+    sprite: {fileID: 0}
     name: 
   currentWeapon:
     WeaponType: 0
