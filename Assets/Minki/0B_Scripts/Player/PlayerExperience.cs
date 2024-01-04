@@ -33,9 +33,6 @@ public class PlayerExperience : MonoBehaviour
         _curExp -= _curNeedExp;
         _curNeedExp = (int)(_curNeedExp * 1.5f);
         ++level;
-        print("���� ���� : " + level);
-        print("���� ����ġ :" + _curExp);
-        print("���� �ʿ� ����ġ : " + _curNeedExp);
     }
     
     public void SetExp()
