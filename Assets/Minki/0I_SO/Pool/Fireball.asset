@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 6f0c383929a46d94dbc4aa3371b9ff0a, type: 3}
   m_Name: Fireball
   m_EditorClassIdentifier: Assembly-CSharp::PoolSO
   name: Fireball
-  count: 4
+  count: 10
   prefab: {fileID: 3355734530566503563, guid: 99bfb6e18e9fb1b448b5c16ecfcde793, type: 3}

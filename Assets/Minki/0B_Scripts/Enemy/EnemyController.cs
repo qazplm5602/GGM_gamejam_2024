@@ -30,6 +30,11 @@ public class EnemyController : MonoBehaviour
     }
     
     private void OnEnable() {
+        _hp = _enemySO.hp;
+        StopAllCoroutines();
+        moveable = true;
+        freezeFlip = false;
+        _invincibility = false;
         if(_boss) return;
 
         GetComponent<Animator>().runtimeAnimatorController = GameManager.Instance.enemy[Random.Range(0, GameManager.Instance.enemy.Length)];
@@ -38,8 +43,8 @@ public class EnemyController : MonoBehaviour
     private void Update() {
         if(freezeFlip) return;
 
-        if(_playerTrm.position.x > transform.position.x) transform.localScale = new Vector3(-1, 1, 1);
-        else if(_playerTrm.position.x < transform.position.x) transform.localScale = new Vector3(1, 1, 1);
+        if(_playerTrm.position.x < transform.position.x) transform.localScale = new Vector3(-1, 1, 1);
+        else if(_playerTrm.position.x > transform.position.x) transform.localScale = new Vector3(1, 1, 1);
     }
 
     private void FixedUpdate() {

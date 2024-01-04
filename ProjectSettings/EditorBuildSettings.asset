@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/LastDance/Last_Main.unity
+    guid: 959212dabe3e1464c8594d4419673603
+  - enabled: 1
+    path: Assets/LastDance/Last_Lobby.unity
+    guid: 9f9e210ac0781854faa15c6440db96fb
+  - enabled: 1
+    path: Assets/LastDance/Last_InGame.unity
+    guid: e1b0a7519e174324bb52fc297bf1ed17
+  - enabled: 1
+    path: Assets/LastDance/Last_GameOver.unity
+    guid: 945f334c983b62d47a3f2fd15e376d37
+  - enabled: 1
+    path: Assets/LastDance/Last_Credit.unity
+    guid: 19277070f6c71d844934d38f4e3f0c96
   m_configObjects: {}

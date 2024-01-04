@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 6f0c383929a46d94dbc4aa3371b9ff0a, type: 3}
   m_Name: Projectile
   m_EditorClassIdentifier: Assembly-CSharp::PoolSO
-  name: BossProjectile
+  name: Projectile
   count: 10
-  prefab: {fileID: 3355734530566503563, guid: 0a1c3061f30d2844e8c12c0ee3541805, type: 3}
+  prefab: {fileID: -2253911629886400664, guid: 6c7db88f06be0e748942ed1e64a5f535, type: 3}
