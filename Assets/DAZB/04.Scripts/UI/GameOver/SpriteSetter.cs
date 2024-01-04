@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class SpriteSetter : MonoBehaviour
 {
-    private SpriteRenderer sr;
-
-    private void Awake() {
-        sr = GetComponent<SpriteRenderer>();
-    }
-    private void Start() {
+    public SpriteRenderer sr;
+    private void OnEnable() {
         sr.sprite = CharacterManager.instance.GetData().Item1.sprite;
     }
 }
