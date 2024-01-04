@@ -26,6 +26,7 @@ public class PlayerExperience : MonoBehaviour
         if (_curExp >= _curNeedExp)
         {
             print("레벨업가능");
+            ChangeLevel();
             GameManager.Instance.OnStatCanvas();
         }
     }

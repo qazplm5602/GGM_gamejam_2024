@@ -29,7 +29,11 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else Destroy(gameObject);
+        else {
+            player = Instance.player;
+            statCanvas = Instance.statCanvas;
+            Destroy(gameObject);
+        }
     }
 
     private void Start()
@@ -56,5 +60,9 @@ public class GameManager : MonoBehaviour
     public void SetEXP(int curExp, int needExp)
     {
         expFill.fillAmount = curExp / (float)needExp;
+    }
+
+    public void SaveTimer(string str) {
+        timer = str;
     }
 }
