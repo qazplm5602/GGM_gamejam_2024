@@ -43,6 +43,7 @@ public class WeaponBullet : MonoBehaviour
     }
 
     public void ShotFire(Vector2 start, float angle) {
+        Debug.Log("shotfire");
         var ranking = CheckCard.instance.rankingInfo.ranking;
         //print("dsldsldlsdsl                          " + ranking);
         // Debug.LogWarning("ShotFire Debug Code!! L39");

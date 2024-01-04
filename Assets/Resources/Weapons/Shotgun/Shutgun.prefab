@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d55d6cbd66f66f478ac1048f172f325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  betweenTime: 0.3
+  betweenTime: 0.5
   reloadTime: 0.5
   deadDistance: 1.5
   firePos: {fileID: 3952768255057262733}

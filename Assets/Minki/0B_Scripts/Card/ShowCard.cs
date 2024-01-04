@@ -17,7 +17,7 @@ public class ShowCard : MonoBehaviour
     private bool _doubleBarrelFirst = true;
 
     public IEnumerator ShowingCard(bool doubleBarrel = false) {
-        yield return new WaitForSeconds(0.33f);
+        Debug.Log("ShowingCard");
 
         Card[] cards = CheckCard.instance.playerCards;
         RankingInfo rankingInfo = CheckCard.instance.GetInfo();
@@ -117,9 +117,8 @@ public class ShowCard : MonoBehaviour
     }
 
     public void DisappearCard(bool doubleBarrel = false) {
+        if(transform.childCount < 5) return;
         if(doubleBarrel) {
-            if(transform.childCount < 5) return;
-
             if(_doubleBarrelFirst) {
                 _doubleBarrelFirst = false;
                 for(int i = 0; i < 5; ++i) {
@@ -134,7 +133,7 @@ public class ShowCard : MonoBehaviour
             }
         }
         else {
-            for(int i = 0; i < transform.childCount - 5; ++i) Destroy(transform.GetChild(i).gameObject);
+            for(int i = 0; i < transform.childCount - 5; ++i) Destroy(transform.GetChild(i).gameObject, 0.01f);
 
             for(int i = transform.childCount - 5; i < transform.childCount; ++i) {
                 if(i >= 0)
