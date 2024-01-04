@@ -9,12 +9,14 @@ public class DebuffFire : MonoBehaviour
 
     EnemyController controller;
 
+    private GameObject _effectObj;
+
     private void Awake() {
         controller = GetComponent<EnemyController>();
     }
 
     private void Start() {
-        print("fire Start Tick");
+        _effectObj = Instantiate(effectEntity, transform.position, Quaternion.identity, transform);
         StartCoroutine(Tick());
     }
     
@@ -26,7 +28,7 @@ public class DebuffFire : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
         
-        print("end fire");
+        Destroy(_effectObj);
         // Destroy(this);
         OnDisable();
     }

@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class DebuffFreeze : MonoBehaviour
 {
+    private SpriteRenderer _spriteRenderer;
     EnemyController _controller;
     private void Awake() {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         _controller = GetComponent<EnemyController>();
     }
 
@@ -16,9 +18,9 @@ public class DebuffFreeze : MonoBehaviour
 
     IEnumerator Freeze() {
         _controller.moveable = false;
-        print("freeze!");
-        yield return new WaitForSeconds(2);        
-        print("unfreezed.");
+        _spriteRenderer.color = Color.blue;
+        yield return new WaitForSeconds(2);
+        _spriteRenderer.color = Color.white;
         _controller.moveable = true;
         OnDisable();
     }
