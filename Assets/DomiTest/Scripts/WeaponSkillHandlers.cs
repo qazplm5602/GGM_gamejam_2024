@@ -77,7 +77,7 @@ public class WeaponSkillHandlers : MonoBehaviour
                 bullet.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
                 bullet.transform.position = start;
                 // bullet.transform.position += bullet.transform.right * i;
-            }, i * .05f);
+            }, i * .03f);
             i++;
         }
     }
@@ -99,8 +99,6 @@ public class WeaponSkillHandlers : MonoBehaviour
 
                 var debuffSys = collider.AddComponent<DebuffFire>();
                 debuffSys.damage = fireDamage;
-
-                Destroy(bullets[idx]);
                 return false;
             };
         }
@@ -126,7 +124,7 @@ public class WeaponSkillHandlers : MonoBehaviour
                 bullet.transform.rotation = Quaternion.AngleAxis(angle + 180, Vector3.forward);
                 bullet.transform.position = start;
                 // bullet.transform.position += bullet.transform.right * i;
-            }, i * .05f);
+            }, i * .03f);
             i++;
         }
     }

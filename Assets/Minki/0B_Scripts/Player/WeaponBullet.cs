@@ -67,7 +67,9 @@ public class WeaponBullet : MonoBehaviour
 
             var spriteName = shapeName+"_"+(card.cardNumber == 1 || card.cardNumber == 14 ? "A" : card.cardNumber);
             var bullet = Instantiate(cardBulletTemplate);
-            bullet.GetComponent<CardWeaponBullet>().damage = damage;
+            var bulletSys = bullet.GetComponent<CardWeaponBullet>();
+            bulletSys.damage = damage;
+            bulletSys.standEntity = transform.root;
             bullets[i] = bullet;
 
             bullet.GetComponentInChildren<SpriteRenderer>().sprite = cardSpriteIndex[spriteName];
