@@ -31,7 +31,7 @@ public class WeaponAutoShotgun : MonoBehaviour, IWeaponEvent
     }
 
     private void Update() {
-        if (!isMouseDown || (Time.time - fireTime) < betweenDelay) return; // 준비 안됨
+        if (!isMouseDown || _bulletBullet.fireDisable || (Time.time - fireTime) < betweenDelay) return; // 준비 안됨
         
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (Vector2.Distance((Vector2)mousePos, (Vector2)transform.root.position) < deadDistance) return;

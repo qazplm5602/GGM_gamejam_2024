@@ -11,6 +11,7 @@ public class WeaponBullet : MonoBehaviour
     [SerializeField] ShowCard _showCard;
     Dictionary<string, Sprite> cardSpriteIndex = new();
     public Dictionary<Ranking, UnityAction<Vector2 /* start */, float /* dir(angle) */>> eventListener = new();
+    public bool fireDisable = false;
 
     private void Awake() {
         // 카드 sprite 인덱싱
@@ -34,11 +35,11 @@ public class WeaponBullet : MonoBehaviour
         // 여기에서 UI 연동
     }
 
-    public void Bridge_Showcard(bool active) {
+    public void Bridge_Showcard(bool active, bool arg1 = false) {
         if (active)
-            StartCoroutine(_showCard.ShowingCard());
+            StartCoroutine(_showCard.ShowingCard(arg1));
         else
-            _showCard.DisappearCard();
+            _showCard.DisappearCard(arg1);
     }
 
     public void ShotFire(Vector2 start, float angle) {

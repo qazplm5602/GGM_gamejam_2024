@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponShotgun : MonoBehaviour, IWeaponEvent
+public class WeaponDoubleShoutgun : MonoBehaviour, IWeaponEvent
 {
     [SerializeField] float betweenTime = .3f;
     [SerializeField] float reloadTime = 3;
     [SerializeField] float deadDistance = 2;
     [SerializeField] Transform firePos;
-    [SerializeField] GameObject bullet;
-    Animator _animator;
     bool isReload = false;
     float fireTime = 0;
     WeaponBullet _weaponBullet;
@@ -17,12 +15,11 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
     public void Init(WeaponBullet weaponBullet)
     {
         // 초기 설정
-        _animator = GetComponent<Animator>();
         _weaponBullet = weaponBullet;
-        _weaponBullet.SetAmmo(5);
+        _weaponBullet.SetAmmo(10);
 
         CheckCard.instance.DrawCard();
-        _weaponBullet.Bridge_Showcard(true);
+        _weaponBullet.Bridge_Showcard(true, true);
     }
 
     bool isMouseDown = false;
@@ -43,7 +40,6 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
         if (isMouseDown) {
             if (_weaponBullet.isEmpty) { // 장전 ㄱㄱ
                 print("weapon reloading...");
-                _animator.SetTrigger("Reload");
                 isReload = true;
                 StartCoroutine(WeaponReload());
                 return;
@@ -58,24 +54,11 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
                 if (Vector2.Distance((Vector2)mousePos, (Vector2)transform.root.position) < deadDistance) return;
 
                 _weaponBullet.ShotFire(firePos.position, angle);
-                _weaponBullet.Bridge_Showcard(false);
-
-                // var bullets = _weaponBullet.CreateBullets();
-
-                // // TEST 총알
-                // for (int i = -2, k = 0; i < 3; i++, k ++)
-                // {
-                //     bullets[k].transform.position = firePos.position;
-                //     bullets[k].transform.rotation = Quaternion.AngleAxis(angle + (15 * i), Vector3.forward);
-                //     // entity.transform.right = firePos.right;
-                //     // print(entity.transform.right);
-                //     // print(firePos.right);
-                // }
+                _weaponBullet.Bridge_Showcard(false, true);
             }
 
             fireTime = Time.time;
-            _weaponBullet.SetAmmo(0);
-            _animator.SetTrigger("Shot");
+            _weaponBullet.SetAmmo(_weaponBullet.ammo - 5);
             print("fire!!");
         } else {
 
@@ -86,8 +69,8 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
         yield return new WaitForSeconds(reloadTime);
         print("weapon reloaded!");
         CheckCard.instance.DrawCard();
-        _weaponBullet.Bridge_Showcard(true);
-        _weaponBullet.SetAmmo(5);
+        _weaponBullet.Bridge_Showcard(true, true);
+        _weaponBullet.SetAmmo(10);
         isReload = false;
     }
 }

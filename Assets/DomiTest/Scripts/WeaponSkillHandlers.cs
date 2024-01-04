@@ -298,6 +298,8 @@ public class WeaponSkillHandlers : MonoBehaviour
         for (int i = 6; i < bulletList.Count; i++)
             Destroy(bulletList.Dequeue());
 
+        _bulletMain.fireDisable = true;
+
         while (Time.timeScale > 0) {
             yield return null;
             Time.timeScale = Mathf.Max(Time.timeScale - Time.unscaledDeltaTime, 0);
@@ -412,6 +414,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         }
         
         Destroy(clock.gameObject, .31f);
+        _bulletMain.fireDisable = false;
     }
     IEnumerator _RoyalBackStraightFlush() {
         var saveShape = CheckCard.instance.playerCards[0].cardShape;
@@ -419,6 +422,8 @@ public class WeaponSkillHandlers : MonoBehaviour
         var saveDamage_default = _bulletMain.GetDamange();
         CheckCard.instance.rankingInfo.ranking = Ranking.ROYALSTRAIGHTFLUSH;
         var saveDamage = _bulletMain.GetDamange();
+
+        _bulletMain.fireDisable = true;
         while (Time.timeScale > 0) {
             yield return null;
             Time.timeScale = Mathf.Max(Time.timeScale - Time.unscaledDeltaTime, 0);
@@ -525,6 +530,7 @@ public class WeaponSkillHandlers : MonoBehaviour
             item.DOFade(0, 1).SetUpdate(true);
 
         Time.timeScale = 1;
+        _bulletMain.fireDisable = false;
     }
 
         void RotateAround(Vector3 currentPos, Quaternion currentRotate, Vector3 cetner, Vector3 axis, float angle, out Vector3 endPos, out Quaternion endRotate){
