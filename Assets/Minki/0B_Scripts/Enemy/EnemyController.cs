@@ -80,6 +80,7 @@ public class EnemyController : MonoBehaviour
             if(_bossE) {
                 _bossE = false;
                 StartCoroutine(GetComponent<BossE>().Transform());
+                _hp = _enemySO.hp;
             }
             else {
                 GameManager.Instance.enemyKill++;

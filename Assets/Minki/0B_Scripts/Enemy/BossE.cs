@@ -128,9 +128,12 @@ public class BossE : MonoBehaviour
         _controller.moveable = false;
         _controller.freezeFlip = false;
         _animator.SetTrigger("dead");
+        StartCoroutine(DeadCor());
     }
 
     private IEnumerator DeadCor() {
+        yield return new WaitForSeconds(2f);
+        GameManager.Instance.canvas.SetActive(false);
         GameManager.Instance.bakcBoard.GetComponent<SpriteRenderer>().DOFade(1, 0.5f);
         yield return new WaitForSeconds(0.7f);
         SceneManager.LoadScene("Credit");

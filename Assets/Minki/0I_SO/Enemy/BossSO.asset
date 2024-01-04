@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9b6bc23d2dd2b74a9132da00c8c97ae, type: 3}
   m_Name: BossSO
   m_EditorClassIdentifier: Assembly-CSharp::EnemySO
-  hp: 1000
+  hp: 333
   damage: 10
   speed: 0.5
