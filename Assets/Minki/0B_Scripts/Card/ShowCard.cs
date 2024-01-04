@@ -16,11 +16,11 @@ public class ShowCard : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.P)) {
             CheckCard.instance.DrawCard();
             DisappearCard();
-            StartCoroutine(ShowingCard());
+            StartCoroutine(ShowingCard(true));
         }
     }
 
-    private IEnumerator ShowingCard() {
+    private IEnumerator ShowingCard(bool doubleBarrel = false) {
         yield return new WaitForSeconds(0.33f);
 
         Card[] cards = CheckCard.instance.playerCards;
@@ -36,6 +36,22 @@ public class ShowCard : MonoBehaviour
             cardObj[obj] = cards[i].cardNumber;
 
             yield return new WaitForSeconds(0.05f);
+        }
+        if(doubleBarrel) {
+            for(int i = 0; i < 5; ++i) {
+                GameObject obj = Instantiate(_cardPrefab, transform.position, Quaternion.Euler(0, 0, 75 - 37.5f * i), transform);
+                obj.transform.position += obj.transform.up * 0.85f;
+                obj.transform.position -= Vector3.up * 0.2f;
+                obj.transform.position += obj.transform.right * 0.05f;
+                SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
+                sr.sprite = _cardSprites[(int)cards[i].cardShape].sprites[cards[i].cardNumber - 1];
+                sr.sortingOrder--;
+                obj.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder--;
+
+                cardObj[obj] = cards[i].cardNumber;
+
+                yield return new WaitForSeconds(0.05f);
+            }
         }
 
         yield return new WaitForSeconds(0.08f);
@@ -74,7 +90,9 @@ public class ShowCard : MonoBehaviour
     }
 
     public void DisappearCard() {
-        for(int i = 0; i < transform.childCount; ++i) {
+        if(transform.childCount < 5) return;
+
+        for(int i = 0; i < 5; ++i) {
             StartCoroutine(MoveDownCard(gameObject.transform.GetChild(i).gameObject, 0.05f * i));
         }
     }
