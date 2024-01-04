@@ -282,7 +282,7 @@ public class WeaponSkillHandlers : MonoBehaviour
             Destroy(parent.gameObject);
             Destroy(myEntity);
             // parent.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            return false;
+            return true;
         };
     }
 
