@@ -126,7 +126,7 @@ public class WeaponBullet : MonoBehaviour
                 break;
         }
     }
-    int GetMaxRanking() => CheckCard.instance.rankingInfo.cardData2?.cardNumber ?? (CheckCard.instance.rankingInfo.ranking == Ranking.MOUNTAIN || CheckCard.instance.rankingInfo.ranking == Ranking.FULLHOUSE || CheckCard.instance.rankingInfo.ranking == Ranking.BACKSTRAIGHT ? 14 : CheckCard.instance.rankingInfo.cardData1.cardNumber);
+    int GetMaxRanking() => CheckCard.instance.rankingInfo.cardData2?.cardNumber ?? (CheckCard.instance.rankingInfo.ranking == Ranking.MOUNTAIN || CheckCard.instance.rankingInfo.ranking == Ranking.FULLHOUSE || CheckCard.instance.rankingInfo.ranking == Ranking.BACKSTRAIGHT || CheckCard.instance.rankingInfo.ranking == Ranking.STRAIGHT ? 14 : CheckCard.instance.rankingInfo.cardData1.cardNumber);
     public int GetDamange(int customRank = -1) => Mathf.RoundToInt(default_damage * ((customRank >= 0 ? customRank : GetRankingValue(CheckCard.instance.rankingInfo.ranking)) / 100) * ((GetMaxRanking() / 100f) + 1));
     public Sprite GetCardSprite(string name) => cardSpriteIndex[name];
 }
