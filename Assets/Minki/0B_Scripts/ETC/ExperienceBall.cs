@@ -6,6 +6,8 @@ public class ExperienceBall : MonoBehaviour
     [SerializeField] private float _magneticDistance = 5f;
     [SerializeField] private float _speed = 10f;
 
+    private bool _findTarget = false;
+
     private Transform _playerTrm;
     private SpriteRenderer _spriteRenderer;
 
@@ -16,15 +18,20 @@ public class ExperienceBall : MonoBehaviour
     }
 
     private void OnEnable() {
+        _findTarget = false;
         _spriteRenderer.color = _boss ? new Color(1, Random.Range(0f, 1f), 0) : new Color(0, 1, Random.Range(0f, 1f));
     }
 
     private void Update() {
         float distance = Vector2.Distance(transform.position, _playerTrm.position);
-        if(distance <= _magneticDistance) {
+        if(_findTarget) {
             Vector3 direction = _playerTrm.position - transform.position;
             if(distance < 1.5f) transform.position += direction.normalized * Time.deltaTime * (1/1.5f/_magneticDistance) * _speed;
+            else if(distance > 5f) transform.position += direction.normalized * Time.deltaTime * (1/5f/_magneticDistance) * _speed;
             else transform.position += direction.normalized * Time.deltaTime * (1/distance/_magneticDistance) * _speed;
+        }
+        else {
+            if(distance <= _magneticDistance) _findTarget = true;
         }
     }
 
