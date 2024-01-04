@@ -99,8 +99,6 @@ public class WeaponSkillHandlers : MonoBehaviour
 
                 var debuffSys = collider.AddComponent<DebuffFire>();
                 debuffSys.damage = fireDamage;
-
-                Destroy(bullets[idx]);
                 return false;
             };
         }

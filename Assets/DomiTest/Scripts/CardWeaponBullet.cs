@@ -22,6 +22,6 @@ public class CardWeaponBullet : MonoBehaviour
         if (OnCallback != null && !OnCallback.Invoke(other)) return;
 
         controller.Hit(damage);
-        Destroy(gameObject);
+        // Destroy(gameObject);
     }
 }
