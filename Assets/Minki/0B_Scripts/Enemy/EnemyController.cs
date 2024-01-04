@@ -89,7 +89,7 @@ public class EnemyController : MonoBehaviour
         freezeFlip = true;
         _invincibility = true;
 
-        _rigidbody.AddForce(direction.normalized * 2f);
+        _rigidbody.AddForce(direction.normalized * 2f, ForceMode2D.Impulse);
 
         yield return new WaitForSeconds(0.1f);
 

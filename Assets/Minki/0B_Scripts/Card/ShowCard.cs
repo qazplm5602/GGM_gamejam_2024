@@ -90,12 +90,14 @@ public class ShowCard : MonoBehaviour
             if(transform.childCount < 5) return;
 
             if(_doubleBarrelFirst) {
+                _doubleBarrelFirst = false;
                 for(int i = 0; i < 5; ++i) {
                     StartCoroutine(MoveDownCard(transform.GetChild(i).gameObject, 0.05f * i));
                 }
             }
             else {
-                for(int i = transform.childCount - 5; i < 10; ++i) {
+                _doubleBarrelFirst = true;
+                for(int i = transform.childCount - 5; i < transform.childCount; ++i) {
                     StartCoroutine(MoveDownCard(transform.GetChild(i).gameObject, 0.05f * i));
                 }
             }
