@@ -254,11 +254,11 @@ MonoBehaviour:
   characternDatas:
   - anim: {fileID: 9100000, guid: b9d3cd2f53ee4734e94fa819afe758b8, type: 2}
     name: Pumkin
-  - anim: {fileID: 22100000, guid: b1d657f8f6aa3474c99d12de96efaad4, type: 2}
+  - anim: {fileID: 9100000, guid: 24f378202af364c4980f4bc782f148a2, type: 2}
     name: Elf
-  - anim: {fileID: 22100000, guid: 6904273b9d8a908439ee6b629dec85d2, type: 2}
+  - anim: {fileID: 9100000, guid: 7a58aed6e0569c64783bad7e77e68256, type: 2}
     name: Knight
-  - anim: {fileID: 22100000, guid: 1b25fb290d8431d48b22c8e889e4ff71, type: 2}
+  - anim: {fileID: 9100000, guid: 520b59b0ed0577c4e890aad9eaa65e23, type: 2}
     name: Lizard
   nowSelectCharacterNumber: 0
 --- !u!114 &36455392
@@ -1094,7 +1094,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -450}
-  m_SizeDelta: {x: 200, y: 80}
+  m_SizeDelta: {x: 300, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1083222933
 MonoBehaviour:
@@ -1239,7 +1239,7 @@ MonoBehaviour:
     name: 
   currentWeapon:
     WeaponType: 0
-    weaponSprite: {fileID: 0}
+    weaponPrf: {fileID: 0}
 --- !u!4 &1122844636
 Transform:
   m_ObjectHideFlags: 0
@@ -2230,7 +2230,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC2DC\uC791"
+  m_text: "\uC2DC  \uC791"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0312451ea9f01d8458dbcdaeeb403133, type: 2}
   m_sharedMaterial: {fileID: 1386964341779080960, guid: 0312451ea9f01d8458dbcdaeeb403133, type: 2}
@@ -2257,10 +2257,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 24
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -2817,13 +2817,14 @@ MonoBehaviour:
   children: []
   weaponDatas:
   - WeaponType: 0
-    weaponSprite: {fileID: 1479807559, guid: a902e50a3b5634741b46aea289e7c857, type: 3}
+    weaponPrf: {fileID: 4620032811582190429, guid: e491ca2a0de6f4c43b82b440a241c0b3, type: 3}
   - WeaponType: 1
-    weaponSprite: {fileID: 1989783958, guid: a902e50a3b5634741b46aea289e7c857, type: 3}
+    weaponPrf: {fileID: 811395127846636116, guid: 7fe936f37c5e2414f99fc36b77463764, type: 3}
   - WeaponType: 2
-    weaponSprite: {fileID: 1281769931, guid: a902e50a3b5634741b46aea289e7c857, type: 3}
+    weaponPrf: {fileID: 4310910080718471228, guid: dbb3382c57089cd4aa08ec16994a32ad, type: 3}
   nowWeaponType: 0
-  nowWeaponImage: {fileID: 1720166328}
+  nowWeapon: {fileID: 0}
+  weaponImage: {fileID: 1720166328}
 --- !u!1 &2101069309
 GameObject:
   m_ObjectHideFlags: 0
