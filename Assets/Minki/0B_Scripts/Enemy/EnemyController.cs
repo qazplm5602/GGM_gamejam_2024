@@ -9,9 +9,9 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private EnemySO _enemySO;
     [SerializeField] private bool _boss = false;
     [SerializeField] private bool _bossE = false;
+    [SerializeField] private Material _originMaterial;
     [SerializeField] private Material _hitMaterial;
 
-    private Material _originMaterial;
 
     private int _hp;
     private int _damage;
@@ -24,8 +24,6 @@ public class EnemyController : MonoBehaviour
     private void Awake() {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidbody = GetComponent<Rigidbody2D>();
-
-        _originMaterial = _spriteRenderer.material;
     }
 
     private void Start() {
@@ -39,6 +37,7 @@ public class EnemyController : MonoBehaviour
     private void OnEnable() {
         _hp = _enemySO.hp;
         StopAllCoroutines();
+        _spriteRenderer.material = _originMaterial;
         moveable = true;
         freezeFlip = false;
         _invincibility = false;
@@ -107,7 +106,7 @@ public class EnemyController : MonoBehaviour
         freezeFlip = true;
         _invincibility = true;
 
-        _rigidbody.AddForce(direction.normalized * 2f, ForceMode2D.Impulse);
+        _rigidbody.AddForce(direction.normalized * 20f, ForceMode2D.Impulse);
 
         yield return new WaitForSeconds(0.1f);
 

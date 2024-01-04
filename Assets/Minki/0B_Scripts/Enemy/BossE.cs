@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class BossE : MonoBehaviour
 {
@@ -123,5 +125,11 @@ public class BossE : MonoBehaviour
         _controller.moveable = false;
         _controller.freezeFlip = false;
         _animator.SetTrigger("dead");
+    }
+
+    private IEnumerator DeadCor() {
+        GameManager.Instance.bakcBoard.GetComponent<SpriteRenderer>().DOFade(1, 0.5f);
+        yield return new WaitForSeconds(0.7f);
+        SceneManager.LoadScene("Credit");
     }
 }
