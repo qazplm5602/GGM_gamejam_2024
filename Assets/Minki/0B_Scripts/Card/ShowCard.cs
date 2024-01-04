@@ -12,13 +12,7 @@ public class ShowCard : MonoBehaviour
     [SerializeField] private CardSprite[] _cardSprites;
     [SerializeField] private GameObject _cardPrefab;
 
-    private void Update() {
-        if(Input.GetKeyDown(KeyCode.P)) {
-            CheckCard.instance.DrawCard();
-            DisappearCard();
-            StartCoroutine(ShowingCard());
-        }
-    }
+    private bool _doubleBarrelFirst = true;
 
     public IEnumerator ShowingCard(bool doubleBarrel = false) {
         yield return new WaitForSeconds(0.33f);
@@ -94,8 +88,16 @@ public class ShowCard : MonoBehaviour
     public void DisappearCard(bool doubleBarrel = false) {
         if(doubleBarrel) {
             if(transform.childCount < 5) return;
-            for(int i = 0; i < 5; ++i) {
-                StartCoroutine(MoveDownCard(transform.GetChild(i).gameObject, 0.05f * i));
+
+            if(_doubleBarrelFirst) {
+                for(int i = 0; i < 5; ++i) {
+                    StartCoroutine(MoveDownCard(transform.GetChild(i).gameObject, 0.05f * i));
+                }
+            }
+            else {
+                for(int i = transform.childCount - 5; i < 10; ++i) {
+                    StartCoroutine(MoveDownCard(transform.GetChild(i).gameObject, 0.05f * i));
+                }
             }
         }
         else {
