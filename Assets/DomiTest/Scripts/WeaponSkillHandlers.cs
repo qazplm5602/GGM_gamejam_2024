@@ -306,6 +306,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         // 초기화
         var clock = Instantiate(clockTemplate, transform.root).transform;
         var texts = clock.Find("Texts");
+        clock.transform.localScale = Vector3.one * 0.7f;
         clock.transform.position = transform.root.position;
 
         for (int i = 0; i < texts.childCount; i++)
