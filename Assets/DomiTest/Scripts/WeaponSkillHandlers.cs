@@ -84,6 +84,7 @@ public class WeaponSkillHandlers : MonoBehaviour
 
     void Triple(Vector2 start, float angle) {
         var bullets = _bulletMain.CreateBullets();
+        int fireDamage = _bulletMain.GetDamange(45);
 
         for (int i = -2, k = 0; i < 3; i++, k ++)
         {
@@ -91,7 +92,17 @@ public class WeaponSkillHandlers : MonoBehaviour
             bullets[k].transform.rotation = Quaternion.AngleAxis(angle + (5 * i), Vector3.forward);
 
             // 화염디버프 적용 ㄱㄱ
+            int idx = k;
+            var bulletSys = bullets[k].GetComponent<CardWeaponBullet>();
+            bulletSys.OnCallback += (Collider2D collider) => {
+                if (collider.TryGetComponent<DebuffFire>(out var debuffSys_)) Destroy(debuffSys_); // 기존꺼 삭제
 
+                var debuffSys = collider.AddComponent<DebuffFire>();
+                debuffSys.damage = 1;
+
+                Destroy(bullets[idx]);
+                return false;
+            };
         }
     }
     void Backstraight(Vector2 start, float angle) {
