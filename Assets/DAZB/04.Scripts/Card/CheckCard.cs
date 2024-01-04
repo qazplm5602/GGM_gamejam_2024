@@ -15,7 +15,7 @@ public class CheckCard : MonoBehaviour
     public int drawCount = 0;
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.K)) {
+        if (Input.GetKey(KeyCode.K)) {
             DrawCard();
         }
         if (Input.GetKeyDown(KeyCode.Tab)) {

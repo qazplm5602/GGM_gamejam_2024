@@ -20265,6 +20265,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5543f8ee650d0e1448e196ba6577911d, type: 2}
   - {fileID: 11400000, guid: b75139be17717df48a26b42b5763b9c0, type: 2}
   - {fileID: 11400000, guid: f27adf14325f8c048a74cca00c8be136, type: 2}
+  - {fileID: 11400000, guid: 884968feebf0e6a469e12109dc50a9d7, type: 2}
 --- !u!224 &1496239367245401840
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29364,6 +29365,8 @@ MonoBehaviour:
   - {fileID: 9100000, guid: 0f3c062b5e32334438fd77b6c497bd94, type: 2}
   - {fileID: 9100000, guid: 06fbddbe75105fb41add73c216de7f9c, type: 2}
   SettingCanvas: {fileID: 9203221039420064939}
+  enemyKill: 0
+  timer: 00:00
   curHp: 100
   statCanvas: {fileID: 6116932268133186930}
 --- !u!114 &9171820184391653953
@@ -29398,6 +29401,9 @@ MonoBehaviour:
       value: {fileID: 8300000, guid: 3605d45125df8684ca31a52af4cc3970, type: 3}
     - key: Jump
       value: {fileID: 8300000, guid: cd73d333cd9cfc4429fd721744ffaa37, type: 3}
+  _masterVolume: 6
+  _bgmVolume: 6
+  _sfxVolume: 6
 --- !u!82 &9171820184391653954
 AudioSource:
   m_ObjectHideFlags: 0

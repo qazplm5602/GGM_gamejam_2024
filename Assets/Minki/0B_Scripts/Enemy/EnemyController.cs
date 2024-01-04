@@ -58,6 +58,7 @@ public class EnemyController : MonoBehaviour
                 StartCoroutine(GetComponent<BossE>().Transform());
             }
             else {
+                GameManager.Instance.enemyKill++;
                 if(TryGetComponent(out BossE boss)) {
                     boss.Dead();
                 }

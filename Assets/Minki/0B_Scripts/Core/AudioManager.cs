@@ -7,11 +7,18 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private SerializableDict<AudioClip> _audioSerializeDictionary;
 
+    public int _masterVolume = 6;
+    public int _bgmVolume = 6;
+    public int _sfxVolume = 6;
+
     private Dictionary<string, AudioClip> _audioDictionary = new Dictionary<string, AudioClip>();
     private AudioSource _audioSource;
 
     private void Awake() {
-        if(Instance == null) Instance = this;
+        if(Instance == null) {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         else Destroy(gameObject);
 
         _audioSource = GetComponent<AudioSource>();
