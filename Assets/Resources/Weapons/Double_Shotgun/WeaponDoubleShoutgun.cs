@@ -16,10 +16,11 @@ public class WeaponDoubleShoutgun : MonoBehaviour, IWeaponEvent
     {
         // 초기 설정
         _weaponBullet = weaponBullet;
-        _weaponBullet.SetAmmo(10);
 
-        CheckCard.instance.DrawCard();
-        _weaponBullet.Bridge_Showcard(true, true);
+        isReload = true;
+        StartCoroutine(WeaponReload());
+
+        _weaponBullet.SetReloadTime(reloadTime);
     }
 
     bool isMouseDown = false;

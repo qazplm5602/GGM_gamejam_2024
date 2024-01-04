@@ -17,6 +17,8 @@ public class WeaponAutoShotgun : MonoBehaviour, IWeaponEvent
         firePos = transform.Find("FirePos");
 
         StartCoroutine(Reload());
+        
+        _weaponBullet.SetReloadTime(betweenDelay);
     }
 
     bool isMouseDown = false;

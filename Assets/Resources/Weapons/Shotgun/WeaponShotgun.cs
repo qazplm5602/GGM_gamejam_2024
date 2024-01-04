@@ -23,6 +23,8 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
 
         CheckCard.instance.DrawCard();
         _weaponBullet.Bridge_Showcard(true);
+
+        _weaponBullet.SetReloadTime(betweenTime);
     }
 
     bool isMouseDown = false;
