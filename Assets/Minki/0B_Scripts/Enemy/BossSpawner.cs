@@ -4,8 +4,8 @@ public class BossSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] bosses;
 
-    private int bossCounter = 4;
-    private float seconds = 110;
+    private int bossCounter = 0;
+    private float seconds = 0;
 
     private void Update() {
         seconds += Time.deltaTime;
