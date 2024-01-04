@@ -98,7 +98,7 @@ public class WeaponSkillHandlers : MonoBehaviour
                 if (collider.TryGetComponent<DebuffFire>(out var debuffSys_)) Destroy(debuffSys_); // 기존꺼 삭제
 
                 var debuffSys = collider.AddComponent<DebuffFire>();
-                debuffSys.damage = 1;
+                debuffSys.damage = fireDamage;
 
                 Destroy(bullets[idx]);
                 return false;
@@ -201,6 +201,17 @@ public class WeaponSkillHandlers : MonoBehaviour
         {
             bullets[(int)k].transform.position = start;
             bullets[(int)k].transform.rotation = Quaternion.AngleAxis(angle + (2.5f * i), Vector3.forward);
+
+            int idx = (int)k;
+            var bulletSys = bullets[idx].GetComponent<CardWeaponBullet>();
+            // bulletSys.damage  = 0;
+            bulletSys.OnCallback += (Collider2D collider) => {
+                if (collider.TryGetComponent<DebuffFreeze>(out var debuffSys_)) Destroy(debuffSys_); // 기존꺼 삭제
+
+                collider.AddComponent<DebuffFreeze>();
+
+                return true;
+            };
         }
     }
     
