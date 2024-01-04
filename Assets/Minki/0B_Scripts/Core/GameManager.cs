@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public GameObject SettingCanvas;
 
     float maxHp = 100;
-    int curHp = 100;
+    public int curHp = 100;
 
     [SerializeField] private GameObject statCanvas;
 
@@ -36,12 +36,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            curHp -= 7;
-            SetHP(curHp);
-        }
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SettingCanvas.SetActive(!SettingCanvas.activeSelf);
