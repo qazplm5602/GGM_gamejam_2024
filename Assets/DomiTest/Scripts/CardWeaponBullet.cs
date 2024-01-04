@@ -24,11 +24,16 @@ public class CardWeaponBullet : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+        print("---------- bullet collider logger");
+        print(other.gameObject.name);
+        print(other.TryGetComponent<EnemyController>(out var _));
         if (!enabled || !other.TryGetComponent<EnemyController>(out var controller)) return;
 
         // Cancel Event
         if (OnCallback != null && !OnCallback.Invoke(other)) return;
 
+        print("---------- bullet collider logger 2 (hit)");
+        print($"{gameObject.name} -> {other.gameObject.name} ({damage})");
         controller.Hit(damage, transform.position);
         // Destroy(gameObject);
     }
