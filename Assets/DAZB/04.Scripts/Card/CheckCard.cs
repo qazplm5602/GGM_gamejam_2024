@@ -24,6 +24,7 @@ public class CheckCard : MonoBehaviour
     public RankingInfo GetInfo() {
         return rankingInfo;
     }
+    
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.P) && Input.GetKeyDown(KeyCode.O)) {
@@ -32,7 +33,7 @@ public class CheckCard : MonoBehaviour
         }
         if (isCheat) {
             if (Input.GetKeyDown(KeyCode.PageUp)) {
-                if (cheatRankCount >= 13) return; 
+                if (cheatRankCount >= 12) return; 
                 cheatRankCount++;
             }
             else if (Input.GetKeyDown(KeyCode.PageDown)) {
@@ -65,6 +66,8 @@ public class CheckCard : MonoBehaviour
     public void ResetCounter() {
         rankingCounter = new int[14];
         cardCounter = new int[14,4];
+        isCheat = false;
+        cheatRankCount = 0;
     }
 
     private void GetCard() {

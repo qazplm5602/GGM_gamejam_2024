@@ -6,6 +6,7 @@ public class GoLobby : MonoBehaviour
 {
     public void GotoMain() {
         Destroy(GameManager.Instance);
-         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        CheckCard.instance.ResetCounter();
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 }
