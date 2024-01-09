@@ -12,6 +12,7 @@ public class WeaponBullet : MonoBehaviour
     Dictionary<string, Sprite> cardSpriteIndex = new();
     public Dictionary<Ranking, UnityAction<Vector2 /* start */, float /* dir(angle) */>> eventListener = new();
     public bool fireDisable = false;
+    public bool interactDisable = false;
 
     private void Awake() {
         // 카드 sprite 인덱싱
@@ -33,6 +34,10 @@ public class WeaponBullet : MonoBehaviour
         _ammo = amount;
 
         // 여기에서 UI 연동
+    }
+
+    public void SetDefaultDamage(int value) {
+        default_damage = value;
     }
 
     public void Bridge_Showcard(bool active, bool arg1 = false) {

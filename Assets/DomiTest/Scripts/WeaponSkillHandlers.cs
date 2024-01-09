@@ -322,7 +322,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         for (int i = 6; i < bulletList.Count; i++)
             Destroy(bulletList.Dequeue());
 
-        _bulletMain.fireDisable = true;
+        _bulletMain.fireDisable = _bulletMain.interactDisable = true;
 
         while (Time.timeScale > 0) {
             yield return null;
@@ -440,7 +440,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         }
         
         Destroy(clock.gameObject, .31f);
-        _bulletMain.fireDisable = false;
+        _bulletMain.fireDisable = _bulletMain.interactDisable = false;
     }
     IEnumerator _RoyalBackStraightFlush() {
         var saveShape = CheckCard.instance.playerCards[0].cardShape;
@@ -449,7 +449,7 @@ public class WeaponSkillHandlers : MonoBehaviour
         CheckCard.instance.rankingInfo.ranking = Ranking.ROYALSTRAIGHTFLUSH;
         var saveDamage = _bulletMain.GetDamange();
 
-        _bulletMain.fireDisable = true;
+        _bulletMain.fireDisable = _bulletMain.interactDisable = true;
         while (Time.timeScale > 0) {
             yield return null;
             Time.timeScale = Mathf.Max(Time.timeScale - Time.unscaledDeltaTime, 0);
@@ -482,6 +482,8 @@ public class WeaponSkillHandlers : MonoBehaviour
         var roundCenter3_render = roundCenter3.GetComponent<SpriteRenderer>();
         roundCenter3_render.material = new Material(roundCenter3_render.material);
         roundCenter3_render.material.SetFloat("_FillAmount", 0);
+
+        AudioManager.Instance.PlaySound("Clock");
 
         for (int i = 0; i < texts.childCount; i++)
         {
@@ -534,6 +536,7 @@ public class WeaponSkillHandlers : MonoBehaviour
 
             item.transform.DOMove(endPos, .5f).SetEase(Ease.OutQuad).SetUpdate(true).SetDelay(0.05f * (angle / 30) + 1);
             item.transform.DORotateQuaternion(endRotate, .5f).SetEase(Ease.OutQuad).SetUpdate(true).SetDelay(0.05f * (angle / 30) + 1);
+            Wait(() => AudioManager.Instance.PlaySound("Draw"), 0.05f * (angle / 30) + 1, true);
             angle += 30;
         }
 
@@ -560,8 +563,10 @@ public class WeaponSkillHandlers : MonoBehaviour
         foreach (var item in clock.GetComponentsInChildren<SpriteRenderer>())
             item.DOFade(0, 1).SetUpdate(true);
 
+        AudioManager.Instance.PlaySound("Attack");
+
         Time.timeScale = 1;
-        _bulletMain.fireDisable = false;
+        _bulletMain.fireDisable = _bulletMain.interactDisable = false;
     }
 
         void RotateAround(Vector3 currentPos, Quaternion currentRotate, Vector3 cetner, Vector3 axis, float angle, out Vector3 endPos, out Quaternion endRotate){
@@ -575,11 +580,14 @@ public class WeaponSkillHandlers : MonoBehaviour
             endRotate = currentRotate * Quaternion.Inverse(myRot) * rot * myRot;
         }
 
-    void Wait(UnityAction callback, float time) {
-        StartCoroutine(_Wait(callback, time));
+    void Wait(UnityAction callback, float time, bool real = false) {
+        StartCoroutine(_Wait(callback, time, real));
     }
-    IEnumerator _Wait(UnityAction cb, float time) {
-        yield return new WaitForSeconds(time);
+    IEnumerator _Wait(UnityAction cb, float time, bool real) {
+        if (real)
+            yield return new WaitForSecondsRealtime(time);
+        else
+            yield return new WaitForSeconds(time);
         cb.Invoke();
     }
 }

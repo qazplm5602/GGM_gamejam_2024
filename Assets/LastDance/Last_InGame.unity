@@ -862,6 +862,7 @@ MonoBehaviour:
   playerTrm: {fileID: 1147313490}
   player: {fileID: 1147313491}
   playerHealth: {fileID: 116889949}
+  playerBulletSys: {fileID: 1562762360}
   hpFill: {fileID: 4984866010140246844}
   expFill: {fileID: 2113466287124183502}
   bakcBoard: {fileID: 1509814418}
@@ -19844,6 +19845,7 @@ MonoBehaviour:
   - {fileID: 1802235012, guid: 4ad982672dbc22440babc9aa72b08868, type: 3}
   _showCard: {fileID: 1159319831}
   fireDisable: 0
+  interactDisable: 0
 --- !u!114 &1562762361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19920,7 +19922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ShowDebugText: 0
   m_ShowCameraFrustum: 1
-  m_IgnoreTimeScale: 1
+  m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
   m_UpdateMethod: 2
   m_BlendUpdateMethod: 1

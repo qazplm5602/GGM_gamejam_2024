@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public Transform playerTrm;
     public PlayerExperience player;
     public PlayerHealth playerHealth;
+    public WeaponBullet playerBulletSys;
     public Image hpFill;
     public Image expFill;
     public GameObject bakcBoard;
@@ -47,9 +48,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !playerBulletSys.interactDisable)
         {
             SettingCanvas.SetActive(!SettingCanvas.activeSelf);
+            playerBulletSys.fireDisable = SettingCanvas.activeSelf;
         }
     }
     public void OnStatCanvas()
