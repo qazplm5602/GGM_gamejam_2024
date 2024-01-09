@@ -1,9 +1,11 @@
+using TMPro;
 using UnityEngine;
 
 public class CheatManager : MonoBehaviour
 {
     public static CheatManager instance;
     public GameObject text;
+    public TMP_Text rankingText;
     private void Awake()
     {
         instance = this;
@@ -26,5 +28,6 @@ public class CheatManager : MonoBehaviour
                 GameManager.Instance.playerHealth.gameObject.tag = "op";
             }
         }
+        rankingText.text = "현제 족보: " + (Ranking)CheckCard.instance.cheatRankCount;
     }
 }

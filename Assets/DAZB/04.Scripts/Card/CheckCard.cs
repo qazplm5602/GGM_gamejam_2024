@@ -27,7 +27,7 @@ public class CheckCard : MonoBehaviour
     
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.P) && Input.GetKeyDown(KeyCode.O)) {
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.O) && Input.GetKeyDown(KeyCode.P)) {
             isCheat = !isCheat;
             print("cheat " + isCheat);
         }
@@ -196,6 +196,16 @@ public class CheckCard : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void UpRanking() {
+        if (cheatRankCount >= 12) return; 
+                cheatRankCount++;
+    }
+
+    public void DownRanking() {
+        if (cheatRankCount <= 0) return; 
+                cheatRankCount--;
     }
 
     private void ShuffleCards() {
