@@ -3078,9 +3078,9 @@ MonoBehaviour:
       value: {fileID: 8300000, guid: 87db0afa44df53e4c961006e5c83c618, type: 3}
     - key: Credit
       value: {fileID: 8300000, guid: 7bfe7110ad1b0714db4047cd0e9756b9, type: 3}
-  _masterVolume: 6
-  _bgmVolume: 6
-  _sfxVolume: 6
+  _masterVolume: 13
+  _bgmVolume: 13
+  _sfxVolume: 13
   _uiAudioMixer: {fileID: 24300002, guid: ca9181442fc814047af81188becddaed, type: 2}
   _bgmAudioMixer: {fileID: 1517519401253176323, guid: ca9181442fc814047af81188becddaed, type: 2}
 --- !u!4 &1150005631
