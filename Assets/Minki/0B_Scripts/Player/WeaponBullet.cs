@@ -12,6 +12,7 @@ public class WeaponBullet : MonoBehaviour
     Dictionary<string, Sprite> cardSpriteIndex = new();
     public Dictionary<Ranking, UnityAction<Vector2 /* start */, float /* dir(angle) */>> eventListener = new();
     public bool fireDisable = false;
+    public bool interactDisable = false;
 
     private void Awake() {
         // 카드 sprite 인덱싱
