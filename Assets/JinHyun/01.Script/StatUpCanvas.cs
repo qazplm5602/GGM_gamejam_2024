@@ -7,11 +7,13 @@ public class StatUpCanvas : MonoBehaviour
     public GameObject text;
     public Material cardShinyMat;
     public TextSetter textSetter;
+    public GameObject shieldPanel;
 
     bool firstLevelUp = true;
 
     private void OnEnable()
     {
+        shieldPanel.SetActive(true);
         ActiveOptions();
         if (firstLevelUp)
         {

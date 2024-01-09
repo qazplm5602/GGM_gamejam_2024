@@ -11,7 +11,10 @@ public class CardWeaponBullet : MonoBehaviour
     public event Func<Collider2D, bool> OnCallback;
     public Transform standEntity;
     
-    private void Start() {
+    private void Start() 
+    {
+        AudioManager.Instance.PlaySound("GaugeSingle");
+
         if (standEntity == null) {
             Debug.LogWarning("StandEntity not define");
         }
