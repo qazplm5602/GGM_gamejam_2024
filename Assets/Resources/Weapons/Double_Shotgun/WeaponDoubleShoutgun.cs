@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WeaponDoubleShoutgun : MonoBehaviour, IWeaponEvent
 {
+    [SerializeField] int default_damage;
     [SerializeField] float betweenTime = .3f;
     [SerializeField] float reloadTime = 3;
     [SerializeField] float deadDistance = 2;
@@ -21,6 +22,7 @@ public class WeaponDoubleShoutgun : MonoBehaviour, IWeaponEvent
         StartCoroutine(WeaponReload());
 
         _weaponBullet.SetReloadTime(reloadTime);
+        _weaponBullet.SetDefaultDamage(default_damage);
     }
 
     bool isMouseDown = false;

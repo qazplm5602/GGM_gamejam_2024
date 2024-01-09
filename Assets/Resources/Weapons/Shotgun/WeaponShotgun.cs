@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WeaponShotgun : MonoBehaviour, IWeaponEvent
 {
+    [SerializeField] int default_damage;
     [SerializeField] float betweenTime = .3f;
     [SerializeField] float reloadTime = 3;
     [SerializeField] float deadDistance = 2;
@@ -25,6 +26,7 @@ public class WeaponShotgun : MonoBehaviour, IWeaponEvent
         _weaponBullet.Bridge_Showcard(true);
 
         _weaponBullet.SetReloadTime(betweenTime);
+        _weaponBullet.SetDefaultDamage(default_damage);
     }
 
     bool isMouseDown = false;

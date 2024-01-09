@@ -36,6 +36,10 @@ public class WeaponBullet : MonoBehaviour
         // 여기에서 UI 연동
     }
 
+    public void SetDefaultDamage(int value) {
+        default_damage = value;
+    }
+
     public void Bridge_Showcard(bool active, bool arg1 = false) {
         if (active)
             StartCoroutine(_showCard.ShowingCard(arg1));
