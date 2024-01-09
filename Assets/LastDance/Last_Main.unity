@@ -3056,6 +3056,8 @@ MonoBehaviour:
       value: {fileID: 8300000, guid: ea30f1c01677694469328618ea6e1ed2, type: 3}
     - key: GaugeSingle
       value: {fileID: 8300000, guid: 685c94d6f1663a045b8485663b36c824, type: 3}
+    - key: Attack
+      value: {fileID: 8300000, guid: 19395bff9529de54792df8ccf465e451, type: 3}
     - key: Landing
       value: {fileID: 8300000, guid: 76410e371bb71494e940ffbd72d4d333, type: 3}
     - key: ButtonClick
@@ -3069,18 +3071,18 @@ MonoBehaviour:
     - key: GetExp1
       value: {fileID: 8300000, guid: b375185db101f1145820bd2c2a9b8cb6, type: 3}
     - key: Main
-      value: {fileID: 8300000, guid: 071733e7a82fb8e48a80b13034b9c720, type: 3}
+      value: {fileID: 8300000, guid: 0471d88a9f3f9f642aaa580190fd7f24, type: 3}
     - key: InGame
       value: {fileID: 8300000, guid: 3e919ba57aaac5b47b6b297b1e9b01bf, type: 3}
     - key: LevelUp
-      value: {fileID: 8300000, guid: e8669736d550d6145af2c6e9c352034f, type: 3}
+      value: {fileID: 8300000, guid: 87db0afa44df53e4c961006e5c83c618, type: 3}
     - key: Credit
       value: {fileID: 8300000, guid: 7bfe7110ad1b0714db4047cd0e9756b9, type: 3}
-  _masterVolume: 6
-  _bgmVolume: 6
-  _sfxVolume: 6
-  _uiAudioMixer: {fileID: 0}
-  _bgmAudioMixer: {fileID: 0}
+  _masterVolume: 13
+  _bgmVolume: 13
+  _sfxVolume: 13
+  _uiAudioMixer: {fileID: 24300002, guid: ca9181442fc814047af81188becddaed, type: 2}
+  _bgmAudioMixer: {fileID: 1517519401253176323, guid: ca9181442fc814047af81188becddaed, type: 2}
 --- !u!4 &1150005631
 Transform:
   m_ObjectHideFlags: 0
@@ -6635,6 +6637,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3519507673182006731}
   m_CullTransparentMesh: 1
+--- !u!4 &1796408469128476506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7783259765066345338}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1799659533970524821
 GameObject:
   m_ObjectHideFlags: 0
@@ -7558,6 +7575,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2583926605050798985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7783259765066345338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e331090465323e4e992d3ccf04f0915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startBGM: Main
 --- !u!1 &2585302987321935812
 GameObject:
   m_ObjectHideFlags: 0
@@ -12876,6 +12906,23 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &7783259765066345338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1796408469128476506}
+  - component: {fileID: 2583926605050798985}
+  m_Layer: 0
+  m_Name: StartBGM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!222 &7812496108738140112
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14302,3 +14349,4 @@ SceneRoots:
   - {fileID: 5852078432092608423}
   - {fileID: 1150005631}
   - {fileID: 1489911494}
+  - {fileID: 1796408469128476506}

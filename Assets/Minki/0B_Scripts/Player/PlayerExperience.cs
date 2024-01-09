@@ -14,6 +14,7 @@ public class PlayerExperience : MonoBehaviour
         if (_curExp >= _curNeedExp)
         {
             ChangeLevel();
+            AudioManager.Instance.PlayBGM("LevelUp");
             GameManager.Instance.OnStatCanvas();
         }
     }
