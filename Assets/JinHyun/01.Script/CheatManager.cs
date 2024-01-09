@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CheatManager : MonoBehaviour
 {
     public static CheatManager instance;
+    public GameObject text;
     private void Awake()
     {
         instance = this;
@@ -16,11 +15,13 @@ public class CheatManager : MonoBehaviour
             print("´­¸²");
             if (GameManager.Instance.player.gameObject.tag == "op")
             {
+                text.SetActive(false);
                 GameManager.Instance.player.gameObject.tag = "Player";
                 GameManager.Instance.playerHealth.gameObject.tag = "Player";
             }
             else
             {
+                text.SetActive(true);
                 GameManager.Instance.player.gameObject.tag = "op";
                 GameManager.Instance.playerHealth.gameObject.tag = "op";
             }
