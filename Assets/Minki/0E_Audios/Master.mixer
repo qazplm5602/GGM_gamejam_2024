@@ -26,15 +26,15 @@ AudioMixerController:
   m_Snapshots:
   - {fileID: 24500006}
   m_StartSnapshot: {fileID: 24500006}
-  m_SuspendThreshold: -80
+  m_SuspendThreshold: 0
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
-  - guid: dbec0f9aac72ada4b9257cea4d151fae
+  - guid: 63227acdb20995746b25fab4a98dbcd7
     name: BGM
-  - guid: 7cfbcd712e20c364591c3e84e6691133
+  - guid: e9bd5272a5d460949abcbbdb7b661499
     name: Master
-  - guid: 40817b12dcf67b04b872efc51a76b0ff
+  - guid: ed1828a8b5438494a9b0927f4a02b92d
     name: SFX
   m_AudioMixerGroupViews:
   - guids:
@@ -96,7 +96,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Bgm
+  m_Name: BGM
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: a707839b17a4d894c8ce9b169dccd15d
   m_Children: []

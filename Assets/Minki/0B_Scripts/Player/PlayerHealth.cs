@@ -2,6 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEditor;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -20,7 +21,8 @@ public class PlayerHealth : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(!_invincibility && other.gameObject.layer == 8) {
+        if(!_invincibility && other.gameObject.layer == 8 && !(gameObject.tag == "op")) {
+            print(gameObject.tag);
             StartCoroutine(Invincibility());
             GameManager.Instance.curHp -= 15;
             AudioManager.Instance.PlaySound("Bite");
