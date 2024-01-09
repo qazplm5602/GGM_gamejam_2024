@@ -2977,6 +2977,8 @@ MonoBehaviour:
       value: {fileID: 8300000, guid: cd73d333cd9cfc4429fd721744ffaa37, type: 3}
     - key: Bite
       value: {fileID: 8300000, guid: 24de7fadefc34754ca9ee1a841e101c3, type: 3}
+    - key: Attack
+      value: {fileID: 8300000, guid: 19395bff9529de54792df8ccf465e451, type: 3}
     - key: IceExplosion
       value: {fileID: 8300000, guid: ea30f1c01677694469328618ea6e1ed2, type: 3}
     - key: GaugeSingle
@@ -4568,10 +4570,6 @@ PrefabInstance:
     - target: {fileID: 561019191477403648, guid: a4f446a8aa6b76945a67bc65e5ad5382, type: 3}
       propertyPath: m_Name
       value: StartBGM
-      objectReference: {fileID: 0}
-    - target: {fileID: 5193039534070515955, guid: a4f446a8aa6b76945a67bc65e5ad5382, type: 3}
-      propertyPath: _startBGM
-      value: Main
       objectReference: {fileID: 0}
     - target: {fileID: 8296912009560677408, guid: a4f446a8aa6b76945a67bc65e5ad5382, type: 3}
       propertyPath: m_LocalPosition.x
