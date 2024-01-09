@@ -68,6 +68,7 @@ public class StatUpCard : MonoBehaviour
     {
         //Disable GameObject Except Selected Card
         DisableFriends();
+        transform.parent.GetComponent<StatUpCanvas>().shieldPanel.SetActive(true);
         statUpParent.DisableText();
         selected = true;
         Exit();
@@ -85,8 +86,8 @@ public class StatUpCard : MonoBehaviour
             {
                 statUpParent.DisableAll();
                 Time.timeScale = 1;
+                AudioManager.Instance.PlayBGM("InGame");
                 GameManager.Instance.player.CheckRemainLevelUP();
-                print("레벨업체크메서드실행");
             }));
     }
 

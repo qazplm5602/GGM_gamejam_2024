@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PanelControll : MonoBehaviour
 {
     public GameObject[] panels;
+    public GameObject clickShield;
 
     private void OnDisable()
     {
@@ -12,11 +11,13 @@ public class PanelControll : MonoBehaviour
         {
             item.SetActive(false);
         }
+        clickShield.SetActive(false);
         Time.timeScale = 1f;
     }
 
     private void OnEnable()
     {
+        clickShield.SetActive(true);
         Time.timeScale = 0;
     }
 }
