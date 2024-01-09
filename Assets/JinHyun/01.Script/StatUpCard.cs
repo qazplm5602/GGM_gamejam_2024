@@ -67,6 +67,7 @@ public class StatUpCard : MonoBehaviour
     {
         //Disable GameObject Except Selected Card
         DisableFriends();
+        AudioManager.Instance.PlayBGM("InGame");
         statUpParent.DisableText();
         selected = true;
         Exit();

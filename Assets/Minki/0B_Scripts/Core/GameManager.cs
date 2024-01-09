@@ -19,8 +19,8 @@ public class GameManager : MonoBehaviour
     public int enemyKill = 0;
     public string timer = "00:00";
 
-    float maxHp = 100f;
-    public int curHp = 100;
+    float maxHp = 200f;
+    public int curHp = 200;
 
     [SerializeField] private GameObject statCanvas;
 
@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
     public void OnStatCanvas()
     {
         statCanvas.SetActive(true);
+        AudioManager.Instance.PlayBGM("LevelUp");
     }
     public void SetHP(int nowHp)
     {

@@ -2980,7 +2980,7 @@ MonoBehaviour:
     - key: IceExplosion
       value: {fileID: 8300000, guid: ea30f1c01677694469328618ea6e1ed2, type: 3}
     - key: GaugeSingle
-      value: {fileID: 8300000, guid: c8783c2380739b64f90d2238cd370ca3, type: 3}
+      value: {fileID: 8300000, guid: 685c94d6f1663a045b8485663b36c824, type: 3}
     - key: Landing
       value: {fileID: 8300000, guid: 76410e371bb71494e940ffbd72d4d333, type: 3}
     - key: ButtonClick
@@ -2989,11 +2989,23 @@ MonoBehaviour:
       value: {fileID: 8300000, guid: 4eedeb7affe8f23409dc7652adce1a8e, type: 3}
     - key: Draw
       value: {fileID: 8300000, guid: 1f6300139f8f68c4a9dc1df2e00c5d3a, type: 3}
-    - key: GetExp
-      value: {fileID: 8300000, guid: e7efc2d76d5683246a29cb99b8d0c936, type: 3}
+    - key: GetExp0
+      value: {fileID: 8300000, guid: 568197376ed3c2e44a9833e89d7feacd, type: 3}
+    - key: GetExp1
+      value: {fileID: 8300000, guid: b375185db101f1145820bd2c2a9b8cb6, type: 3}
+    - key: Main
+      value: {fileID: 8300000, guid: 071733e7a82fb8e48a80b13034b9c720, type: 3}
+    - key: InGame
+      value: {fileID: 8300000, guid: 3e919ba57aaac5b47b6b297b1e9b01bf, type: 3}
+    - key: LevelUp
+      value: {fileID: 8300000, guid: e8669736d550d6145af2c6e9c352034f, type: 3}
+    - key: Credit
+      value: {fileID: 8300000, guid: 7bfe7110ad1b0714db4047cd0e9756b9, type: 3}
   _masterVolume: 6
   _bgmVolume: 6
   _sfxVolume: 6
+  _uiAudioMixer: {fileID: 24300002, guid: ca9181442fc814047af81188becddaed, type: 2}
+  _bgmAudioMixer: {fileID: 1517519401253176323, guid: ca9181442fc814047af81188becddaed, type: 2}
 --- !u!4 &1150005631
 Transform:
   m_ObjectHideFlags: 0

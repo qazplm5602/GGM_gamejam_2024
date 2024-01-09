@@ -39,6 +39,8 @@ public class ExperienceBall : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
+            int ran = Random.Range(0, 2);
+            AudioManager.Instance.PlaySound("GetExp" + ran);
             PushEXP();
         }
     }
