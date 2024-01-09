@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [Header("Player Info")]
     public Transform playerTrm;
     public PlayerExperience player;
+    public PlayerHealth playerHealth;
     public Image hpFill;
     public Image expFill;
     public GameObject bakcBoard;

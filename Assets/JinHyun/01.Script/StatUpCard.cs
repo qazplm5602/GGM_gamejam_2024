@@ -52,6 +52,7 @@ public class StatUpCard : MonoBehaviour
         if (transform.name == "Option3")
         {
             transform.parent.GetComponent<StatUpCanvas>().text.SetActive(true);
+            transform.parent.GetComponent<StatUpCanvas>().shieldPanel.SetActive(false);
             Time.timeScale = 0;
         }
     }

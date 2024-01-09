@@ -37,7 +37,7 @@ public class ExperienceBall : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player"))
+        if(collision.CompareTag("Player") || collision.CompareTag("op"))
         {
             int ran = Random.Range(0, 2);
             AudioManager.Instance.PlaySound("GetExp" + ran);
