@@ -5,13 +5,11 @@ public class GunController : MonoBehaviour
     [SerializeField] WeaponBullet _bullet;
     IWeaponEvent eventHandler;
 
-    #if UNITY_EDITOR
     [SerializeField] GameObject default_weapon;
     
     private void Start() {
         SetWeapon(CharacterManager.instance.GetData().Item2?.weaponPrf ==  null ? default_weapon : CharacterManager.instance.GetData().Item2?.weaponPrf);
     }
-    #endif
 
     public void SetWeapon(GameObject weaponEntity) {
         var weapon = Instantiate(weaponEntity, transform);
