@@ -51,7 +51,6 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && !playerBulletSys.interactDisable)
         {
             SettingCanvas.SetActive(!SettingCanvas.activeSelf);
-            playerBulletSys.fireDisable = SettingCanvas.activeSelf;
         }
     }
     public void OnStatCanvas()
