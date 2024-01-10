@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9b6bc23d2dd2b74a9132da00c8c97ae, type: 3}
   m_Name: BossKarthus
   m_EditorClassIdentifier: 
-  hp: 800
+  hp: 1000
   damage: 40
   speed: 0.5

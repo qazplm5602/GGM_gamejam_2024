@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9b6bc23d2dd2b74a9132da00c8c97ae, type: 3}
   m_Name: BossFlySkull
   m_EditorClassIdentifier: 
-  hp: 1000
+  hp: 800
   damage: 25
   speed: 1
