@@ -47,6 +47,6 @@ public class ExperienceBall : MonoBehaviour
     public void PushEXP()
     {
         GameManager.Instance.player.ExpUP(_boss ? 300 : 30);
-        PoolManager.Instance.Push("Exp", gameObject);
+        PoolManager.Instance.Push(_boss ? "BossExp" : "Exp", gameObject);
     }
 }
