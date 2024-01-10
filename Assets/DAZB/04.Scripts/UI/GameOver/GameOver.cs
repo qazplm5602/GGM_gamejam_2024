@@ -24,7 +24,7 @@ public class GameOver : MonoBehaviour
 
     public void NextScene(string name) {
         CheckCard.instance.ResetCounter();
-        Destroy(GameManager.Instance);
+        Destroy(GameManager.Instance.gameObject);
         SceneManager.LoadScene(name);
     }
 

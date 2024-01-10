@@ -5,7 +5,7 @@ using UnityEngine;
 public class GoLobby : MonoBehaviour
 {
     public void GotoMain() {
-        Destroy(GameManager.Instance);
+        Destroy(GameManager.Instance.gameObject);
         CheckCard.instance.ResetCounter();
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
