@@ -29875,6 +29875,7 @@ MonoBehaviour:
   - {fileID: 8363847393114838336}
   - {fileID: 3018292539600957418}
   clickShield: {fileID: 3944196792050288422}
+  playerBulletSys: {fileID: 1562762360}
 --- !u!1 &6293122041666859408
 GameObject:
   m_ObjectHideFlags: 0
