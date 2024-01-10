@@ -38,8 +38,8 @@ public class EnemyController : MonoBehaviour
     
     private void OnEnable() {
 
-        DebuffFreeze minki = GetComponent<DebuffFreeze>();
-        Destroy(minki);
+        if (TryGetComponent<DebuffFreeze>(out DebuffFreeze minki)) Destroy(minki);
+        if (TryGetComponent<DebuffFire>(out DebuffFire jiwoo)) Destroy(jiwoo);
 
         _hp = _enemySO.hp;
         StopAllCoroutines();
