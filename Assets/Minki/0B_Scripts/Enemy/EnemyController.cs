@@ -38,6 +38,9 @@ public class EnemyController : MonoBehaviour
     
     private void OnEnable() {
 
+        DebuffFreeze minki = GetComponent<DebuffFreeze>();
+        Destroy(minki);
+
         _hp = _enemySO.hp;
         StopAllCoroutines();
         _spriteRenderer.material = _originMaterial;
