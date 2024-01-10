@@ -321,10 +321,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bosses:
-  - {fileID: 2341776278218170704, guid: fdd778263ce8caa42a642bfc039d808c, type: 3}
-  - {fileID: 2341776278218170704, guid: 1c37a2db75459834f87ea88155c5206d, type: 3}
   - {fileID: 2341776278218170704, guid: 033821df976d2334c925f925fb95807a, type: 3}
+  - {fileID: 2341776278218170704, guid: fdd778263ce8caa42a642bfc039d808c, type: 3}
   - {fileID: 2341776278218170704, guid: d02fab63da3f93a408ec9a55f7ed4602, type: 3}
+  - {fileID: 2341776278218170704, guid: 1c37a2db75459834f87ea88155c5206d, type: 3}
   - {fileID: 6785118577445504392, guid: 2a7bc893adea21b4da68ba671df5a7ee, type: 3}
 --- !u!114 &198301552
 MonoBehaviour:

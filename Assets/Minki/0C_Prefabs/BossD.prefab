@@ -218,9 +218,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveable: 1
   freezeFlip: 0
-  _enemySO: {fileID: 11400000, guid: d18edfe07a6aecc47ab34df7d80bf4c1, type: 2}
+  dead: 0
+  _enemySO: {fileID: 11400000, guid: b67161356b1dd154fa470179254e0fcc, type: 2}
   _boss: 1
   _bossE: 0
+  _bossERealSO: {fileID: 0}
   _originMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   _hitMaterial: {fileID: 2100000, guid: 91599be9dcb4e694f8b8d89d25a73607, type: 2}
 --- !u!114 &4587506820614160730

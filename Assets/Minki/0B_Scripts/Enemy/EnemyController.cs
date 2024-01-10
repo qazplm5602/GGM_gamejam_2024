@@ -49,10 +49,6 @@ public class EnemyController : MonoBehaviour
     }
 
     private void Update() {
-        if(Input.GetKeyDown(KeyCode.L)) {
-            Hit(100, transform.position);
-        }
-
         if(freezeFlip) return;
 
         if(_playerTrm.position.x < transform.position.x) transform.localScale = new Vector3(-1, 1, 1);

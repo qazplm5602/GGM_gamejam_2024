@@ -82,9 +82,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveable: 1
   freezeFlip: 0
-  _enemySO: {fileID: 11400000, guid: d18edfe07a6aecc47ab34df7d80bf4c1, type: 2}
+  dead: 0
+  _enemySO: {fileID: 11400000, guid: 1f536ef88e2ebbf42a1daebf3de49ca1, type: 2}
   _boss: 1
   _bossE: 1
+  _bossERealSO: {fileID: 11400000, guid: f89de6c4530e60249aa0365769199931, type: 2}
   _originMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   _hitMaterial: {fileID: 2100000, guid: 91599be9dcb4e694f8b8d89d25a73607, type: 2}
 --- !u!114 &7425874731663623085
