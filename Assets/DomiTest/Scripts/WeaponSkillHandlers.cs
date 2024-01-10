@@ -206,9 +206,15 @@ public class WeaponSkillHandlers : MonoBehaviour
             var bulletSys = bullets[idx].GetComponent<CardWeaponBullet>();
             // bulletSys.damage  = 0;
             bulletSys.OnCallback += (Collider2D collider) => {
-                if (collider.TryGetComponent<DebuffFreeze>(out var debuffSys_)) Destroy(debuffSys_); // 기존꺼 삭제
-
+                DebuffFreeze[] domi = collider.GetComponents<DebuffFreeze>();
+                print(domi.Length);
+                foreach(var item in domi)
+                {
+                    Destroy(item);
+                    print("기존거 삭제");
+                }
                 collider.AddComponent<DebuffFreeze>();
+                print("컴포넌트 붙임");
 
                 return true;
             };

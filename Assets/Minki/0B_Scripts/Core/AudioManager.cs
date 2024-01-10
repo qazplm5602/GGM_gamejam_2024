@@ -30,6 +30,7 @@ public class AudioManager : MonoBehaviour
         _bgmAudioSource = gameObject.AddComponent<AudioSource>();
         _uiAudioSource.outputAudioMixerGroup = _uiAudioMixer;
         _bgmAudioSource.outputAudioMixerGroup = _bgmAudioMixer;
+        _bgmAudioSource.loop = true;
 
         _audioDictionary = _audioSerializeDictionary.GetDict();
     }

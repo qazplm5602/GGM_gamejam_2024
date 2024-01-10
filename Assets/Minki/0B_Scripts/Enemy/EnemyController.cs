@@ -37,6 +37,7 @@ public class EnemyController : MonoBehaviour
     }
     
     private void OnEnable() {
+
         _hp = _enemySO.hp;
         StopAllCoroutines();
         _spriteRenderer.material = _originMaterial;

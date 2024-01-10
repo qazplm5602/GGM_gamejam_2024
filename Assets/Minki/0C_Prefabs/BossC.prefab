@@ -147,7 +147,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_Sprite: {fileID: -1979817680, guid: 2bd423d8f0cc4a74d8d2af323c4dd519, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 6.6666665, y: 5.3362164}

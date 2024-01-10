@@ -16,16 +16,19 @@ public class DebuffFreeze : MonoBehaviour
         StartCoroutine(Freeze());
     }
 
-    IEnumerator Freeze() {
+    IEnumerator Freeze()
+    {
         _controller.moveable = false;
         _spriteRenderer.color = Color.blue;
         yield return new WaitForSeconds(2);
-        _spriteRenderer.color = Color.white;
-        _controller.moveable = true;
         OnDisable();
     }
 
-    private void OnDisable() {
+    private void OnDisable()
+    {
+        print("∫Ò»∞");
+        _spriteRenderer.color = Color.white;
+        _controller.moveable = true;
         Destroy(this);
     }
 }
