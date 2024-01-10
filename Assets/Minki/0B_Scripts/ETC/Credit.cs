@@ -27,5 +27,9 @@ public class Credit : MonoBehaviour
         _button.SetActive(true);
     }
 
-    public void GotoMain() => UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    public void GotoMain() {
+        Destroy(GameManager.Instance.gameObject);
+        CheckCard.instance.ResetCounter();
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
 }

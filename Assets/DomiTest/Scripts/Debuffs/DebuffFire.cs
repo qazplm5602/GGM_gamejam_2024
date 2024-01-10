@@ -29,12 +29,13 @@ public class DebuffFire : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
         
-        Destroy(_effectObj);
+        //Destroy(_effectObj);
         // Destroy(this);
         OnDisable();
     }
 
     private void OnDisable() {
+        Destroy(_effectObj);
         Destroy(this);
     }
 }

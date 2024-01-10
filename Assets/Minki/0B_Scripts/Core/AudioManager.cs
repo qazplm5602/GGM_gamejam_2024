@@ -55,7 +55,7 @@ public class AudioManager : MonoBehaviour
         {
             _bgmAudioSource.Stop();
             _bgmAudioSource.clip = _audioDictionary[name];
-            _bgmAudioSource.Play();
+            _bgmAudioSource.PlayOneShot(_audioDictionary[name]);
         }
         else Debug.LogError("[AudioMAnager] Not found clip name!");
     }

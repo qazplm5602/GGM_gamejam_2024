@@ -37,9 +37,13 @@ public class EnemyController : MonoBehaviour
     }
     
     private void OnEnable() {
-
         if (TryGetComponent<DebuffFreeze>(out DebuffFreeze minki)) Destroy(minki);
         if (TryGetComponent<DebuffFire>(out DebuffFire jiwoo)) Destroy(jiwoo);
+        for (int i = 0; i < transform.childCount; ++i) {
+            if (transform.GetChild(i).name != "Collider") {
+                Destroy(transform.GetChild(i));
+            }
+        }
 
         _hp = _enemySO.hp;
         StopAllCoroutines();
