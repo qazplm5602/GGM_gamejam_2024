@@ -40,6 +40,7 @@ public class EnemyController : MonoBehaviour
         _hp = _enemySO.hp;
         StopAllCoroutines();
         _spriteRenderer.material = _originMaterial;
+        _spriteRenderer.color = Color.white;
         moveable = true;
         freezeFlip = false;
         _invincibility = false;
