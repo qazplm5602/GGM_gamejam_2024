@@ -31,9 +31,9 @@ public class BossE : MonoBehaviour
         _controller.freezeFlip = true;
         _animator.SetTrigger("transform");
         AudioManager.Instance.PlaySound("Encounter");
-            CamManager.StartShake(4f, 3f);
+        CamManager.StartShake(6f, 3.2f);
 
-        yield return new WaitForSeconds(3.2f);
+        yield return new WaitForSeconds(3.5f);
 
         _controller.moveable = true;
         _controller.freezeFlip = false;
