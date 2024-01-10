@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private EnemySO _enemySO;
     [SerializeField] private bool _boss = false;
     [SerializeField] private bool _bossE = false;
+    [SerializeField] private EnemySO _bossERealSO;
     [SerializeField] private Material _originMaterial;
     [SerializeField] private Material _hitMaterial;
 
@@ -74,6 +75,7 @@ public class EnemyController : MonoBehaviour
         if(_invincibility || dead) return;
 
         _hp -= damage;
+        moveable = false;
         AudioManager.Instance.PlaySound("Landing");
         StartCoroutine(Knockback(transform.position - position));
         StartCoroutine(HitMat());
@@ -81,8 +83,11 @@ public class EnemyController : MonoBehaviour
         if(_hp <= 0) {
             if(_bossE) {
                 _bossE = false;
+                _enemySO = _bossERealSO;
                 StartCoroutine(GetComponent<BossE>().Transform());
                 _hp = _enemySO.hp;
+                _damage = _enemySO.damage;
+                _speed = _enemySO.speed;
             }
             else {
                 GameManager.Instance.enemyKill++;

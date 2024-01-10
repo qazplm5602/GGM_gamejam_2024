@@ -49,9 +49,9 @@ public class CreditInfo : MonoBehaviour
         _content += $"처치한 적: {GameManager.Instance.enemyKill}마리\n";
         _content += $"살아남은 시간: {GameManager.Instance.timer}\n";
 
-        _content += $"\n\n\n{Mathf.Floor(GetRandomCard.instance.shapeWeights[0].shapeWeight * 100f) / 100f}%";
+        _content += $"\n\n\n{Mathf.Floor(GetRandomCard.instance.shapeWeights[0].shapeWeight) / 100f}%";
         for(int i = 1; i < 4; ++i) {
-            _content += $"  {Mathf.Floor(GetRandomCard.instance.shapeWeights[i].shapeWeight * 100f) / 100f}%";
+            _content += $"  {Mathf.Floor(GetRandomCard.instance.shapeWeights[i].shapeWeight) / 100f}%";
         }
 
         _text2.text = _content;
